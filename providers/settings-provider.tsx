@@ -1,6 +1,14 @@
 import { FontToggle } from "@/components/font-toggle";
 import { cookies } from "next/headers";
 
+const fontClassMap: Record<string, string> = {
+  inter: "font-inter",
+  geist: "font-geist",
+  manrope: "font-manrope",
+  "open-sans": "font-open-sans",
+  roboto: "font-roboto",
+};
+
 export async function SettingsProvider({
   children,
 }: {
@@ -10,11 +18,9 @@ export async function SettingsProvider({
   const selectedFont = cookieStore.get("font")?.value ?? "inter";
 
   return (
-    <body
-      className={`font-${selectedFont} min-h-full flex flex-col antialiased`}
-    >
+    <div className={`${fontClassMap[selectedFont]} antialiased`}>
       {children}
       <FontToggle />
-    </body>
+    </div>
   );
 }
