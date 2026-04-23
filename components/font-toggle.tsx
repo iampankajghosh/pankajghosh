@@ -7,7 +7,7 @@ export async function FontToggle() {
       <button
         name="font"
         value={font}
-        className="capitalize text-sm px-2 py-0.5 bg-neutral-100 cursor-pointer"
+        className="cursor-pointer bg-neutral-100 px-2 py-0.5 text-sm capitalize"
       >
         {font.split("-").join(" ")}
       </button>

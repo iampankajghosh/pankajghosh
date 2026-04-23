@@ -2,7 +2,6 @@
 
 import { cookies } from "next/headers";
 import { allowedFonts } from "@/app/fonts";
-import { revalidatePath } from "next/cache";
 
 export async function setFont(formData: FormData) {
   const cookieStore = await cookies();
