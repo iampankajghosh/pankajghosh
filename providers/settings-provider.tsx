@@ -1,4 +1,5 @@
 import { FontToggle } from "@/components/font-toggle";
+import { ModeToggle } from "@/components/mode-toggle";
 import { cookies } from "next/headers";
 
 const fontClassMap: Record<string, string> = {
@@ -21,6 +22,7 @@ export async function SettingsProvider({
     <div className={`${fontClassMap[selectedFont]} antialiased`}>
       {children}
       <FontToggle />
+      <ModeToggle />
     </div>
   );
 }
