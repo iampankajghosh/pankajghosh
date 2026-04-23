@@ -20,7 +20,7 @@ export default function RootLayout({
       className={`${inter.variable} ${geist.variable} ${manrope.variable} ${openSans.variable} ${roboto.variable} h-full`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="bg-background text-foreground flex min-h-full flex-col">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

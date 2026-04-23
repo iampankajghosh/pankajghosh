@@ -1,3 +1,4 @@
+import { ContainerToggle } from "@/components/container-toggle";
 import { FontToggle } from "@/components/font-toggle";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cookies } from "next/headers";
@@ -23,6 +24,7 @@ export async function SettingsProvider({
       {children}
       <FontToggle />
       <ModeToggle />
+      <ContainerToggle />
     </div>
   );
 }

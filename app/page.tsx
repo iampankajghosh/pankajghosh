@@ -1,3 +1,9 @@
+import { Container } from "@/components/container";
+
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <div>
+      <Container>HomePage</Container>
+    </div>
+  );
 }
