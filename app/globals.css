@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme inline {
+  --font-inter: var(--inter);
+  --font-geist: var(--geist);
+  --font-manrope: var(--manrope);
+  --font-open-sans: var(--open-sans);
+  --font-roboto: var(--roboto);
+}

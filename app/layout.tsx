@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SettingsProvider } from "@/providers/settings-provider";
+import { geist, inter, manrope, openSans, roboto } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,8 +14,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html
+      lang="en"
+      className={`${inter.variable} ${geist.variable} ${manrope.variable} ${openSans.variable} ${roboto.variable} h-full`}
+    >
+      <SettingsProvider>{children}</SettingsProvider>
     </html>
   );
 }
