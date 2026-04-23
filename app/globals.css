@@ -1,4 +1,15 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fafafa;
+  --foreground: #1d1d1d;
+}
+
+.dark {
+  --background: #0f1113;
+  --foreground: #d8d6d1;
+}
 
 @theme inline {
   --font-inter: var(--inter);
@@ -6,4 +17,7 @@
   --font-manrope: var(--manrope);
   --font-open-sans: var(--open-sans);
   --font-roboto: var(--roboto);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SettingsProvider } from "@/providers/settings-provider";
 import { geist, inter, manrope, openSans, roboto } from "./fonts";
 import "./globals.css";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,9 +18,17 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${geist.variable} ${manrope.variable} ${openSans.variable} ${roboto.variable} h-full`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
-        <SettingsProvider>{children}</SettingsProvider>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SettingsProvider>{children}</SettingsProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
