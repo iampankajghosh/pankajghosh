@@ -6,7 +6,7 @@ export async function ContainerToggle() {
   const expanded = cookieStore.get("expanded")?.value ?? "false";
 
   return (
-    <form action={setContainerExpand}>
+    <form action={setContainerExpand} className="hidden sm:block">
       <button
         type="submit"
         name="expanded"
