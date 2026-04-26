@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container, Pattern } from "../container";
+import { Container } from "../container";
 
-function Projects() {
+function Blogs() {
   return (
     <section>
       <div className="border-b border-border">
@@ -16,7 +16,7 @@ function Projects() {
       <div className="border-b border-border">
         <Container>
           <h1 className="px-2 text-3xl leading-8 font-medium tracking-tighter">
-            Projects
+            Blogs
           </h1>
         </Container>
       </div>
@@ -26,8 +26,8 @@ function Projects() {
       </div>
 
       <div className="border-b border-border relative">
-        <div className="h-122.5 w-px bg-border absolute top-0 left-[calc(50%-20px)]" />
-        <div className="h-122.5 w-px bg-border absolute top-0 left-[calc(50%+19px)]" />
+        <div className="h-112 w-px bg-border absolute top-0 left-[calc(50%-20px)]" />
+        <div className="h-112 w-px bg-border absolute top-0 left-[calc(50%+19px)]" />
 
         <Container>
           <div className="flex gap-x-10">
@@ -53,7 +53,7 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Blogs;
 
 export const Card = () => {
   return (
