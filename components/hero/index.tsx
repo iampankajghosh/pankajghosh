@@ -7,15 +7,15 @@ function Hero() {
     <section>
       <div className="border-b border-border">
         <Container className="h-15 flex items-end">
-          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none">
-            size-35 rounded-full overflow-hidden
+          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none mb-1">
+            size-35 rounded-full
           </span>
         </Container>
       </div>
 
       <div className="border-b border-border">
         <Container>
-          <div className="bg-neutral-100 size-35 rounded-full overflow-hidden mx-2 select-none">
+          <div className="bg-neutral-100 size-35 rounded-full overflow-hidden mx-2 select-none border border-border">
             <Image
               src="https://res.cloudinary.com/ddws3mapm/image/upload/v1777185344/file_00000000abe472098fec500e0308cd2e_ybdqwz.png"
               draggable={false}
@@ -29,15 +29,15 @@ function Hero() {
 
       <div className="border-b border-border">
         <Container className="h-10 flex items-end">
-          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none">
-            text-3xl leading-9 font-medium tracking-tighter
+          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none mb-1">
+            text-4xl font-medium tracking-tighter
           </span>
         </Container>
       </div>
 
       <div className="border-b border-border">
         <Container>
-          <h1 className="px-2 text-3xl leading-9 font-medium tracking-tighter">
+          <h1 className="px-2 text-4xl leading-9 font-medium tracking-tighter">
             Frontend Engineer.
             <br /> Crafting intuitive digital web experiences.
           </h1>
@@ -46,7 +46,7 @@ function Hero() {
 
       <div className="border-b border-border">
         <Container className="h-10 flex items-end">
-          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none">
+          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none mb-1">
             text-base text-neutral-600
           </span>
         </Container>
