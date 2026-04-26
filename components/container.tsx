@@ -5,7 +5,7 @@ export async function Container({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }) {
   const cookieStore = await cookies();
@@ -28,7 +28,7 @@ export async function Container({
   );
 }
 
-const Pattern = ({ className }: { className?: string }) => {
+export const Pattern = ({ className }: { className?: string }) => {
   return (
     <div
       className={cn(
