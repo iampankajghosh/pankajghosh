@@ -3,7 +3,7 @@
 
 :root {
   --background: #fafafa;
-  --foreground: #1d1d1d;
+  --foreground: #010712;
 }
 
 .dark {
@@ -20,4 +20,6 @@
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-border: var(--pattern-fg);
 }
