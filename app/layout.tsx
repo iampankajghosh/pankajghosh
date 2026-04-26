@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { SettingsProvider } from "@/providers/settings-provider";
+import type { Metadata } from "next";
 import { geist, inter, manrope, openSans, roboto } from "./fonts";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -17,16 +17,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geist.variable} ${manrope.variable} ${openSans.variable} ${roboto.variable} h-full`}
+      className={`${inter.variable} ${geist.variable} ${manrope.variable} ${openSans.variable} ${roboto.variable} h-full [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10`}
       suppressHydrationWarning
     >
-      <body className="bg-background text-foreground flex min-h-full flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className="bg-background text-foreground flex min-h-full flex-col selection:bg-neutral-400/30 selection:text-foreground">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <SettingsProvider>{children}</SettingsProvider>
         </ThemeProvider>
       </body>
