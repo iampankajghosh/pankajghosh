@@ -1,4 +1,11 @@
-import { Inter, Geist, Manrope, Open_Sans, Roboto } from "next/font/google";
+import {
+  Geist,
+  IBM_Plex_Mono,
+  Inter,
+  Manrope,
+  Open_Sans,
+  Roboto,
+} from "next/font/google";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -28,6 +35,13 @@ export const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
   variable: "--roboto",
+});
+
+export const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  variable: "--ibm-plex-mono",
 });
 
 export const allowedFonts = [

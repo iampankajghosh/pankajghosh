@@ -14,7 +14,7 @@ export async function Container({
   return (
     <div
       className={cn(
-        "mx-auto w-full flex items-center relative",
+        "mx-auto relative",
         expanded === "true"
           ? "max-w-[calc(100%-80px)]"
           : "md:max-w-xl lg:max-w-2xl",
