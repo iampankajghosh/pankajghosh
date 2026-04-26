@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
       },
       {
-        hostname: "pankajghosh.in",
+        hostname: "media.licdn.com",
       },
     ],
   },
