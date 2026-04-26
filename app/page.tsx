@@ -3,6 +3,7 @@ import Experience from "@/components/experience";
 import { Header } from "@/components/header";
 import Hero from "@/components/hero";
 import Projects from "@/components/projects";
+import Stack from "@/components/stack";
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Hero />
       <Projects />
       <Experience />
+      <Stack />
       <Blogs />
     </div>
   );
