@@ -26,8 +26,8 @@ function Blogs() {
       </div>
 
       <div className="border-b border-border relative">
-        <div className="h-112 w-px bg-border absolute top-0 left-[calc(50%-20px)]" />
-        <div className="h-112 w-px bg-border absolute top-0 left-[calc(50%+19px)]" />
+        <div className="h-125 w-px bg-border absolute top-0 left-[calc(50%-20px)]" />
+        <div className="h-125 w-px bg-border absolute top-0 left-[calc(50%+19px)]" />
 
         <Container>
           <div className="flex gap-x-10">
@@ -72,7 +72,7 @@ export const Card = () => {
         />
       </div>
 
-      <h3 className="text-sm font-medium">Project Name</h3>
+      <h3 className="font-medium tracking-tighter">Blog Name</h3>
     </Link>
   );
 };
