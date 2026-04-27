@@ -1,5 +1,6 @@
 import Blogs from "@/components/blog";
 import Experience from "@/components/experience";
+import Footer from "@/components/footer";
 import { Header } from "@/components/header";
 import Hero from "@/components/hero";
 import Projects from "@/components/projects";
@@ -13,7 +14,8 @@ export default function HomePage() {
       <Projects />
       <Experience />
       <Stack />
-      <Blogs />
+      {/* <Blogs /> */}
+      <Footer />
     </div>
   );
 }
