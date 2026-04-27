@@ -4,7 +4,7 @@ import { Button } from "../button";
 export function GithubBtn() {
   return (
     <Button variant="ghost" size="icon">
-      <GithubIcon />
+      <GithubIcon className="size-5" />
     </Button>
   );
 }
