@@ -63,7 +63,7 @@ export const Card = () => {
     >
       <div className="w-full h-45 border border-neutral-200 bg-neutral-100 rounded-md overflow-hidden mb-3">
         <Image
-          src="https://res.cloudinary.com/ddws3mapm/image/upload/v1767903409/preview_qzqaxb.png"
+          src="https://res.cloudinary.com/ddws3mapm/image/upload/v1772195866/sonner-patterns-preview_es2whg.png"
           width={200}
           height={180}
           alt="project banner"

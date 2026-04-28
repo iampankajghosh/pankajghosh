@@ -17,7 +17,7 @@ function Hero() {
         <Container>
           <div className="bg-neutral-100 size-35 rounded-full overflow-hidden mx-2 select-none border border-border">
             <Image
-              src="https://res.cloudinary.com/ddws3mapm/image/upload/v1777185344/file_00000000abe472098fec500e0308cd2e_ybdqwz.png"
+              src="https://res.cloudinary.com/ddws3mapm/image/upload/v1777348546/pfp_oxmv2j.png"
               draggable={false}
               width={200}
               height={200}
