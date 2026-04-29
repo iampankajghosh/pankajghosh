@@ -1,79 +1,63 @@
-import Image from "next/image";
-import { Button } from "../button";
-import { Container } from "../container";
+import { ClassNameLabel } from "../class-name-label";
+import { Container, ContainerFluid } from "../container";
+import { Heading } from "../heading";
+import { SubHeading } from "../sub-heading";
+import { Avatar } from "./avatar";
 
 function Hero() {
   return (
     <section>
-      <div className="border-b border-border">
-        <Container className="h-15 flex items-end">
-          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none mb-1">
-            size-35 rounded-full
-          </span>
+      <ContainerFluid className="h-14">
+        <Container className="flex items-end py-1">
+          <ClassNameLabel>size-35 rounded-full</ClassNameLabel>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
+      <ContainerFluid>
         <Container>
-          <div className="bg-neutral-100 size-35 rounded-full overflow-hidden mx-2 select-none border border-border">
-            <Image
-              src="https://res.cloudinary.com/ddws3mapm/image/upload/v1777348546/pfp_oxmv2j.png"
-              draggable={false}
-              width={200}
-              height={200}
-              alt="PFP"
-            />
-          </div>
+          <Avatar />
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
-        <Container className="h-10 flex items-end">
-          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none mb-1">
-            text-4xl font-medium tracking-tighter
-          </span>
+      <ContainerFluid className="h-10">
+        <Container className="flex items-end py-1">
+          <ClassNameLabel>text-4xl font-medium tracking-tighter</ClassNameLabel>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
+      <ContainerFluid>
         <Container>
-          <h1 className="px-2 text-4xl leading-9 font-medium tracking-tighter">
+          <Heading as="h1">
             Frontend Engineer.
             <br /> Crafting intuitive digital web experiences.
-          </h1>
+          </Heading>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
-        <Container className="h-10 flex items-end">
-          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 select-none mb-1">
-            text-base text-neutral-600
-          </span>
+      <ContainerFluid className="h-10">
+        <Container className="flex items-end py-1">
+          <ClassNameLabel>text-base text-neutral-600</ClassNameLabel>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
+      <ContainerFluid>
         <Container>
-          <p className="px-2 text-base text-neutral-600 mb-3">
+          <SubHeading className="mb-3">
             I'm a frontend engineer with 3+ years of experience building modern,
             scalable web apps using Next.js, React, and Tailwind CSS.
-          </p>
+          </SubHeading>
 
-          <p className="px-2 text-base text-neutral-600 mb-3">
+          <SubHeading className="mb-3">
             I enjoy turning ideas into fast, accessible, and polished
             interfaces, with a strong focus on performance and user experience.
-          </p>
+          </SubHeading>
 
-          <p className="px-2 text-base text-neutral-600">
-            <span className="mr-2">
-              Always open to interesting projects, collaborations, or a quick
-              chat.
-            </span>
-
-            <Button className="text-base font-normal">Message me</Button>
-          </p>
+          <SubHeading>
+            Always open to interesting projects, collaborations, or a quick
+            chat.
+          </SubHeading>
         </Container>
-      </div>
+      </ContainerFluid>
     </section>
   );
 }

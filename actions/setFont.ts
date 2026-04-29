@@ -1,7 +1,7 @@
 "use server";
 
+import { allowedFonts } from "@/lib/fonts";
 import { cookies } from "next/headers";
-import { allowedFonts } from "@/app/fonts";
 
 export async function setFont(formData: FormData) {
   const cookieStore = await cookies();

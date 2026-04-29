@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-const fontClassMap: Record<string, string> = {
+export const fontClassMap: Record<string, string> = {
   inter: "font-inter",
   geist: "font-geist",
   manrope: "font-manrope",
@@ -8,7 +8,7 @@ const fontClassMap: Record<string, string> = {
   roboto: "font-roboto",
 };
 
-export async function SettingsProvider({
+export async function FontProvider({
   children,
 }: {
   children: React.ReactNode;
@@ -16,9 +16,5 @@ export async function SettingsProvider({
   const cookieStore = await cookies();
   const selectedFont = cookieStore.get("font")?.value ?? "inter";
 
-  return (
-    <div className={`${fontClassMap[selectedFont]} antialiased`}>
-      {children}
-    </div>
-  );
+  return <div className={fontClassMap[selectedFont]}>{children}</div>;
 }

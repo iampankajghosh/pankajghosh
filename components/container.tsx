@@ -1,40 +1,27 @@
 import { cn } from "@/lib/utils";
-import { cookies } from "next/headers";
 
-export async function Container({
+export function Container({
   children,
   className,
 }: {
   children?: React.ReactNode;
   className?: string;
 }) {
-  const cookieStore = await cookies();
-  const expanded = cookieStore.get("expanded")?.value ?? "false";
-
   return (
-    <div
-      className={cn(
-        "mx-auto relative",
-        expanded === "true"
-          ? "max-w-[calc(100%-80px)]"
-          : "md:max-w-xl lg:max-w-2xl",
-        className,
-      )}
-    >
-      <Pattern className="-left-10" />
-      {children}
-      <Pattern className="-right-10" />
-    </div>
+    <div className={cn("mx-auto max-w-2xl h-full", className)}>{children}</div>
   );
 }
 
-export const Pattern = ({ className }: { className?: string }) => {
+export function ContainerFluid({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <div
-      className={cn(
-        "hidden md:block md:absolute md:top-0 md:bottom-0 md:border-x border-border w-10 bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed",
-        className,
-      )}
-    />
+    <div className={cn("border-b border-border h-full min-h-5", className)}>
+      {children}
+    </div>
   );
-};
+}

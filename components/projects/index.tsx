@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container, Pattern } from "../container";
+import { Container } from "../container";
 
 function Projects() {
   return (

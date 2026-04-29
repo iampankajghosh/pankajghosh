@@ -1,4 +1,4 @@
-import { SourceCodeIcon } from "@/app/icons";
+import { SourceCodeIcon } from "@/components/icons";
 import Image from "next/image";
 import { Container } from "../container";
 
