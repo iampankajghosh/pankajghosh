@@ -8,13 +8,13 @@ import Stack from "@/components/stack";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="mt-14">
       <Header />
       <Hero />
       <Projects />
       <Experience />
       <Stack />
-      {/* <Blogs /> */}
+      <Blogs />
       <Footer />
     </div>
   );

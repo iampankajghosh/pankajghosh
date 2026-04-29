@@ -1,4 +1,9 @@
-import { GithubIcon, Linkedin01Icon, Mail01Icon, XIcon } from "@/app/icons";
+import {
+  GithubIcon,
+  Linkedin01Icon,
+  Mail01Icon,
+  XIcon,
+} from "@/components/icons";
 import Link from "next/link";
 import { Button } from "../button";
 import { Container } from "../container";
