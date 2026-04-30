@@ -7,7 +7,7 @@ import { Avatar } from "./avatar";
 function Hero() {
   return (
     <section>
-      <ContainerFluid className="h-14">
+      <ContainerFluid className="h-15">
         <Container className="flex items-end py-1">
           <ClassNameLabel>size-35 rounded-full</ClassNameLabel>
         </Container>

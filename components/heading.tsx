@@ -13,7 +13,8 @@ export function Heading({
   return (
     <Comp
       className={cn(
-        "md:px-2 px-4 text-3xl leading-8 md:text-4xl md:leading-9 font-medium tracking-tighter",
+        "md:px-2 px-4 text-2xl leading-7 md:text-3xl md:leading-8 font-medium tracking-tighter",
+        as === "h1" && "text-3xl leading-8 md:text-4xl md:leading-9",
         className,
       )}
     >

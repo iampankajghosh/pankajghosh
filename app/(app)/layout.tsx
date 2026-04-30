@@ -33,8 +33,8 @@ export default function RootLayout({
           <FontProvider>{children}</FontProvider>
         </ThemeProvider>
 
-        <Pattern className="-left-8 md:left-1/2 md:-translate-x-94" />
-        <Pattern className="-right-8 md:right-1/2 md:translate-x-94" />
+        <Pattern className="-left-8 sm:left-1/2 sm:-translate-x-94" />
+        <Pattern className="-right-8 sm:right-1/2 sm:translate-x-94" />
       </body>
     </html>
   );

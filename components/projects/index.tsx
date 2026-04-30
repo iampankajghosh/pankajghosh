@@ -1,78 +1,60 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Container } from "../container";
+import { ClassNameLabel } from "../class-name-label";
+import { Container, ContainerFluid } from "../container";
+import { Heading } from "../heading";
+import {
+  Card,
+  CardBanner,
+  CardContent,
+  CardDescription,
+  CardSkeleton,
+  CardTitle,
+} from "./card";
+import { projects } from "./data";
+import { Grid, GridContainer } from "./grid";
 
 function Projects() {
   return (
     <section>
-      <div className="border-b border-border">
-        <Container className="h-15 flex items-end">
-          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 mb-1 select-none">
-            text-3xl leading-6
-          </span>
+      <ContainerFluid className="h-15">
+        <Container className="flex items-end py-1">
+          <ClassNameLabel>text-3xl leading-6</ClassNameLabel>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
+      <ContainerFluid>
         <Container>
-          <h1 className="px-2 text-3xl leading-8 font-medium tracking-tighter">
-            Projects
-          </h1>
+          <Heading>Projects</Heading>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
-        <Container className="h-8 flex items-end"></Container>
-      </div>
-
-      <div className="border-b border-border relative">
-        <div className="h-125 w-px bg-border absolute top-0 left-[calc(50%-20px)]" />
-        <div className="h-125 w-px bg-border absolute top-0 left-[calc(50%+19px)]" />
-
-        <Container>
-          <div className="flex gap-x-10">
-            <Card />
-            <Card />
-          </div>
+      <ContainerFluid className="h-10">
+        <Container className="flex items-end py-1">
+          <ClassNameLabel>
+            grid grid-cols-1 md:grid-cols-2 gap-10
+          </ClassNameLabel>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
-        <Container className="h-8 flex items-end"></Container>
-      </div>
+      <ContainerFluid>
+        <GridContainer>
+          <Grid>
+            {projects.map((project) => (
+              <Card key={project.id} href={project.live}>
+                <CardSkeleton>
+                  <CardBanner src={project.banner} />
+                </CardSkeleton>
 
-      <div className="border-b border-border">
-        <Container>
-          <div className="flex gap-x-10">
-            <Card />
-            <Card />
-          </div>
-        </Container>
-      </div>
+                <CardContent>
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </Grid>
+        </GridContainer>
+      </ContainerFluid>
     </section>
   );
 }
 
 export default Projects;
-
-export const Card = () => {
-  return (
-    <Link
-      href="/"
-      className="bg-background hover:bg-border cursor-pointer block p-2 border-border flex-1"
-    >
-      <div className="w-full h-45 border border-neutral-200 bg-neutral-100 rounded-md overflow-hidden mb-3">
-        <Image
-          src="https://res.cloudinary.com/ddws3mapm/image/upload/v1772195866/sonner-patterns-preview_es2whg.png"
-          width={200}
-          height={180}
-          alt="project banner"
-          className="object-cover w-full h-full object-top select-none"
-          draggable={false}
-        />
-      </div>
-
-      <h3 className="font-medium tracking-tighter">Project Name</h3>
-    </Link>
-  );
-};
