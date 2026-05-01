@@ -1,111 +1,124 @@
-import { SourceCodeIcon } from "@/components/icons";
-import Image from "next/image";
-import Link from "next/link";
-import { Container } from "../container";
+import { getShortDuration } from "@/lib/date";
+import { Button } from "../button";
+import { ClassNameLabel } from "../class-name-label";
+import { Container, ContainerFluid } from "../container";
+import { Heading } from "../heading";
+import { UnfoldMoreIcon } from "../icons";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  CardTitle,
+  CompanyLogo,
+  GroupCard,
+  StatusDot,
+} from "./card";
+import { experience } from "./data";
+import { StackIllustration } from "./stack-illustration";
 
 function Experience() {
   return (
     <section>
-      <div className="border-b border-border">
-        <Container className="h-15 flex items-end">
-          <span className="text-neutral-300 font-ibm-plex-mono text-xs px-2 mb-1 select-none">
-            text-3xl leading-6
-          </span>
+      <ContainerFluid className="h-15">
+        <Container className="flex items-end py-1">
+          <ClassNameLabel>text-3xl leading-6</ClassNameLabel>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
+      <ContainerFluid>
         <Container>
-          <h1 className="px-2 text-3xl leading-8 font-medium tracking-tighter">
-            Experience
-          </h1>
+          <Heading>Experience</Heading>
         </Container>
-      </div>
+      </ContainerFluid>
 
-      <div className="border-b border-border">
-        <Container className="h-8 flex items-end"></Container>
-      </div>
+      <ContainerFluid className="h-10">
+        <Container className="flex items-end py-1">
+          <ClassNameLabel>grid grid-cols-1 md:grid-cols-10</ClassNameLabel>
+        </Container>
+      </ContainerFluid>
 
-      <div className="border-b border-border relative">
+      <ContainerFluid>
         <Container>
-          <Card />
+          <div className="grid grid-cols-1 md:grid-cols-10">
+            <StackIllustration className="col-span-2 hidden md:block" />
+            <GroupCard className="col-span-8 border-l border-border">
+              {experience.map((exp) => (
+                <Card key={exp.id} className="group">
+                  <CardHeader>
+                    <CompanyLogo src={exp.logo} />
+
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3">
+                        <CardTitle>{exp.company}</CardTitle>
+                        <StatusDot date={exp.duration} />
+                      </div>
+                      <p className="text-xs text-foreground/80">
+                        {exp.location}
+                      </p>
+                    </div>
+
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      className="md:scale-0 md:opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-in-out"
+                    >
+                      <UnfoldMoreIcon className="size-5 shrink-0" />
+                    </Button>
+                  </CardHeader>
+
+                  <CardBody>
+                    <div className="px-3 mb-5">
+                      <p className="text-sm">{exp.designation}</p>
+
+                      <div className="flex gap-3 items-center">
+                        <p className="text-[13px] text-foreground/80">
+                          {exp.type}
+                        </p>
+
+                        <span className="h-4 w-px bg-border" />
+
+                        <p className="text-[13px] text-foreground/80">
+                          {exp.duration}
+                        </p>
+
+                        <span className="h-4 w-px bg-border md:block hidden" />
+
+                        <p className="text-[13px] text-foreground/80 md:block hidden">
+                          {getShortDuration(exp.duration)}
+                        </p>
+                      </div>
+                    </div>
+
+                    <ul className="px-3 mb-5 overflow-hidden h-18 mask-b-from-0% mask-b-to-100%">
+                      {exp.description.map((d, idx) => (
+                        <li key={idx} className="flex gap-3 group">
+                          <span className="size-1.5 bg-foreground/20 block shrink-0 translate-y-2" />
+                          <p className="text-foreground/80 text-sm mb-2 text-wrap">
+                            {d}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex items-center gap-2 mb-2 px-3 flex-wrap">
+                      {exp.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-xs border border-border rounded-md px-2 py-1 leading-none bg-foreground/4 inset-shadow-sm inset-shadow-black/2 font-ibm-plex-mono"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </CardBody>
+                </Card>
+              ))}
+            </GroupCard>
+          </div>
         </Container>
-      </div>
-      <div className="border-b border-border relative">
-        <Container>
-          <Card />
-        </Container>
-      </div>
-      <div className="border-b border-border relative">
-        <Container>
-          <Card />
-        </Container>
-      </div>
+      </ContainerFluid>
     </section>
   );
 }
 
 export default Experience;
-
-export const Card = () => {
-  return (
-    <div className="px-2 py-2 hover:bg-neutral-100">
-      <div className="flex items-center gap-2 mb-4">
-        <div className="size-5 bg-neutral-100 border border-neutral-200">
-          <Image
-            src="https://media.licdn.com/dms/image/v2/C510BAQEFq9G1hU3-oA/company-logo_100_100/company-logo_100_100/0/1630571378203?e=1778716800&v=beta&t=9-OsF0Y_y5649wXwKsqHJ3dZ26DPC6yDQr9rxvYJovg"
-            width={50}
-            height={50}
-            alt="company logo"
-            className="select-none w-full h-full object-cover"
-            draggable={false}
-          />
-        </div>
-        <p className="font-medium tracking-tighter">
-          Klizo Solutions Pvt. Ltd.
-        </p>
-
-        <div className="relative flex items-center justify-center ml-2">
-          <span className="size-2 bg-blue-500/30 inline-block animate-ping" />
-          <span className="size-1.5 bg-blue-500 inline-block absolute" />
-        </div>
-      </div>
-
-      <div className="flex items-center gap-2 mb-2">
-        <div className="size-5 bg-neutral-50 flex items-center justify-center border border-neutral-200">
-          <SourceCodeIcon />
-        </div>
-        <p className="tracking-tighter text-sm">Frontend Developer</p>
-      </div>
-
-      <div className="flex items-center gap-3 text-xs text-neutral-500 px-7 mb-5">
-        <p>Full-Time</p>
-        <span className="inline-block h-4 w-px bg-neutral-200" />
-        <p>2024 - 2026</p>
-        <span className="inline-block h-4 w-px bg-neutral-200" />
-        <p>1Y 6M</p>
-      </div>
-
-      <div className="flex items-center gap-2 mb-1 px-7">
-        <span className="text-[10px] text-sky-600 bg-sky-100 px-2 py-1 border border-sky-300 leading-none uppercase tracking-wider border-dashed">
-          NextJS
-        </span>
-        <span className="text-[10px] text-sky-600 bg-sky-100 px-2 py-1 border border-sky-300 leading-none uppercase tracking-wider border-dashed">
-          React
-        </span>
-        <span className="text-[10px] text-sky-600 bg-sky-100 px-2 py-1 border border-sky-300 leading-none uppercase tracking-wider border-dashed">
-          TailwindCSS
-        </span>
-        <span className="text-[10px] text-sky-600 bg-sky-100 px-2 py-1 border border-sky-300 leading-none uppercase tracking-wider border-dashed">
-          Motion
-        </span>
-        <span className="text-[10px] text-sky-600 bg-sky-100 px-2 py-1 border border-sky-300 leading-none uppercase tracking-wider border-dashed">
-          JavaScript
-        </span>
-        <span className="text-[10px] text-sky-600 bg-sky-100 px-2 py-1 border border-sky-300 leading-none uppercase tracking-wider border-dashed">
-          TypeScript
-        </span>
-      </div>
-    </div>
-  );
-};
