@@ -14,7 +14,7 @@ export default function HomePage() {
       <Projects />
       <Experience />
       <Stack />
-      <Blogs />
+      {/* <Blogs /> */}
       <Footer />
     </div>
   );
