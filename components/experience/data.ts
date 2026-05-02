@@ -7,15 +7,12 @@ export const experience = [
     duration: "02.2026 - Present",
     location: "Kolkata, India",
     type: "Full-Time",
-    highlight: "Open source & frontend systems",
-
     description: [
       "Building open-source tools focused on UI systems and developer experience.",
       "Launched 'Nexus Dark' VS Code theme (1K+ downloads on Open VSX).",
       "Created 'Sonner Patterns' — production-ready toast UI patterns.",
       "Working with modern frontend stack to ship fast, scalable interfaces.",
     ],
-
     tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Motion"],
   },
 
@@ -27,8 +24,6 @@ export const experience = [
     duration: "09.2024 - 01.2026",
     location: "Kolkata, India",
     type: "Full-Time",
-    highlight: "High-speed product delivery & performance",
-
     description: [
       "Shipped 80% of a large-scale AI product UI in 2 days, cutting delivery time by 40%.",
       "Built a full admin dashboard (auth, analytics, resume parsing, subscriptions).",
@@ -36,7 +31,6 @@ export const experience = [
       "Automated workflows via API integrations, reducing manual effort by 50%.",
       "Refactored legacy frontend into modular architecture (+30% performance).",
     ],
-
     tech: [
       "Next.js",
       "React",
@@ -56,15 +50,12 @@ export const experience = [
     duration: "06.2023 - 09.2024",
     location: "Kolkata, India",
     type: "Full-Time",
-    highlight: "Development + Mentorship",
-
     description: [
       "Built responsive client applications improving satisfaction by 40%.",
       "Mentored 500+ students in frontend development (HTML, CSS, JS, React).",
       "Reduced learning curve by 30% using project-based teaching.",
       "Designed structured training systems to improve engagement.",
     ],
-
     tech: ["React", "Node.js", "Express.js", "JavaScript", "HTML", "CSS"],
   },
 ];

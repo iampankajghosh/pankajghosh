@@ -61,7 +61,9 @@ export function CompanyLogo({
       )}
 
       {!src && (
-        <OfficeIcon className="size-5 text-neutral-600 dark:text-neutral-200" />
+        <div className="select-none pointer-events-none size-full rounded-md overflow-hidden border border-border shadow-sm bg-white flex items-center justify-center">
+          <OfficeIcon className="size-5 text-neutral-600 fill-neutral-200" />
+        </div>
       )}
 
       <DashedLine dir="vertical" className="absolute -left-px h-20" />
