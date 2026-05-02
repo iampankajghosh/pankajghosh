@@ -4,60 +4,86 @@ import {
   Mail01Icon,
   XIcon,
 } from "@/components/icons";
+import { getCurrentYear } from "@/lib/date";
 import Link from "next/link";
-import { Button } from "../button";
-import { Container } from "../container";
+import { Container, ContainerFluid } from "../container";
+import { SubHeading } from "../sub-heading";
+import { socials } from "./data";
+
+const getSocialIcon = (name: string) => {
+  switch (name) {
+    case "linkedin":
+      return <Linkedin01Icon className="size-5" />;
+    case "github":
+      return <GithubIcon className="size-5" />;
+    case "x":
+      return <XIcon className="size-5" />;
+    case "email":
+      return <Mail01Icon className="size-5" />;
+  }
+};
 
 function Footer() {
   return (
     <footer>
-      <div className="border-b border-border">
-        <Container className="h-15 flex items-end"></Container>
-      </div>
+      <ContainerFluid className="h-15" />
 
       <div className="border-b border-border">
         <Container>
-          <p className="px-2 text-neutral-600 text-center font-medium text-base">
-            Inspired by Tailwind CSS and modern design systems.
-            <br /> Designed and built by{" "}
-            <Link href="/" className="font-ibm-plex-mono text-sky-500">
+          <SubHeading className="text-center text-sm md:text-base">
+            This portfolio is highly inspired by the{" "}
+            <Link
+              href="https://tailwindcss.com/"
+              target="_blank"
+              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400"
+            >
+              tailwindcss
+            </Link>{" "}
+            landing page.
+            <br />
+            Designed and developed by{" "}
+            <Link
+              href="https://x.com/im_pankajghosh"
+              target="_blank"
+              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400"
+            >
               pankajghosh
             </Link>
             . Open source on{" "}
-            <Link href="/" className="font-ibm-plex-mono text-sky-500">
+            <Link
+              href="https://github.com/iampankajghosh"
+              target="_blank"
+              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400"
+            >
               github
             </Link>
             .
-          </p>
+          </SubHeading>
         </Container>
       </div>
 
-      <div className="border-b border-border">
-        <Container className="h-15 flex items-end"></Container>
-      </div>
+      <ContainerFluid className="h-15" />
 
-      <div className="border-b border-border">
-        <Container className="h-30 flex items-center justify-between">
-          <p className="text-sm px-2 text-neutral-600">
-            Copyright © 2026 Pankaj Ghosh.
-          </p>
+      <ContainerFluid className="h-30">
+        <Container className="md:flex md:items-center md:justify-between py-6 px-5 h-fit">
+          <SubHeading className="text-sm text-center md:text-start mb-5 md:mb-0">
+            Copyright © {getCurrentYear()} Pankaj Ghosh.
+          </SubHeading>
 
-          <div className="px-2 flex items-center gap-4">
-            <Button size="icon" variant="ghost">
-              <Mail01Icon className="size-5" />
-            </Button>
-            <Button size="icon" variant="ghost">
-              <GithubIcon className="size-5" />
-            </Button>
-            <Button size="icon" variant="ghost">
-              <Linkedin01Icon className="size-5" />
-            </Button>
-            <Button size="icon" variant="ghost">
-              <XIcon />
-            </Button>
+          <div className="px-2 flex items-center gap-4 justify-center md:justify-end">
+            {socials.map((s) => (
+              <Link
+                key={s.id}
+                href={s.link}
+                target="_blank"
+                className="size-7 flex items-center justify-center rounded-md cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-150 ease-out"
+              >
+                {getSocialIcon(s.name)}
+              </Link>
+            ))}
           </div>
         </Container>
-      </div>
+      </ContainerFluid>
     </footer>
   );
 }
