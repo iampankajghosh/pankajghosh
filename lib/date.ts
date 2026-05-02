@@ -37,3 +37,7 @@ export const getShortDuration = (range: string): string => {
     locale: shortLocale,
   });
 };
+
+export const getCurrentYear = (): string => {
+  return new Date().getFullYear().toString();
+};
