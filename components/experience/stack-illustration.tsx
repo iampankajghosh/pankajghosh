@@ -131,7 +131,7 @@ export function ConnectorLines({
         solidRatio={0.4}
         className="-translate-y-5 h-[calc(100%+39px)]"
       />
-      <MixedVerticalLine solidRatio={0.2} className="h-[calc(100%-1px)]" />
+      <MixedVerticalLine solidRatio={0.2} />
       <MixedVerticalLine
         solidRatio={0.4}
         className="-translate-y-5 h-[calc(100%+39px)]"
@@ -151,10 +151,13 @@ export function MixedVerticalLine({
 }: MixedLineProps) {
   return (
     <div className={cn("flex flex-col h-full", className)} {...props}>
-      <span style={{ flex: solidRatio }} className="block w-px bg-border" />
+      <span
+        style={{ flex: solidRatio }}
+        className="block w-px bg-black/10 dark:bg-white/10"
+      />
       <span
         style={{ flex: 1 - solidRatio }}
-        className="block w-px bg-[repeating-linear-gradient(to_bottom,var(--color-border)_0_4px,transparent_4px_8px)]"
+        className="block w-px bg-[repeating-linear-gradient(to_bottom,rgba(0,0,0,0.1)_0_4px,transparent_4px_8px)] dark:bg-[repeating-linear-gradient(to_bottom,rgba(255,255,255,0.1)_0_4px,transparent_4px_8px)]"
       />
     </div>
   );
