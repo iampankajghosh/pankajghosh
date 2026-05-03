@@ -63,7 +63,7 @@ Experience.Side = function Side() {
 
 Experience.List = function List({ children }: { children: React.ReactNode }) {
   return (
-    <GroupCard className="col-span-8 border-l border-border">
+    <GroupCard className="border-border col-span-8 border-l">
       {children}
     </GroupCard>
   );
@@ -94,10 +94,10 @@ Experience.ItemHeader = function ItemHeader({
           <CardTitle>{exp.company}</CardTitle>
           <StatusDot date={exp.duration} />
         </div>
-        <p className="text-xs text-foreground/80">{exp.location}</p>
+        <p className="text-foreground/80 text-xs">{exp.location}</p>
       </div>
 
-      <AccordionTrigger />
+      <AccordionTrigger label={exp.company} />
     </CardHeader>
   );
 };
@@ -109,19 +109,19 @@ Experience.ItemBody = function ItemBody({
 }) {
   return (
     <CardBody>
-      <div className="px-3 mb-5">
+      <div className="mb-5 px-3">
         <p className="text-sm font-[450]">{exp.designation}</p>
 
-        <div className="flex gap-3 items-center">
-          <p className="text-[13px] text-foreground/80">{exp.type}</p>
+        <div className="flex items-center gap-3">
+          <p className="text-foreground/80 text-[13px]">{exp.type}</p>
 
           <span className="h-4 w-px bg-black/10 dark:bg-white/10" />
 
-          <p className="text-[13px] text-foreground/80">{exp.duration}</p>
+          <p className="text-foreground/80 text-[13px]">{exp.duration}</p>
 
           <span className="h-4 w-px bg-black/10 dark:bg-white/10" />
 
-          <p className="text-[13px] text-foreground/80">
+          <p className="text-foreground/80 text-[13px]">
             {getShortDuration(exp.duration)}
           </p>
         </div>
@@ -142,9 +142,9 @@ Experience.Description = function Description({
     <AccordionContent className="mb-5">
       <ul className="px-3">
         {description.map((d, idx) => (
-          <li key={idx} className="flex gap-3 group">
-            <span className="size-1.5 bg-foreground/20 block shrink-0 translate-y-1.75" />
-            <p className="text-foreground/80 text-sm mb-2 text-wrap">{d}</p>
+          <li key={idx} className="group flex gap-3">
+            <span className="bg-foreground/20 block size-1.5 shrink-0 translate-y-1.75" />
+            <p className="text-foreground/80 mb-2 text-sm text-wrap">{d}</p>
           </li>
         ))}
       </ul>
@@ -154,11 +154,11 @@ Experience.Description = function Description({
 
 Experience.Tech = function Tech({ tech }: { tech: string[] }) {
   return (
-    <div className="flex items-center gap-2 mb-2 px-3 flex-wrap">
+    <div className="mb-2 flex flex-wrap items-center gap-2 px-3">
       {tech.map((t) => (
         <span
           key={t}
-          className="text-xs border border-border rounded-md px-2 py-1 leading-none bg-foreground/4 inset-shadow-sm inset-shadow-black/2 font-ibm-plex-mono"
+          className="border-border bg-foreground/4 font-ibm-plex-mono rounded-md border px-2 py-1 text-xs leading-none inset-shadow-sm inset-shadow-black/2"
         >
           {t}
         </span>
