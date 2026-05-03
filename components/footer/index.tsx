@@ -30,30 +30,28 @@ function Footer() {
 
       <div className="border-b border-border">
         <Container>
-          <SubHeading className="text-center text-sm md:text-base">
+          <SubHeading className="text-center text-sm md:text-base max-w-[90%] sm:max-w-xl mx-auto">
             This portfolio is highly inspired by the{" "}
             <Link
               href="https://tailwindcss.com/"
               target="_blank"
-              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400"
+              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400 font-[450]"
             >
               tailwindcss
             </Link>{" "}
-            landing page.
-            <br />
-            Designed and developed by{" "}
+            landing page. Designed and developed by{" "}
             <Link
               href="https://x.com/im_pankajghosh"
               target="_blank"
-              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400"
+              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400 font-[450]"
             >
               pankajghosh
             </Link>
             . Open source on{" "}
             <Link
-              href="https://github.com/iampankajghosh"
+              href="https://github.com/iampankajghosh/pankajghosh"
               target="_blank"
-              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400"
+              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400 font-[450]"
             >
               github
             </Link>

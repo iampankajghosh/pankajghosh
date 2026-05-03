@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { ClassNameLabel } from "../class-name-label";
 import { Container, ContainerFluid } from "../container";
 import { Heading } from "../heading";
 import { SubHeading } from "../sub-heading";
 import { Avatar } from "./avatar";
 
-function Hero() {
+export function Hero() {
   return (
     <section>
       <ContainerFluid className="h-15">
@@ -14,8 +15,9 @@ function Hero() {
       </ContainerFluid>
 
       <ContainerFluid>
-        <Container>
+        <Container className="relative">
           <Avatar />
+          <Banner />
         </Container>
       </ContainerFluid>
 
@@ -62,4 +64,19 @@ function Hero() {
   );
 }
 
-export default Hero;
+function Banner() {
+  return (
+    <div className="pointer-events-none absolute top-0 -z-1 h-full w-full mask-l-to-90% select-none">
+      <Image
+        src="https://res.cloudinary.com/ddws3mapm/image/upload/v1777739508/20260502_201645_a9ku8d.jpg"
+        fill
+        sizes="672px"
+        className="pointer-events-none object-cover object-bottom select-none"
+        alt=""
+        draggable={false}
+        loading="eager"
+        fetchPriority="high"
+      />
+    </div>
+  );
+}
