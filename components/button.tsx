@@ -45,7 +45,7 @@ export function Button({
 
   React.useEffect(() => {
     clickSoundRef.current = new Audio(
-      "https://res.cloudinary.com/ddws3mapm/video/upload/v1777726273/universfield-computer-mouse-click-352734_vyjbqr.mp3",
+      "https://res.cloudinary.com/ddws3mapm/video/upload/v1777781848/switch-on_lmi5av.mp3",
     );
   }, []);
 

@@ -42,11 +42,16 @@ export function Settings({ children }: { children: React.ReactNode }) {
 }
 
 export function SettingsTrigger({ children }: { children: React.ReactNode }) {
-  const { setOpen } = useSettingsMenu();
+  const { open, setOpen } = useSettingsMenu();
 
   return (
     <motion.div initial="rest" whileHover="hover">
-      <Button variant="ghost" size="icon" onClick={() => setOpen(true)}>
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setOpen(true)}
+        disabled={open}
+      >
         <motion.span
           variants={{
             rest: { rotate: 0 },
@@ -122,7 +127,7 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
       transition={{ duration: 0.25, ease: "easeInOut" }}
       style={{ originX: 1, originY: 0 }}
       className={cn(
-        "absolute -top-0.5 -right-px bg-neutral-100 w-70 h-86.75 overflow-hidden flex flex-col rounded-lg shadow-md border border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700",
+        "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-md dark:border-neutral-700 dark:bg-neutral-800",
         open ? "pointer-events-auto" : "pointer-events-none",
       )}
     >
@@ -135,7 +140,7 @@ export function SettingsHeader({ children }: { children: React.ReactNode }) {
   const { setOpen } = useSettingsMenu();
 
   return (
-    <div className="h-11 flex items-center justify-between px-2">
+    <div className="flex h-11 items-center justify-between px-2">
       <div className="flex items-center gap-1.5">{children}</div>
 
       <Button variant="outline" size="icon" onClick={() => setOpen(false)}>
@@ -151,7 +156,7 @@ export function SettingsHeading({ children }: { children: React.ReactNode }) {
 
 export function SettingsMenu({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-white flex-1 rounded-lg shadow-sm border-t border-border border-dashed py-1 dark:bg-neutral-900">
+    <div className="border-border flex-1 rounded-lg border-t border-dashed bg-white py-1 shadow-sm dark:bg-neutral-900">
       {children}
     </div>
   );
@@ -163,7 +168,7 @@ export function SettingsSubMenu({ children }: { children: React.ReactNode }) {
 
 export function SettingSubHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h4 className="text-[10px] mb-2 text-foreground/60 uppercase tracking-widest font-ibm-plex-mono">
+    <h4 className="text-foreground/60 font-ibm-plex-mono mb-2 text-[10px] tracking-widest uppercase">
       {children}
     </h4>
   );
