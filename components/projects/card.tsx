@@ -4,26 +4,38 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 
 export function Card({
   children,
   className,
   href,
+  title,
 }: {
   children: React.ReactNode;
   className?: string;
   href?: string;
+  title?: string;
 }) {
   return (
     <motion.div
       initial="rest"
       whileHover="hover"
       className={cn(
-        "bg-background hover:bg-neutral-400/10 sm:border-x md:odd:border-r md:odd:border-l-0 md:even:border-l md:even:border-r-0 border-border",
+        "bg-background border-border hover:bg-neutral-400/10 sm:border-x md:odd:border-r md:odd:border-l-0 md:even:border-r-0 md:even:border-l",
         className,
       )}
     >
-      <Link href={href || "#"} target="_blank">
+      <Link
+        href={href || "#"}
+        target="_blank"
+        onClick={() =>
+          posthog.capture("project_link_clicked", {
+            project_title: title,
+            url: href,
+          })
+        }
+      >
         {children}
       </Link>
     </motion.div>
@@ -37,7 +49,7 @@ export function CardSkeleton({
   children?: React.ReactNode;
   className?: string;
 }) {
-  return <div className={cn("p-2 mb-2", className)}>{children}</div>;
+  return <div className={cn("mb-2 p-2", className)}>{children}</div>;
 }
 
 export function CardBanner({
@@ -50,7 +62,7 @@ export function CardBanner({
   return (
     <div
       className={cn(
-        "border border-border bg-background overflow-hidden rounded-xl h-50 relative select-none pointer-events-none",
+        "border-border bg-background pointer-events-none relative h-50 overflow-hidden rounded-xl border select-none",
         className,
       )}
     >
@@ -59,7 +71,7 @@ export function CardBanner({
         alt=""
         fill
         sizes="297px"
-        className="object-cover select-none pointer-events-none"
+        className="pointer-events-none object-cover select-none"
         draggable={false}
         fetchPriority="high"
       />
@@ -85,26 +97,26 @@ export function CardBanner({
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="hidden md:block relative w-full h-full rounded-md overflow-hidden shadow-2xl border-4 border-black/20 scale-125 select-none pointer-events-none"
+        className="pointer-events-none relative hidden h-full w-full scale-125 overflow-hidden rounded-md border-4 border-black/20 shadow-2xl select-none md:block"
       >
         <Image
           src={src}
           alt=""
           fill
           sizes="297px"
-          className="object-cover object-top-left select-none rounded"
+          className="rounded object-cover object-top-left select-none"
           draggable={false}
           loading="eager"
         />
       </motion.div>
 
-      <div className="relative w-full h-full rounded-md overflow-hidden shadow-2xl border-4 border-black/20 translate-x-15 translate-y-10 select-none pointer-events-none scale-125">
+      <div className="pointer-events-none relative h-full w-full translate-x-15 translate-y-10 scale-125 overflow-hidden rounded-md border-4 border-black/20 shadow-2xl select-none">
         <Image
           src={src}
           alt=""
           fill
           sizes="297px"
-          className="object-cover object-top-left select-none rounded"
+          className="rounded object-cover object-top-left select-none"
           draggable={false}
         />
       </div>
@@ -130,7 +142,7 @@ export function CardTitle({
   className?: string;
 }) {
   return (
-    <h3 className={cn("font-medium tracking-tighter mb-1", className)}>
+    <h3 className={cn("mb-1 font-medium tracking-tighter", className)}>
       {children}
     </h3>
   );
@@ -144,7 +156,7 @@ export function CardDescription({
   className?: string;
 }) {
   return (
-    <p className={cn("text-[13px] text-foreground/80", className)}>
+    <p className={cn("text-foreground/80 text-[13px]", className)}>
       {children}
     </p>
   );

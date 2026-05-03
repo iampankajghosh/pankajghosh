@@ -39,7 +39,7 @@ function Projects() {
         <GridContainer>
           <Grid>
             {projects.map((project) => (
-              <Card key={project.id} href={project.live}>
+              <Card key={project.id} href={project.live} title={project.title}>
                 <CardSkeleton>
                   <CardBanner src={project.banner} />
                 </CardSkeleton>

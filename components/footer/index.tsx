@@ -1,3 +1,5 @@
+"use client";
+
 import {
   GithubIcon,
   Linkedin01Icon,
@@ -6,6 +8,7 @@ import {
 } from "@/components/icons";
 import { getCurrentYear } from "@/lib/date";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { Container, ContainerFluid } from "../container";
 import { SubHeading } from "../sub-heading";
 import { socials } from "./data";
@@ -28,14 +31,14 @@ function Footer() {
     <footer>
       <ContainerFluid className="h-15" />
 
-      <div className="border-b border-border">
+      <div className="border-border border-b">
         <Container>
-          <SubHeading className="text-center text-sm md:text-base max-w-[90%] sm:max-w-xl mx-auto">
+          <SubHeading className="mx-auto max-w-[90%] text-center text-sm sm:max-w-xl md:text-base">
             This portfolio is highly inspired by the{" "}
             <Link
               href="https://tailwindcss.com/"
               target="_blank"
-              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400 font-[450]"
+              className="font-ibm-plex-mono font-[450] text-sky-500 dark:text-sky-400"
             >
               tailwindcss
             </Link>{" "}
@@ -43,7 +46,7 @@ function Footer() {
             <Link
               href="https://x.com/im_pankajghosh"
               target="_blank"
-              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400 font-[450]"
+              className="font-ibm-plex-mono font-[450] text-sky-500 dark:text-sky-400"
             >
               pankajghosh
             </Link>
@@ -51,7 +54,7 @@ function Footer() {
             <Link
               href="https://github.com/iampankajghosh/pankajghosh"
               target="_blank"
-              className="font-ibm-plex-mono text-sky-500 dark:text-sky-400 font-[450]"
+              className="font-ibm-plex-mono font-[450] text-sky-500 dark:text-sky-400"
             >
               github
             </Link>
@@ -63,18 +66,24 @@ function Footer() {
       <ContainerFluid className="h-15" />
 
       <ContainerFluid className="h-30">
-        <Container className="md:flex md:items-center md:justify-between py-6 px-5 h-fit">
-          <SubHeading className="text-sm text-center md:text-start mb-5 md:mb-0">
+        <Container className="h-fit px-5 py-6 md:flex md:items-center md:justify-between">
+          <SubHeading className="mb-5 text-center text-sm md:mb-0 md:text-start">
             Copyright © {getCurrentYear()} Pankaj Ghosh.
           </SubHeading>
 
-          <div className="px-2 flex items-center gap-4 justify-center md:justify-end">
+          <div className="flex items-center justify-center gap-4 px-2 md:justify-end">
             {socials.map((s) => (
               <Link
                 key={s.id}
                 href={s.link}
                 target="_blank"
-                className="size-7 flex items-center justify-center rounded-md cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-150 ease-out"
+                className="flex size-7 cursor-pointer items-center justify-center rounded-md transition-colors duration-150 ease-out hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                onClick={() =>
+                  posthog.capture("social_link_clicked", {
+                    platform: s.name,
+                    url: s.link,
+                  })
+                }
               >
                 {getSocialIcon(s.name)}
               </Link>

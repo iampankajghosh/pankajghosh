@@ -2,27 +2,28 @@
 
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
+import posthog from "posthog-js";
 import { useEffect, useState } from "react";
 import { ComputerIcon, MoonIcon, Sun01Icon } from "../icons";
 
 const themes = [
   {
     icon: (
-      <ComputerIcon className="fill-neutral-200 dark:fill-neutral-800 size-4.5 text-foreground" />
+      <ComputerIcon className="text-foreground size-4.5 fill-neutral-200 dark:fill-neutral-800" />
     ),
     value: "system",
     name: "System",
   },
   {
     icon: (
-      <Sun01Icon className="fill-neutral-200 dark:fill-neutral-800 size-5 text-foreground" />
+      <Sun01Icon className="text-foreground size-5 fill-neutral-200 dark:fill-neutral-800" />
     ),
     value: "light",
     name: "Light",
   },
   {
     icon: (
-      <MoonIcon className="fill-neutral-200 dark:fill-neutral-800 text-foreground" />
+      <MoonIcon className="text-foreground fill-neutral-200 dark:fill-neutral-800" />
     ),
     value: "dark",
     name: "Dark",
@@ -40,19 +41,25 @@ export function ModeToggle() {
   if (!mounted) return null;
 
   return (
-    <div className="bg-neutral-100 rounded-md flex items-center p-1 inset-shadow-sm gap-2 dark:bg-neutral-800">
+    <div className="flex items-center gap-2 rounded-md bg-neutral-100 p-1 inset-shadow-sm dark:bg-neutral-800">
       {themes.map((t) => (
         <button
           key={t.value}
           className={cn(
-            "group flex items-center gap-1.5 px-2 h-7 rounded-md cursor-pointer transition-colors duration-150 ease-out hover:text-foreground text-neutral-600 flex-1 justify-center dark:text-neutral-400 dark:hover:text-foreground",
+            "group hover:text-foreground dark:hover:text-foreground flex h-7 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-md px-2 text-neutral-600 transition-colors duration-150 ease-out dark:text-neutral-400",
             theme === t.value &&
-              "bg-white shadow-sm text-foreground dark:bg-neutral-900 dark:shadow-none",
+              "text-foreground bg-white shadow-sm dark:bg-neutral-900 dark:shadow-none",
           )}
-          onClick={() => setTheme(t.value)}
+          onClick={() => {
+            setTheme(t.value);
+            posthog.capture("theme_changed", {
+              theme: t.value,
+              previous_theme: theme,
+            });
+          }}
         >
           {t.icon}
-          <span className="leading-none text-xs">{t.name}</span>
+          <span className="text-xs leading-none">{t.name}</span>
         </button>
       ))}
     </div>

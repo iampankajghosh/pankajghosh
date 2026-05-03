@@ -1,6 +1,9 @@
+"use client";
+
 import { SourceCodeIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { ClassNameLabel } from "../class-name-label";
 import { Container, ContainerFluid } from "../container";
 import { Heading } from "../heading";
@@ -29,16 +32,22 @@ function Stack() {
 
       <ContainerFluid>
         <Container>
-          <div className="flex items-center gap-2 flex-wrap px-4 md:px-2 py-2">
+          <div className="flex flex-wrap items-center gap-2 px-4 py-2 md:px-2">
             {tech.map((t) => (
               <Link
                 href={t.link}
                 key={t.id}
                 target="_blank"
-                className="border border-border rounded-md bg-foreground/4 inset-shadow-sm inset-shadow-black/2 inline-flex items-center gap-1.5 px-2 py-1 cursor-pointer hover:bg-foreground/8 transition-colors duration-150 ease-out"
+                className="border-border bg-foreground/4 hover:bg-foreground/8 inline-flex cursor-pointer items-center gap-1.5 rounded-md border px-2 py-1 inset-shadow-sm inset-shadow-black/2 transition-colors duration-150 ease-out"
+                onClick={() =>
+                  posthog.capture("stack_tech_link_clicked", {
+                    tech_name: t.name,
+                    url: t.link,
+                  })
+                }
               >
                 <Image src={t.icon} alt="" width={12} height={12} />
-                <span className="text-xs font-ibm-plex-mono leading-none">
+                <span className="font-ibm-plex-mono text-xs leading-none">
                   {t.name}
                 </span>
               </Link>

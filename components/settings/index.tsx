@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import posthog from "posthog-js";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { Button } from "../button";
 import { ArrowTurnBackwardIcon } from "../icons";
@@ -49,7 +50,10 @@ export function SettingsTrigger({ children }: { children: React.ReactNode }) {
       <Button
         variant="ghost"
         size="icon"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          setOpen(true);
+          posthog.capture("settings_opened", { trigger: "button" });
+        }}
         disabled={open}
       >
         <motion.span
@@ -106,6 +110,7 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
       if ((e.ctrlKey || e.metaKey) && e.key === ",") {
         e.preventDefault();
         setOpen(true);
+        posthog.capture("settings_opened", { trigger: "keyboard_shortcut" });
       }
     }
 
