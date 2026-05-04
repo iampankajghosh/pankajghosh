@@ -1,3 +1,4 @@
+import { Pattern } from "@/components/pattern";
 import {
   geist,
   ibmPlexMono,
@@ -10,11 +11,10 @@ import { FontProvider } from "@/providers/font-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Pattern } from "@/components/pattern";
 
 export const metadata: Metadata = {
   title: "Pankaj Ghosh",
-  description: "Frontend Engineer. Crafting intuitive digital web experiences.",
+  description: "Frontend Engineer.Builds things people actually enjoy using.",
 };
 
 export default function RootLayout({

@@ -88,7 +88,7 @@ export function AccordionContent({
     <motion.div
       initial={false}
       animate={{ height: open ? "auto" : 72 }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+      transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
       className={cn(
         "overflow-hidden",
         open ? "mask-none" : "mask-b-from-0% mask-b-to-100%",

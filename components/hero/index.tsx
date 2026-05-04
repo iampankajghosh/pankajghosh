@@ -31,7 +31,7 @@ export function Hero() {
         <Container>
           <Heading as="h1">
             Frontend Engineer.
-            <br /> Crafting intuitive digital web experiences.
+            <br /> Builds things people actually enjoy using.
           </Heading>
         </Container>
       </ContainerFluid>
@@ -45,18 +45,19 @@ export function Hero() {
       <ContainerFluid>
         <Container>
           <SubHeading className="mb-3">
-            I'm a frontend engineer with 3+ years of experience building modern,
-            scalable web apps using Next.js, React, and Tailwind CSS.
+            Frontend has always felt less like a job and more like a craft to
+            me. The kind where you are never really done learning and somehow
+            that never gets old.
           </SubHeading>
 
           <SubHeading className="mb-3">
-            I enjoy turning ideas into fast, accessible, and polished
-            interfaces, with a strong focus on performance and user experience.
+            I obsess over the details that most people never notice but always
+            feel. The 2px misalignment bothers me. That is just how I work.
           </SubHeading>
 
           <SubHeading>
-            Always open to interesting projects, collaborations, or a quick
-            chat.
+            If something you are building deserves that kind of attention, it
+            would be great to connect.
           </SubHeading>
         </Container>
       </ContainerFluid>
@@ -66,7 +67,7 @@ export function Hero() {
 
 function Banner() {
   return (
-    <div className="pointer-events-none absolute top-0 -z-1 h-full w-full mask-l-to-90% select-none">
+    <div className="pointer-events-none absolute top-0 right-2 -z-1 h-full w-full mask-l-to-90% select-none sm:right-0">
       <Image
         src="https://res.cloudinary.com/ddws3mapm/image/upload/v1777739508/20260502_201645_a9ku8d.jpg"
         fill
