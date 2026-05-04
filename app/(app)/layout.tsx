@@ -3,8 +3,8 @@ import {
   ibmPlexMono,
   inter,
   manrope,
-  openSans,
-  roboto,
+  plusJakartaSans,
+  spaceGrotesk,
 } from "@/lib/fonts";
 import { FontProvider } from "@/providers/font-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geist.variable} ${manrope.variable} ${openSans.variable} ${roboto.variable} ${ibmPlexMono.variable} h-full antialiased [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10`}
+      className={`${inter.variable} ${geist.variable} ${manrope.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full antialiased [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10`}
       suppressHydrationWarning
     >
       <body className="bg-background text-foreground selection:text-foreground flex min-h-full min-w-[320px] flex-col selection:bg-neutral-500/20">
