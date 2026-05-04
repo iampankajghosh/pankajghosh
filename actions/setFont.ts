@@ -1,6 +1,7 @@
 "use server";
 
 import { allowedFonts } from "@/lib/fonts";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
 export async function setFont(formData: FormData) {
@@ -12,4 +13,6 @@ export async function setFont(formData: FormData) {
   }
 
   cookieStore.set("font", font);
+
+  revalidatePath("/");
 }

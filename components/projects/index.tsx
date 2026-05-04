@@ -23,7 +23,7 @@ function Projects() {
 
       <ContainerFluid>
         <Container>
-          <Heading>Projects</Heading>
+          <Heading>Things I actually built and shipped</Heading>
         </Container>
       </ContainerFluid>
 

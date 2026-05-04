@@ -34,7 +34,7 @@ Experience.Header = function Header() {
 
       <ContainerFluid>
         <Container>
-          <Heading>Experience</Heading>
+          <Heading>I showed up, I learned, I delivered</Heading>
         </Container>
       </ContainerFluid>
 
@@ -166,10 +166,6 @@ Experience.Tech = function Tech({ tech }: { tech: string[] }) {
     </div>
   );
 };
-
-/* =========================
-   Usage (Clean & Declarative)
-========================= */
 
 export default function ExperienceSection() {
   return (

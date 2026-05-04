@@ -2,7 +2,7 @@ export const projects = [
   {
     id: "1",
     title: "Sparkflo",
-    description: "You can build complex AI workflow in minutes.",
+    description: "Node based canvas for building AI workflows.",
     banner:
       "https://res.cloudinary.com/ddws3mapm/image/upload/v1777547551/sparkflo_hgq64m.png",
     live: "https://sparkflo.pankajghosh.in",
@@ -11,7 +11,7 @@ export const projects = [
   {
     id: "2",
     title: "Nexus Dark",
-    description: "Vs code theme focused on readability.",
+    description: "VS code theme focused on readability.",
     banner:
       "https://res.cloudinary.com/ddws3mapm/image/upload/v1777552464/nexus-dark_rcf2xf.png",
     live: "https://open-vsx.org/extension/pankajghosh/nexus-dark",

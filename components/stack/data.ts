@@ -44,7 +44,7 @@ export const tech = [
   // State Management
   {
     id: "14",
-    name: "Redux",
+    name: "Redux Toolkit",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
     link: "https://redux.js.org/",
   },

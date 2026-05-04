@@ -20,7 +20,7 @@ function Stack() {
 
       <ContainerFluid>
         <Container>
-          <Heading>Stack</Heading>
+          <Heading>Tools I reach for without thinking twice</Heading>
         </Container>
       </ContainerFluid>
 
@@ -46,7 +46,14 @@ function Stack() {
                   })
                 }
               >
-                <Image src={t.icon} alt="" width={12} height={12} />
+                <Image
+                  src={t.icon}
+                  alt=""
+                  width={12}
+                  height={12}
+                  draggable={false}
+                  className="pointer-events-none select-none"
+                />
                 <span className="font-ibm-plex-mono text-xs leading-none">
                   {t.name}
                 </span>

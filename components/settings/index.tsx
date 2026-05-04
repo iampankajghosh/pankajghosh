@@ -129,7 +129,7 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
         scale: open ? 1 : 0.3,
         filter: open ? "none" : "blur(10px)",
       }}
-      transition={{ duration: 0.25, ease: "easeInOut" }}
+      transition={{ duration: 0.3, type: "spring", bounce: 0.2 }}
       style={{ originX: 1, originY: 0 }}
       className={cn(
         "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-md dark:border-neutral-700 dark:bg-neutral-800",
