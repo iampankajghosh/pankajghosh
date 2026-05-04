@@ -3,8 +3,8 @@ import {
   IBM_Plex_Mono,
   Inter,
   Manrope,
-  Open_Sans,
-  Roboto,
+  Plus_Jakarta_Sans,
+  Space_Grotesk,
 } from "next/font/google";
 
 export const inter = Inter({
@@ -25,16 +25,16 @@ export const manrope = Manrope({
   variable: "--manrope",
 });
 
-export const openSans = Open_Sans({
+export const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--open-sans",
+  variable: "--plus-jakarta-sans",
 });
 
-export const roboto = Roboto({
+export const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--roboto",
+  variable: "--space-grotesk",
 });
 
 export const ibmPlexMono = IBM_Plex_Mono({
@@ -48,6 +48,6 @@ export const allowedFonts = [
   "inter",
   "geist",
   "manrope",
-  "open-sans",
-  "roboto",
+  "plus-jakarta-sans",
+  "space-grotesk",
 ];

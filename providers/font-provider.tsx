@@ -4,8 +4,8 @@ export const fontClassMap: Record<string, string> = {
   inter: "font-inter",
   geist: "font-geist",
   manrope: "font-manrope",
-  "open-sans": "font-open-sans",
-  roboto: "font-roboto",
+  "plus-jakarta-sans": "font-plus-jakarta-sans",
+  "space-grotesk": "font-space-grotesk",
 };
 
 export async function FontProvider({
