@@ -7,6 +7,7 @@ import {
 import { ClassNameLabel } from "../class-name-label";
 import { Container, ContainerFluid } from "../container";
 import { Heading } from "../heading";
+import { SectionLabel } from "../section-label";
 import {
   Card,
   CardBody,
@@ -20,13 +21,25 @@ import { experience } from "./data";
 import { StackIllustration } from "./stack-illustration";
 
 function Experience({ children }: { children: React.ReactNode }) {
-  return <section>{children}</section>;
+  return <section className="relative">{children}</section>;
 }
 
 Experience.Header = function Header() {
   return (
     <>
-      <ContainerFluid className="h-15">
+      <ContainerFluid className="h-15 md:hidden" />
+
+      <ContainerFluid className="md:pointer-events-none md:absolute md:-z-1 md:w-full md:border-none">
+        <Container className="md:relative">
+          <SectionLabel className="text-pink-500 md:absolute md:top-30.25 md:-left-31.75 md:-rotate-90 dark:text-pink-400">
+            Where I&apos;ve Worked
+          </SectionLabel>
+        </Container>
+      </ContainerFluid>
+
+      <ContainerFluid className="md:hidden" />
+
+      <ContainerFluid className="hidden h-15 md:block">
         <Container className="flex items-end py-1">
           <ClassNameLabel>text-3xl leading-6</ClassNameLabel>
         </Container>
@@ -34,7 +47,7 @@ Experience.Header = function Header() {
 
       <ContainerFluid>
         <Container>
-          <Heading>I showed up, I learned, I delivered</Heading>
+          <Heading>I showed up, I learned, I delivered.</Heading>
         </Container>
       </ContainerFluid>
 

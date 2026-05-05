@@ -8,23 +8,17 @@ import { ComputerIcon, MoonIcon, Sun01Icon } from "../icons";
 
 const themes = [
   {
-    icon: (
-      <ComputerIcon className="text-foreground size-4.5 fill-neutral-200 dark:fill-neutral-800" />
-    ),
+    icon: <ComputerIcon className="text-foreground size-4.5" />,
     value: "system",
     name: "System",
   },
   {
-    icon: (
-      <Sun01Icon className="text-foreground size-5 fill-neutral-200 dark:fill-neutral-800" />
-    ),
+    icon: <Sun01Icon className="text-foreground size-5" />,
     value: "light",
     name: "Light",
   },
   {
-    icon: (
-      <MoonIcon className="text-foreground fill-neutral-200 dark:fill-neutral-800" />
-    ),
+    icon: <MoonIcon className="text-foreground" />,
     value: "dark",
     name: "Dark",
   },

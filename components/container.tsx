@@ -8,7 +8,7 @@ export function Container({
   className?: string;
 }) {
   return (
-    <div className={cn("mx-auto max-w-2xl h-full", className)}>{children}</div>
+    <div className={cn("mx-auto h-full max-w-2xl", className)}>{children}</div>
   );
 }
 
@@ -20,7 +20,7 @@ export function ContainerFluid({
   className?: string;
 }) {
   return (
-    <div className={cn("border-b border-border h-full min-h-5", className)}>
+    <div className={cn("border-border h-full min-h-4 border-b", className)}>
       {children}
     </div>
   );

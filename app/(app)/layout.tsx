@@ -14,7 +14,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Pankaj Ghosh",
-  description: "Frontend Engineer.Builds things people actually enjoy using.",
+  description: "Frontend Engineer. Builds things people actually enjoy using.",
 };
 
 export default function RootLayout({

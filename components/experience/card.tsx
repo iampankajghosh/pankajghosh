@@ -11,7 +11,7 @@ export function Card({
 }) {
   return (
     <div
-      className={cn("border-b border-border last:border-b-0 py-2", className)}
+      className={cn("border-border border-b py-2 last:border-b-0", className)}
     >
       {children}
     </div>
@@ -41,11 +41,11 @@ export function CompanyLogo({
   src: string;
 }) {
   return (
-    <div className="relative size-8 bg-black/4 dark:bg-white/10 flex items-center justify-center">
+    <div className="relative flex size-8 items-center justify-center bg-black/4 dark:bg-white/10">
       {src && (
         <div
           className={cn(
-            "relative select-none pointer-events-none size-full rounded-md overflow-hidden border border-border shadow-sm",
+            "border-border pointer-events-none relative size-full overflow-hidden rounded-md border shadow-sm select-none",
             className,
           )}
         >
@@ -55,21 +55,21 @@ export function CompanyLogo({
             fill
             sizes="32px"
             draggable={false}
-            className="object-cover pointer-events-none"
+            className="pointer-events-none object-cover"
           />
         </div>
       )}
 
       {!src && (
-        <div className="select-none pointer-events-none size-full rounded-md overflow-hidden border border-border shadow-sm bg-white flex items-center justify-center">
-          <OfficeIcon className="size-5 text-neutral-600 fill-neutral-200" />
+        <div className="border-border pointer-events-none flex size-full items-center justify-center overflow-hidden rounded-md border bg-white shadow-sm select-none">
+          <OfficeIcon className="size-5 text-neutral-800" />
         </div>
       )}
 
       <DashedLine dir="vertical" className="absolute -left-px h-20" />
       <DashedLine dir="vertical" className="absolute -right-px h-20" />
-      <DashedLine className="absolute w-20 -top-px" />
-      <DashedLine className="absolute w-20 -bottom-px" />
+      <DashedLine className="absolute -top-px w-20" />
+      <DashedLine className="absolute -bottom-px w-20" />
     </div>
   );
 }
@@ -99,7 +99,7 @@ export function DashedLine({
 }
 
 export function CardHeader({ children }: { children: React.ReactNode }) {
-  return <div className="px-5 py-2 flex items-center gap-4">{children}</div>;
+  return <div className="flex items-center gap-4 px-5 py-2">{children}</div>;
 }
 
 export function CardTitle({
@@ -112,7 +112,7 @@ export function CardTitle({
   return (
     <h3
       className={cn(
-        "text-base font-medium tracking-tighter leading-6",
+        "text-base leading-6 font-medium tracking-tighter",
         className,
       )}
     >
@@ -136,11 +136,11 @@ export function StatusDot({
     <div className="relative flex items-center justify-center">
       <span
         className={cn(
-          "size-4 rounded-md bg-blue-500/20 animate-ping block [animation-duration:1.5s]",
+          "block size-4 animate-ping rounded-md bg-blue-500/20 [animation-duration:1.5s]",
           className,
         )}
       />
-      <span className="size-2 bg-blue-500 rounded-[3px] block absolute inset-shadow-sm inset-shadow-white/30" />
+      <span className="absolute block size-2 rounded-[3px] bg-blue-500 inset-shadow-sm inset-shadow-white/30" />
     </div>
   );
 }

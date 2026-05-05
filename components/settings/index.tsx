@@ -59,7 +59,7 @@ export function SettingsTrigger({ children }: { children: React.ReactNode }) {
         <motion.span
           variants={{
             rest: { rotate: 0 },
-            hover: { rotate: 180 },
+            hover: { rotate: 145 },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
@@ -161,7 +161,7 @@ export function SettingsHeading({ children }: { children: React.ReactNode }) {
 
 export function SettingsMenu({ children }: { children: React.ReactNode }) {
   return (
-    <div className="border-border flex-1 rounded-lg border-t border-dashed bg-white py-1 shadow-sm dark:bg-neutral-900">
+    <div className="border-border flex-1 rounded-lg border-t bg-white py-1 shadow-sm dark:bg-neutral-900">
       {children}
     </div>
   );
