@@ -12,7 +12,7 @@ export function Logo() {
   return (
     <BrandLink href={LINK}>
       <LogoIcon>
-        <CopyrightIcon className="size-5 fill-neutral-200 dark:fill-neutral-800" />
+        <CopyrightIcon className="size-5" />
       </LogoIcon>
 
       <BrandText>code by pankaj ghosh</BrandText>
@@ -31,7 +31,7 @@ function BrandLink({
     <motion.div initial="rest" animate="rest" whileHover="hover">
       <Link
         href={href}
-        className="font-inter flex items-center gap-1.5 leading-6 tracking-tight overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 transition-transform duration-150 ease-in-out active:translate-y-0.5"
+        className="font-inter flex items-center gap-1.5 overflow-hidden leading-6 tracking-tight transition-transform duration-150 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 active:translate-y-0.5"
         style={{ width: LOGO_WIDTH }}
       >
         {children}
@@ -57,7 +57,7 @@ function LogoIcon({ children }: { children?: React.ReactNode }) {
 
 function BrandText({ children }: { children?: React.ReactNode }) {
   return (
-    <div className="relative flex items-center overflow-hidden -translate-y-px">
+    <div className="relative flex -translate-y-px items-center overflow-hidden">
       <motion.span
         className="whitespace-nowrap"
         variants={{

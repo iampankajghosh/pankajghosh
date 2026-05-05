@@ -33,7 +33,7 @@ function Footer() {
 
       <div className="border-border border-b">
         <Container>
-          <SubHeading className="mx-auto max-w-[90%] text-center text-sm sm:max-w-[75%] sm:text-base md:max-w-xl">
+          <SubHeading className="mx-auto max-w-xl text-center text-sm md:text-base">
             This portfolio is highly inspired by the{" "}
             <Link
               href="https://tailwindcss.com/"

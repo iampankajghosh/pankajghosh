@@ -61,13 +61,13 @@ export function AccordionTrigger({
     >
       <UnfoldMoreIcon
         className={cn(
-          "absolute size-5 shrink-0 fill-neutral-200 transition-transform duration-150 ease-out dark:fill-neutral-800",
+          "absolute size-5 shrink-0 transition-transform duration-150 ease-out",
           open ? "scale-0" : "scale-100",
         )}
       />
       <UnfoldLessIcon
         className={cn(
-          "absolute size-5 shrink-0 fill-neutral-200 transition-transform duration-150 ease-out dark:fill-neutral-800",
+          "absolute size-5 shrink-0 transition-transform duration-150 ease-out",
           open ? "scale-100" : "scale-0",
         )}
       />
@@ -87,7 +87,7 @@ export function AccordionContent({
   return (
     <motion.div
       initial={false}
-      animate={{ height: open ? "auto" : 72 }}
+      animate={{ height: open ? "auto" : 46 }}
       transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
       className={cn(
         "overflow-hidden",
