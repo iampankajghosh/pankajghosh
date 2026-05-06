@@ -59,14 +59,16 @@ function Stack() {
                   })
                 }
               >
-                <Image
-                  src={t.icon}
-                  alt=""
-                  width={12}
-                  height={12}
-                  draggable={false}
-                  className="pointer-events-none select-none"
-                />
+                <div className="relative size-3">
+                  <Image
+                    src={t.icon}
+                    alt=""
+                    fill
+                    sizes="12px"
+                    draggable={false}
+                    className="pointer-events-none select-none"
+                  />
+                </div>
                 <span className="font-ibm-plex-mono text-xs leading-none">
                   {t.name}
                 </span>
