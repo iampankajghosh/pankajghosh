@@ -91,7 +91,7 @@ export function AccordionContent({
       transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
       className={cn(
         "overflow-hidden",
-        open ? "mask-none" : "mask-b-from-0% mask-b-to-100%",
+        open ? "mask-none" : "mask-b-to-100%",
         className,
       )}
     >
