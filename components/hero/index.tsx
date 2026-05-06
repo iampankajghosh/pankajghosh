@@ -1,9 +1,25 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ClassNameLabel } from "../class-name-label";
 import { Container, ContainerFluid } from "../container";
 import { Heading } from "../heading";
+import { GithubIcon, Linkedin01Icon, Mail01Icon, XIcon } from "../icons";
 import { SubHeading } from "../sub-heading";
 import { Avatar } from "./avatar";
+import { socials } from "./data";
+
+const getSocialIcon = (name: string) => {
+  switch (name) {
+    case "linkedin":
+      return <Linkedin01Icon className="size-5" />;
+    case "github":
+      return <GithubIcon className="size-5" />;
+    case "x":
+      return <XIcon className="size-4.5" />;
+    case "email":
+      return <Mail01Icon className="size-5" />;
+  }
+};
 
 export function Hero() {
   return (
@@ -59,6 +75,25 @@ export function Hero() {
             If something you are building deserves that kind of attention, it
             would be great to connect.
           </SubHeading>
+        </Container>
+      </ContainerFluid>
+
+      <ContainerFluid />
+
+      <ContainerFluid>
+        <Container>
+          <div className="flex items-center px-2 md:justify-end md:px-0">
+            {socials.map((s) => (
+              <Link
+                key={s.id}
+                href={s.link}
+                target="_blank"
+                className="border-border flex size-9 items-center justify-center border-l transition-colors duration-200 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+              >
+                {getSocialIcon(s.name)}
+              </Link>
+            ))}
+          </div>
         </Container>
       </ContainerFluid>
     </section>
