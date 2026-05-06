@@ -1,4 +1,5 @@
 import Blogs from "@/components/blog";
+import { Certificates } from "@/components/certificates";
 import Experience from "@/components/experience";
 import Footer from "@/components/footer";
 import { Header } from "@/components/header";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Projects />
       <Experience />
       <Stack />
+      <Certificates />
       {/* <Blogs /> */}
       <Footer />
     </div>

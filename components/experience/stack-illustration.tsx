@@ -7,8 +7,8 @@ export function StackIllustration({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("h-[calc(100%-180px)] py-5", className)} {...props}>
-      <div className="flex flex-col justify-between h-full relative gap-1">
+    <div className={cn("h-[calc(100%-160px)] py-5", className)} {...props}>
+      <div className="relative flex h-full flex-col justify-between gap-1">
         <StackIcon />
         <ConnectorLines />
         <StackIcon />
@@ -25,7 +25,7 @@ export function StackIcon({
 }: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className={cn("w-10 shrink-0 sm:w-20 mx-auto", className)}
+      className={cn("mx-auto w-10 shrink-0 sm:w-20", className)}
       aria-hidden="true"
       fill="none"
       viewBox="0 0 120 72"
@@ -124,17 +124,17 @@ export function ConnectorLines({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("flex justify-center gap-8.5 flex-1", className)}
+      className={cn("flex flex-1 justify-center gap-8.5", className)}
       {...props}
     >
       <MixedVerticalLine
         solidRatio={0.4}
-        className="-translate-y-5 h-[calc(100%+39px)]"
+        className="h-[calc(100%+39px)] -translate-y-5"
       />
       <MixedVerticalLine solidRatio={0.2} />
       <MixedVerticalLine
         solidRatio={0.4}
-        className="-translate-y-5 h-[calc(100%+39px)]"
+        className="h-[calc(100%+39px)] -translate-y-5"
       />
     </div>
   );
@@ -150,7 +150,7 @@ export function MixedVerticalLine({
   ...props
 }: MixedLineProps) {
   return (
-    <div className={cn("flex flex-col h-full", className)} {...props}>
+    <div className={cn("flex h-full flex-col", className)} {...props}>
       <span
         style={{ flex: solidRatio }}
         className="block w-px bg-black/10 dark:bg-white/10"
