@@ -1,7 +1,8 @@
-import { ClassNameLabel } from "../class-name-label";
-import { Container, ContainerFluid } from "../container";
+import { AdaptiveValue, ClassLabel } from "../class-label";
+import { Container } from "../container";
 import { Heading } from "../heading";
-import { SectionLabel } from "../section-label";
+import { Row } from "../row";
+import { SectionTitle } from "../section-title";
 import {
   Card,
   CardBanner,
@@ -13,42 +14,45 @@ import {
 import { projects } from "./data";
 import { Grid, GridContainer } from "./grid";
 
-function Projects() {
+export function Projects() {
   return (
-    <section className="relative">
-      <ContainerFluid className="h-15 md:hidden" />
+    <section id="projects">
+      <Row size="lg" className="md:hidden" />
 
-      <ContainerFluid className="md:pointer-events-none md:absolute md:-z-1 md:w-full md:border-none">
+      <Row className="md:border-none">
         <Container className="md:relative">
-          <SectionLabel className="text-sky-500 md:absolute md:top-28.25 md:-left-29.75 md:-rotate-90 dark:text-sky-400">
+          <SectionTitle className="text-pink-500 dark:text-pink-400">
             What I&apos;ve Built
-          </SectionLabel>
+          </SectionTitle>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid className="md:hidden" />
+      <Row size="sm" className="md:hidden" />
 
-      <ContainerFluid className="hidden h-15 md:block">
-        <Container className="flex items-end py-1">
-          <ClassNameLabel>text-3xl leading-6</ClassNameLabel>
+      <Row size="lg" className="max-sm:hidden">
+        <Container variant="label">
+          <ClassLabel>
+            font-3xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}
+            <AdaptiveValue light="text-neutral-800" dark="text-neutral-200" />
+          </ClassLabel>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid>
+      <Row>
         <Container>
           <Heading>Things I actually built and shipped.</Heading>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid className="h-10">
-        <Container className="flex items-end py-1">
-          <ClassNameLabel>
-            grid grid-cols-1 md:grid-cols-2 gap-10
-          </ClassNameLabel>
+      <Row size="md">
+        <Container variant="label">
+          <ClassLabel>
+            grid <AdaptiveValue sm="grid-cols-1" lg="grid-cols-2" /> gap-10
+          </ClassLabel>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid>
+      <Row>
         <GridContainer>
           <Grid>
             {projects.map((project) => (
@@ -65,9 +69,7 @@ function Projects() {
             ))}
           </Grid>
         </GridContainer>
-      </ContainerFluid>
+      </Row>
     </section>
   );
 }
-
-export default Projects;

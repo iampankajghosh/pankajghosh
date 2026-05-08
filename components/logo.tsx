@@ -31,7 +31,7 @@ function BrandLink({
     <motion.div initial="rest" animate="rest" whileHover="hover">
       <Link
         href={href}
-        className="font-inter flex items-center gap-1.5 overflow-hidden leading-6 tracking-tight transition-transform duration-150 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 active:translate-y-0.5"
+        className="font-inter flex items-center gap-1.5 overflow-hidden leading-6 tracking-tight transition-transform duration-150 ease-in-out select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 active:translate-y-0.5"
         style={{ width: LOGO_WIDTH }}
       >
         {children}

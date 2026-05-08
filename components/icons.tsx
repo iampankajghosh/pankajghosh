@@ -1,28 +1,5 @@
 import { cn } from "@/lib/utils";
 
-export const GithubIcon = ({
-  className,
-  ...props
-}: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={cn("size-4", className)}
-    {...props}
-  >
-    <path
-      d="M6.5232 17.2177C6.91763 17.795 8.11469 19.0273 9.74754 19.3378M9.87014 22.1045C8.84168 21.9351 2.00586 19.7102 2.00586 12.1971C2.00586 5.16778 8.00776 2.10449 12.0066 2.10449C16.0055 2.10449 22.0059 5.16778 22.0059 12.1971C22.0059 19.7102 15.17 21.9351 14.1416 22.1045C14.1416 22.1045 13.9326 18.687 14.0545 18.1014C14.1764 17.5158 13.761 16.5733 13.761 16.5733C14.732 16.21 16.2101 15.6892 16.706 14.2919C17.0907 13.2076 17.3327 11.6333 16.2567 10.1534C16.2567 10.1534 16.5376 7.76258 16.0055 7.66997C15.4734 7.57736 13.9057 8.61642 13.9057 8.61642C13.4491 8.48697 12.4302 8.23925 12.0076 8.28389C11.5851 8.23925 10.5627 8.48697 10.1061 8.61642C10.1061 8.61642 8.53835 7.57736 8.00622 7.66997C7.47409 7.76258 7.75503 10.1534 7.75503 10.1534C6.67902 11.6333 6.92102 13.2076 7.30576 14.2919C7.80161 15.6892 9.2797 16.21 10.2507 16.5733C10.2507 16.5733 9.8353 17.5158 9.95721 18.1014C10.0791 18.687 9.87014 22.1045 9.87014 22.1045Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
 export const SettingsIcon = ({
   className,
   ...props
@@ -135,49 +112,6 @@ export const CancelIcon = ({
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-export const Linkedin01Icon = ({
-  className,
-  ...props
-}: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className={cn("size-4", className)}
-    {...props}
-  >
-    <path
-      d="M7 10V17"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M11 13V17M11 13C11 11.3431 12.3431 10 14 10C15.6569 10 17 11.3431 17 13V17M11 13V10"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M7.00801 7L6.99902 7"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z"
-      stroke="currentColor"
-      strokeWidth="1.5"
       strokeLinejoin="round"
     />
   </svg>

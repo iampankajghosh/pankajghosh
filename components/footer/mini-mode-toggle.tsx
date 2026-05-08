@@ -23,7 +23,7 @@ export function MiniModeToggle() {
   if (!mounted) return null;
 
   return (
-    <div className="inline-flex gap-0.5 rounded-full bg-gray-100 p-0.5 dark:bg-neutral-900">
+    <div className="inline-flex h-fit w-fit gap-0.5 rounded-full bg-gray-100 p-0.5 dark:bg-neutral-900">
       {modes.map((mode) => (
         <button
           key={mode.id}

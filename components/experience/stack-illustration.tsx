@@ -4,17 +4,19 @@ import { cn } from "@/lib/utils";
 
 export function StackIllustration({
   className,
-  ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("h-[calc(100%-160px)] py-5", className)} {...props}>
-      <div className="relative flex h-full flex-col justify-between gap-1">
-        <StackIcon />
-        <ConnectorLines />
-        <StackIcon />
-        <ConnectorLines />
-        <StackIcon />
-      </div>
+    <div
+      className={cn(
+        "relative flex h-[calc(100%-160px)] flex-col justify-between gap-1 py-6",
+        className,
+      )}
+    >
+      <StackIcon />
+      <ConnectorLines />
+      <StackIcon />
+      <ConnectorLines />
+      <StackIcon />
     </div>
   );
 }

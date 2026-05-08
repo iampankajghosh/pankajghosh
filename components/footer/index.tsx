@@ -1,61 +1,46 @@
 "use client";
 
 import { getCurrentYear } from "@/lib/date";
-import Link from "next/link";
-import { Container, ContainerFluid } from "../container";
-import { SubHeading } from "../sub-heading";
+import { Container } from "../container";
+import { Row } from "../row";
+import { SocialLink } from "../social-link";
+import { Text } from "../text";
 import { MiniModeToggle } from "./mini-mode-toggle";
 
-function Footer() {
+export function Footer() {
   return (
     <footer>
-      <ContainerFluid className="h-15" />
+      <Row size="lg" />
 
-      <div className="border-border border-b">
+      <Row>
         <Container>
-          <SubHeading className="mx-auto max-w-xl text-center text-sm md:text-base">
+          <Text className="mx-auto max-w-lg text-center">
             This portfolio is highly inspired by the{" "}
-            <Link
-              href="https://tailwindcss.com/"
-              target="_blank"
-              className="font-ibm-plex-mono font-[450] text-sky-500 dark:text-sky-400"
-            >
-              tailwindcss
-            </Link>{" "}
-            landing page. Designed and developed by{" "}
-            <Link
-              href="https://x.com/im_pankajghosh"
-              target="_blank"
-              className="font-ibm-plex-mono font-[450] text-sky-500 dark:text-sky-400"
-            >
+            <SocialLink href="https://tailwindcss.com">tailwindcss</SocialLink>.
+            Designed and developed by{" "}
+            <SocialLink href="https://x.com/im_pankajghosh">
               pankajghosh
-            </Link>
+            </SocialLink>
             . Open source on{" "}
-            <Link
-              href="https://github.com/iampankajghosh/pankajghosh"
-              target="_blank"
-              className="font-ibm-plex-mono font-[450] text-sky-500 dark:text-sky-400"
-            >
+            <SocialLink href="https://github.com/iampankajghosh/pankajghosh">
               github
-            </Link>
+            </SocialLink>
             .
-          </SubHeading>
+          </Text>
         </Container>
-      </div>
+      </Row>
 
-      <ContainerFluid className="h-15" />
+      <Row size="lg" />
 
-      <ContainerFluid className="h-30">
-        <Container className="flex h-fit flex-col items-start justify-between gap-4 px-5 py-6 md:flex-row">
+      <Row size="2xl">
+        <Container className="flex items-center justify-between px-6 py-4 max-sm:flex-col max-sm:items-start max-sm:px-4 max-sm:py-4">
           <MiniModeToggle />
 
-          <SubHeading className="px-0">
+          <Text className="px-0">
             Copyright © {getCurrentYear()} Pankaj Ghosh.
-          </SubHeading>
+          </Text>
         </Container>
-      </ContainerFluid>
+      </Row>
     </footer>
   );
 }
-
-export default Footer;
