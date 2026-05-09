@@ -14,7 +14,7 @@ export function Footer() {
 
       <Row>
         <Container>
-          <Text className="mx-auto max-w-lg text-center">
+          <Text className="text-center text-balance">
             This portfolio is highly inspired by the{" "}
             <SocialLink href="https://tailwindcss.com">tailwindcss</SocialLink>.
             Designed and developed by{" "}
