@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdaptiveValue, ClassLabel } from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
@@ -6,13 +7,12 @@ import { SectionTitle } from "../section-title";
 import {
   Card,
   CardBanner,
-  CardContent,
   CardDescription,
-  CardSkeleton,
+  CardHeader,
   CardTitle,
+  PreviewImage,
 } from "./card";
-import { projects } from "./data";
-import { Grid, GridContainer } from "./grid";
+import { PROJECTS } from "./data";
 
 export function Projects() {
   return (
@@ -52,23 +52,30 @@ export function Projects() {
         </Container>
       </Row>
 
-      <Row>
-        <GridContainer>
-          <Grid>
-            {projects.map((project) => (
-              <Card key={project.id} href={project.live} title={project.title}>
-                <CardSkeleton>
-                  <CardBanner src={project.banner} />
-                </CardSkeleton>
+      <Row className="after:bg-border before:bg-border relative overflow-x-hidden before:absolute before:inset-0 before:top-1/2 before:h-px before:-translate-y-5 before:content-[''] after:absolute after:inset-0 after:top-1/2 after:h-px after:translate-y-5 after:content-[''] max-sm:before:hidden max-sm:after:hidden">
+        <Container className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+          {PROJECTS.map((p) => (
+            <Link
+              key={p.id}
+              href={p.liveUrl}
+              target="_blank"
+              className="odd:border-border odd:after:bg-border even:after:bg-border even:border-border relative border-y first:border-t-0 last:border-b-0 odd:border-r odd:after:absolute odd:after:top-60 odd:after:right-0 odd:after:h-px odd:after:w-[200vw] odd:after:translate-x-1/2 odd:after:content-[''] even:border-l even:after:absolute even:after:top-62 even:after:left-0 even:after:h-px even:after:w-[200vw] even:after:-translate-x-1/2 even:after:content-[''] max-sm:before:hidden max-sm:after:hidden sm:border-0"
+            >
+              <Card>
+                <CardHeader className="border-border mb-2 border-b sm:border-0">
+                  <CardBanner src={p.bannerUrl}>
+                    <PreviewImage src={p.previewUrl} />
+                  </CardBanner>
+                </CardHeader>
 
-                <CardContent>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardContent>
+                <div className="border-border relative border-t py-2 sm:border-0">
+                  <CardTitle>{p.name}</CardTitle>
+                  <CardDescription>{p.tagline}</CardDescription>
+                </div>
               </Card>
-            ))}
-          </Grid>
-        </GridContainer>
+            </Link>
+          ))}
+        </Container>
       </Row>
     </section>
   );

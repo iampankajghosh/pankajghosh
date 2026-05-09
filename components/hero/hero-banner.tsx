@@ -5,7 +5,7 @@ export function HeroBanner({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative h-28 overflow-hidden mask-r-from-black mask-r-to-white/90 mask-r-to-60% mask-luminance max-sm:mx-2 md:h-35",
+        "relative h-full min-h-28 overflow-hidden rounded-md border border-white mask-r-from-black mask-r-to-white/80 mask-r-to-60% mask-luminance transition-[height] duration-150 ease-out max-sm:mx-2 dark:border-black",
         className,
       )}
     >

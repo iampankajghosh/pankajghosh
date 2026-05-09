@@ -5,7 +5,7 @@ export function Avatar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "border-border mx-2 size-28 overflow-hidden rounded-full border ring-1 ring-black/10 max-sm:mx-4 md:size-35 dark:ring-white/10",
+        "mx-2 size-28 overflow-hidden rounded-full border border-white ring-1 ring-black/10 transition-[height,width] duration-150 ease-out max-sm:mx-4 sm:size-35 dark:border-black dark:ring-white/10",
         className,
       )}
     >
