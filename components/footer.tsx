@@ -1,11 +1,11 @@
 "use client";
 
 import { getCurrentYear } from "@/lib/date";
-import { Container } from "../container";
-import { Row } from "../row";
-import { SocialLink } from "../social-link";
-import { Text } from "../text";
-import { MiniModeToggle } from "./mini-mode-toggle";
+import { Container } from "./container";
+import { Row } from "./row";
+import { SocialLink } from "./social-link";
+import { Text } from "./text";
+import { MiniModeToggle } from "./mode-toggle";
 
 export function Footer() {
   return (
