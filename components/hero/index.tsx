@@ -53,14 +53,14 @@ export function Hero() {
       </Row>
 
       <Row>
-        <Container>
-          <Text className="mb-3">
+        <Container className="grid grid-cols-1 gap-3">
+          <Text>
             Frontend has always felt less like a job and more like a craft to
             me. The kind where you are never really done learning and somehow
             that never gets old.
           </Text>
 
-          <Text className="mb-3">
+          <Text>
             I obsess over the details that most people never notice but always
             feel. The 2px misalignment bothers me. That is just how I work.
           </Text>

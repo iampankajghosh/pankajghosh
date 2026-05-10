@@ -35,8 +35,8 @@ export function useAccordion() {
 }
 
 export function AccordionTrigger({
-  className,
   label,
+  className,
 }: {
   className?: string;
   label?: string;
@@ -46,7 +46,7 @@ export function AccordionTrigger({
   return (
     <Button
       size="icon"
-      variant="outline"
+      variant="ghost"
       onClick={() => {
         const next = !open;
         setOpen(next);
@@ -54,10 +54,7 @@ export function AccordionTrigger({
           posthog.capture("experience_expanded", { company: label });
         }
       }}
-      className={cn(
-        "relative transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100 md:scale-0 md:opacity-0",
-        className,
-      )}
+      className={cn("relative", className)}
     >
       <UnfoldMoreIcon
         className={cn(
@@ -88,7 +85,7 @@ export function AccordionContent({
     <motion.div
       initial={false}
       animate={{ height: open ? "auto" : 46 }}
-      transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
       className={cn(
         "overflow-hidden",
         open ? "mask-none" : "mask-b-to-100%",
