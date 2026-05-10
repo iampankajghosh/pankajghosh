@@ -11,9 +11,9 @@ import {
 import { Container } from "./container";
 import { SettingsIcon } from "./icons";
 import { Logo } from "./logo";
+import { ModeToggle } from "./mode-toggle";
 import { Row } from "./row";
 import { FontToggle } from "./settings/font-toggle";
-import { ModeToggle } from "./settings/mode-toggle";
 
 export function Header() {
   return (

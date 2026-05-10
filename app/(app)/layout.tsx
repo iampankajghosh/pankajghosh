@@ -1,16 +1,10 @@
 import { Pattern } from "@/components/pattern";
-import {
-  geist,
-  ibmPlexMono,
-  inter,
-  manrope,
-  plusJakartaSans,
-  spaceGrotesk,
-} from "@/lib/fonts";
+import { allFontVariables } from "@/lib/fonts";
 import { FontProvider } from "@/providers/font-provider";
-import { ThemeProvider } from "@/providers/theme-provider";
+import ThemeProvider from "@/providers/theme-provider";
 import type { Metadata } from "next";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Pankaj Ghosh",
@@ -25,7 +19,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geist.variable} ${manrope.variable} ${plusJakartaSans.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable} h-full antialiased [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10`}
+      className={cn(
+        allFontVariables,
+        "h-full antialiased [--pattern-fg:var(--color-black)]/5 dark:[--pattern-fg:var(--color-white)]/10",
+      )}
       suppressHydrationWarning
     >
       <body className="bg-background text-foreground selection:text-foreground flex min-h-full min-w-[320px] flex-col selection:bg-neutral-500/20">
