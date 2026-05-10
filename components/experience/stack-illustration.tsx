@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 
 export function StackIllustration({
@@ -8,7 +6,7 @@ export function StackIllustration({
   return (
     <div
       className={cn(
-        "relative flex h-[calc(100%-160px)] flex-col justify-between gap-1 py-6",
+        "relative flex h-[calc(100%-120px)] flex-col justify-between gap-1 py-6",
         className,
       )}
     >

@@ -4,21 +4,28 @@ import {
   AccordionProvider,
   AccordionTrigger,
 } from "../accordion";
+import { Badge } from "../badge";
 import { AdaptiveValue, ClassLabel } from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
 import { Row } from "../row";
 import { SectionTitle } from "../section-title";
 import {
-  Card,
-  CardBody,
-  CardHeader,
-  CardTitle,
-  CompanyLogo,
-  GroupCard,
-  StatusDot,
+  ActiveStatusPulse,
+  ExperienceBody,
+  ExperienceBullet,
+  ExperienceBulletList,
+  ExperienceDesignation,
+  ExperienceGroup,
+  ExperienceHeader,
+  ExperienceItem,
+  ExperienceLocation,
+  ExperienceLogo,
+  ExperienceMetadata,
+  ExperienceTitle,
+  VerticalSeparator,
 } from "./card";
-import { experience } from "./data";
+import { EXPERIENCE } from "./data";
 import { StackIllustration } from "./stack-illustration";
 
 export function Experience() {
@@ -61,80 +68,67 @@ export function Experience() {
 
       <Row>
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-13">
+          <div className="grid grid-cols-1 md:grid-cols-14">
             <StackIllustration className="max-sm:hidden md:col-span-3" />
 
-            <GroupCard className="border-border border-l md:col-span-10">
-              {experience.map((exp) => (
+            <ExperienceGroup className="border-border border-l md:col-span-11">
+              {EXPERIENCE.map((exp) => (
                 <AccordionProvider key={exp.id}>
-                  <Card className="group">
-                    <CardHeader>
-                      <CompanyLogo src={exp.logo} />
+                  <ExperienceItem>
+                    <ExperienceHeader>
+                      <ExperienceLogo src={exp.logo} />
 
                       <div className="flex-1">
                         <div className="flex items-center gap-3">
-                          <CardTitle>{exp.company}</CardTitle>
-                          <StatusDot date={exp.duration} />
+                          <ExperienceTitle>{exp.company}</ExperienceTitle>
+                          <ActiveStatusPulse date={exp.duration} />
                         </div>
-                        <p className="text-foreground/80 text-xs">
-                          {exp.location}
-                        </p>
+                        <ExperienceLocation>{exp.location}</ExperienceLocation>
                       </div>
 
-                      <AccordionTrigger label={exp.company} />
-                    </CardHeader>
+                      <AccordionTrigger
+                        label={exp.company}
+                        className="translate-x-2 max-sm:translate-x-0"
+                      />
+                    </ExperienceHeader>
 
-                    <CardBody>
-                      <div className="mb-5 px-3">
-                        <p className="text-sm font-[450]">{exp.designation}</p>
+                    <ExperienceBody>
+                      <div className="mb-2 flex justify-between px-3 max-sm:flex-col">
+                        <ExperienceDesignation>
+                          {exp.designation}
+                        </ExperienceDesignation>
 
                         <div className="flex items-center gap-3">
-                          <p className="text-foreground/80 text-[13px]">
-                            {exp.type}
-                          </p>
-
-                          <span className="h-4 w-px bg-black/10 dark:bg-white/10" />
-
-                          <p className="text-foreground/80 text-[13px]">
+                          <ExperienceMetadata>{exp.type}</ExperienceMetadata>
+                          <VerticalSeparator />
+                          <ExperienceMetadata>
                             {exp.duration}
-                          </p>
-
-                          <span className="h-4 w-px bg-black/10 dark:bg-white/10" />
-
-                          <p className="text-foreground/80 text-[13px]">
+                          </ExperienceMetadata>
+                          <VerticalSeparator />
+                          <ExperienceMetadata>
                             {getShortDuration(exp.duration)}
-                          </p>
+                          </ExperienceMetadata>
                         </div>
                       </div>
 
                       <AccordionContent className="mb-5">
-                        <ul className="px-3">
+                        <ExperienceBulletList>
                           {exp.description.map((d, idx) => (
-                            <li key={idx} className="group flex gap-3">
-                              <span className="bg-foreground/20 block size-1.5 shrink-0 translate-y-1.75" />
-                              <p className="text-foreground/80 mb-2 text-sm text-wrap">
-                                {d}
-                              </p>
-                            </li>
+                            <ExperienceBullet key={idx}>{d}</ExperienceBullet>
                           ))}
-                        </ul>
+                        </ExperienceBulletList>
                       </AccordionContent>
 
                       <div className="mb-2 flex flex-wrap items-center gap-2 px-3">
                         {exp.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="border-border bg-foreground/4 font-ibm-plex-mono rounded-md border px-2 py-1 text-xs leading-none inset-shadow-sm inset-shadow-black/2"
-                          >
-                            {t}
-                          </span>
+                          <Badge key={t}>{t}</Badge>
                         ))}
                       </div>
-                    </CardBody>
-                  </Card>
+                    </ExperienceBody>
+                  </ExperienceItem>
                 </AccordionProvider>
               ))}
-            </GroupCard>
+            </ExperienceGroup>
           </div>
         </Container>
       </Row>

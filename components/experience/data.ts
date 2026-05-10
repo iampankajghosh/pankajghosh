@@ -1,6 +1,6 @@
-export const experience = [
+export const EXPERIENCE = [
   {
-    id: "1",
+    id: "freelance-frontend-developer",
     logo: "",
     company: "Freelance",
     designation: "Frontend Developer",
@@ -8,7 +8,7 @@ export const experience = [
     location: "Kolkata, India",
     type: "Full-Time",
     description: [
-      "Between gigs, I kept building. Nexus Dark started as a VS Code theme I made for myself and it now has 1.5k+ downloads on Open VSX, which still feels surreal.",
+      "Between gigs, I kept building. Nexus Dark started as a VS Code theme I made for myself and it now has 1.6k+ downloads on Open VSX, which still feels surreal.",
       "Sonner Patterns came out of frustration with copy-pasting toast logic across projects, so I turned it into an open source collection of production-ready patterns built on Sonner.",
       "Right now I'm deep in Sparkflo, a node-based canvas for building AI workflows with a focus on developer experience and visual clarity.",
       "I'm open to full-time roles and freelance work. Frontend is where I live, open source is where I think out loud.",
@@ -17,8 +17,8 @@ export const experience = [
   },
 
   {
-    id: "2",
-    logo: "https://media.licdn.com/dms/image/v2/C510BAQEFq9G1hU3-oA/company-logo_100_100/company-logo_100_100/0/1630571378203?e=1779321600&v=beta&t=Nm6o8_MfvpTy0DRFKTHr1KmH1t4li1oKfVE1U-J-Yck",
+    id: "klizo-solutions-frontend-developer",
+    logo: "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/klizos-kbFDjzHPg1NyOTFVxrDXbUHPLJFQZj.jpeg",
     company: "Klizo Solutions Pvt Ltd",
     designation: "Frontend Developer",
     duration: "09.2024 - 01.2026",
@@ -31,20 +31,12 @@ export const experience = [
       "Refactored an investor-facing SaaS into a modular React-Bootstrap architecture, improving load speed and UX flow by 30%.",
       "Built a marketing site from zero in vanilla JS and Tailwind, no framework overhead, shipped 40% faster than estimated.",
     ],
-    tech: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "Node.js",
-      "Express.js",
-      "Shadcn UI",
-    ],
+    tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Node.js"],
   },
 
   {
-    id: "3",
-    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQGjKb2rERHHCA/company-logo_100_100/company-logo_100_100/0/1699957562283?e=1779321600&v=beta&t=ynGhIpkklKgpwT5oBtCuCZBHF0Qii80LwxzZAbGS9Gs",
+    id: "sikharthy-infotech-software-engineer",
+    logo: "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/sikharthy-il01nPOMyvggHh9Y5NZsMHtjXwGYyQ.jpeg",
     company: "Sikharthy Infotech Pvt. Ltd.",
     designation: "Software Engineer",
     duration: "06.2023 - 09.2024",
