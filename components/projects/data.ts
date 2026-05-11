@@ -4,7 +4,7 @@ export const PROJECTS = [
     name: "Sparkflo",
     tagline: "Node-based canvas for building workflows.",
     bannerUrl:
-      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/bg-2-YI0rO7ZXTGgvb5bXJWaQ6KJYGnUCva.jpeg",
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/card-banner-2-vEONdwDTjhDfzhJncmffbwGBiqHZ6D.png",
     previewUrl:
       "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/projects/sparkflo-UKdij4Ok76AhQ9YXJhhF9HpIufK1NY.png",
     liveUrl: "https://sparkflo.pankajghosh.in",
@@ -15,7 +15,7 @@ export const PROJECTS = [
     name: "Nexus Dark",
     tagline: "VS Code theme focused on readability.",
     bannerUrl:
-      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/bg-1-NJLN0y8FuF5jdG8a4VfCcvNijKeM68.png",
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/card-banner-1-tSpm54tXoSoWBoTEHb8Um569PVanTk.png",
     previewUrl:
       "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/projects/nexus-dark-EVVgDOmeQH9GwtMql2gLudtrQP23fg.png",
     liveUrl: "https://open-vsx.org/extension/pankajghosh/nexus-dark",
@@ -26,7 +26,7 @@ export const PROJECTS = [
     name: "Sonner Patterns",
     tagline: "A refined collection of sonner toast patterns.",
     bannerUrl:
-      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/bg-4-GEzEwjmFFyywC5Y1pjqTVl2D6UulRc.jpeg",
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/card-banner-1-tSpm54tXoSoWBoTEHb8Um569PVanTk.png",
     previewUrl:
       "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/projects/sonner-patterns-4XXpvHGR4Muh22Q6DbanUCGEBYG7tz.png",
     liveUrl: "https://sonner-patterns.pankajghosh.in",
@@ -37,7 +37,7 @@ export const PROJECTS = [
     name: "Secure Speak",
     tagline: "Sharing honest feedback securely.",
     bannerUrl:
-      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/bg-3-0ocjogM70G1mZnkFHqoWmjqZ21lrcN.jpeg",
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/card-banner-2-vEONdwDTjhDfzhJncmffbwGBiqHZ6D.png",
     previewUrl:
       "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/projects/secure-speak-FK6jZtRUw5RAQMd9ukBb8NKi4ZdZ4R.png",
     liveUrl: "https://secure-speak.vercel.app",

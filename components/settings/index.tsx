@@ -74,7 +74,6 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
   const { open, setOpen } = useSettingsMenu();
   const ref = useRef<HTMLDivElement>(null);
 
-  // close menu on click outside
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (!open) return;
@@ -90,7 +89,6 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
     };
   }, [open, setOpen]);
 
-  // close menu on escape
   useEffect(() => {
     function handleEscape(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -104,17 +102,37 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
     };
   }, [setOpen]);
 
-  // open menu on ctrl + ,
   useEffect(() => {
+    let pressedG = false;
+
     function handleShortcut(e: KeyboardEvent) {
-      if ((e.ctrlKey || e.metaKey) && e.key === ",") {
+      const key = e.key.toLowerCase();
+
+      if (key === "g") {
+        pressedG = true;
+
+        setTimeout(() => {
+          pressedG = false;
+        }, 1000);
+
+        return;
+      }
+
+      if (pressedG && key === "s") {
         e.preventDefault();
+
         setOpen(true);
-        posthog.capture("settings_opened", { trigger: "keyboard_shortcut" });
+
+        posthog.capture("settings_opened", {
+          trigger: "keyboard_shortcut",
+        });
+
+        pressedG = false;
       }
     }
 
     document.addEventListener("keydown", handleShortcut);
+
     return () => {
       document.removeEventListener("keydown", handleShortcut);
     };

@@ -17,6 +17,18 @@ function useThemeSync() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  const updateTheme = useCallback(
+    (newTheme: string) => {
+      setTheme(newTheme);
+
+      posthog.capture("theme_changed", {
+        theme: newTheme,
+        previous_theme: theme,
+      });
+    },
+    [setTheme, theme],
+  );
+
   const handleChange = useCallback(
     (e: MediaQueryListEvent) => {
       if (theme === "system") {
@@ -26,20 +38,34 @@ function useThemeSync() {
     [theme, setTheme],
   );
 
+  const handleShortcut = useCallback(
+    (e: KeyboardEvent) => {
+      if (
+        (e.metaKey || e.ctrlKey) &&
+        e.shiftKey &&
+        e.key.toLowerCase() === "l"
+      ) {
+        e.preventDefault();
+
+        updateTheme(theme === "dark" ? "light" : "dark");
+      }
+    },
+    [theme, updateTheme],
+  );
+
   useEffect(() => {
     setMounted(true);
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [handleChange]);
 
-  const updateTheme = (newTheme: string) => {
-    setTheme(newTheme);
-    posthog.capture("theme_changed", {
-      theme: newTheme,
-      previous_theme: theme,
-    });
-  };
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    mediaQuery.addEventListener("change", handleChange);
+    window.addEventListener("keydown", handleShortcut);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+      window.removeEventListener("keydown", handleShortcut);
+    };
+  }, [handleChange, handleShortcut]);
 
   return { theme, updateTheme, mounted };
 }
