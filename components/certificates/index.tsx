@@ -12,10 +12,14 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
+  CardMetadata,
   CardSkeleton,
   CardTitle,
+  OrganizationBadge,
+  PreviewImage,
+  VerticalSeparator,
 } from "./card";
-import { certificates } from "./data";
+import { CERTIFICATES } from "./data";
 
 export function Certificates() {
   return (
@@ -56,7 +60,7 @@ export function Certificates() {
       <Row>
         <Container>
           <div className="grid grid-cols-1">
-            {certificates.map((c) => (
+            {CERTIFICATES.map((c) => (
               <Link
                 key={c.id}
                 href={c.link}
@@ -65,49 +69,28 @@ export function Certificates() {
               >
                 <Card className="group-hover:bg-neutral-400/10 dark:group-hover:bg-neutral-600/10">
                   <CardSkeleton>
-                    <CardBanner>
-                      <Image
-                        src={c.banner}
-                        alt=""
-                        className="rounded-xs object-cover object-top"
-                        draggable={false}
-                        fill
-                        sizes="179px"
-                      />
+                    <CardBanner src={c.bannerUrl}>
+                      <PreviewImage src={c.previewUrl} />
                     </CardBanner>
                   </CardSkeleton>
+
                   <CardContent>
                     <CardHeader>
-                      <div>
+                      <div className="mb-3">
                         <CardTitle>{c.name}</CardTitle>
 
-                        <div className="mb-4 flex items-center gap-3">
-                          <div className="flex items-center gap-1.5">
-                            <div className="relative size-3 overflow-hidden">
-                              <Image
-                                src={c.organization.logo}
-                                alt=""
-                                fill
-                                sizes="12px"
-                                draggable={false}
-                                className="pointer-events-none object-cover"
-                              />
-                            </div>
+                        <div className="flex items-center gap-3">
+                          <OrganizationBadge org={c.organization} />
 
-                            <CardDescription className="text-[13px]">
-                              {c.organization.title}
-                            </CardDescription>
-                          </div>
+                          <VerticalSeparator />
 
-                          <span className="h-4 w-px bg-black/10 dark:bg-white/10" />
-
-                          <CardDescription className="text-[13px]">
+                          <CardMetadata className="text-[13px]">
                             {c.date}
-                          </CardDescription>
+                          </CardMetadata>
                         </div>
                       </div>
 
-                      <ArrowUpRightIcon className="size-5 translate-x-2 text-neutral-600 transition-transform duration-300 ease-in-out group-hover:rotate-45" />
+                      <ArrowUpRightIcon className="size-5 translate-x-2 text-neutral-600 transition-[rotate,color] duration-300 ease-in-out group-hover:rotate-45 group-hover:text-neutral-800 dark:text-neutral-400 dark:group-hover:text-neutral-300" />
                     </CardHeader>
 
                     <CardDescription className="text-foreground/80">

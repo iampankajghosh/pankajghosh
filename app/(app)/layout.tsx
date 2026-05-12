@@ -29,9 +29,6 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <FontProvider>{children}</FontProvider>
         </ThemeProvider>
-
-        <Pattern className="-left-8 sm:left-1/2 sm:-translate-x-94" />
-        <Pattern className="-right-8 sm:right-1/2 sm:translate-x-94" />
       </body>
     </html>
   );

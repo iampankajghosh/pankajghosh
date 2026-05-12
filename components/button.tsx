@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 const buttonVariants = cva(
-  "cursor-pointer inline-flex items-center justify-center text-sm transition-all duration-150 ease-out select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 rounded-md",
+  "cursor-pointer inline-flex items-center justify-center text-sm transition-[transform] duration-150 ease-out select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 rounded-md",
   {
     variants: {
       variant: {
@@ -46,7 +46,7 @@ export function Button({
 
   React.useEffect(() => {
     clickSoundRef.current = new Audio(
-      "https://res.cloudinary.com/ddws3mapm/video/upload/v1778092568/click_znkmxk.mp3",
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/sounds/click-TmKA0dWx6pzrULf44iAEBXU8FaPJBk.mp3",
     );
   }, []);
 
@@ -60,7 +60,7 @@ export function Button({
   };
 
   return (
-    <div className="group size-fit">
+    <div className="group">
       <Comp
         className={cn(buttonVariants({ variant, size }), className)}
         onClick={handleClick}
