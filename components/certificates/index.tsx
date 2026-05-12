@@ -24,19 +24,19 @@ import { CERTIFICATES } from "./data";
 export function Certificates() {
   return (
     <section id="certificates">
-      <Row size="lg" className="md:hidden" />
+      <Row size="lg" className="lg:hidden" />
 
-      <Row className="md:border-none">
-        <Container className="md:relative">
+      <Row className="lg:border-none">
+        <Container className="lg:relative">
           <SectionTitle className="text-pink-600 dark:text-pink-500">
             What I&apos;ve Earned
           </SectionTitle>
         </Container>
       </Row>
 
-      <Row size="sm" className="md:hidden" />
+      <Row size="sm" className="lg:hidden" />
 
-      <Row size="lg" className="max-sm:hidden">
+      <Row size="lg" className="max-lg:hidden">
         <Container variant="label">
           <ClassLabel>
             font-3xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}

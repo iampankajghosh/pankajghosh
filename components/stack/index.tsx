@@ -14,19 +14,19 @@ import { TECH } from "./data";
 export function Stack() {
   return (
     <section id="stack">
-      <Row size="lg" className="md:hidden" />
+      <Row size="lg" className="lg:hidden" />
 
-      <Row className="md:border-none">
-        <Container className="md:relative">
+      <Row className="lg:border-none">
+        <Container className="lg:relative">
           <SectionTitle className="text-fuchsia-500 dark:text-fuchsia-400">
             Tech Stack
           </SectionTitle>
         </Container>
       </Row>
 
-      <Row size="sm" className="md:hidden" />
+      <Row size="sm" className="lg:hidden" />
 
-      <Row size="lg" className="max-sm:hidden">
+      <Row size="lg" className="max-lg:hidden">
         <Container variant="label">
           <ClassLabel>
             font-3xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}
