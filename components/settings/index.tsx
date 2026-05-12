@@ -25,7 +25,7 @@ export function useSettingsMenu() {
 }
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <SettingsContext.Provider value={{ open, setOpen }}>
