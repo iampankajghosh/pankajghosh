@@ -33,23 +33,15 @@ export const seoMetadata: Metadata = {
   ],
 
   authors: [{ name: siteConfig.name }],
-
   creator: siteConfig.name,
-  publisher: siteConfig.name,
 
   alternates: {
     canonical: "/",
   },
 
   robots: isProduction
-    ? {
-        index: true,
-        follow: true,
-      }
-    : {
-        index: false,
-        follow: false,
-      },
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
 
   openGraph: {
     title: siteConfig.name,
@@ -57,7 +49,6 @@ export const seoMetadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     type: "website",
-
     images: [
       {
         url: `${siteConfig.url}/opengraph-image.png`,
