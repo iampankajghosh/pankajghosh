@@ -74,7 +74,7 @@ export function ModeToggle() {
   const { theme, updateTheme, mounted } = useThemeSync();
 
   return (
-    <div className="flex items-center gap-1 rounded-lg bg-neutral-100 p-1 inset-shadow-sm dark:bg-neutral-800">
+    <div className="flex items-center gap-1 rounded-md bg-neutral-100 p-px dark:bg-neutral-800">
       {THEME_OPTIONS.map((t) => {
         const isActive = mounted && theme === t.id;
 
@@ -82,17 +82,15 @@ export function ModeToggle() {
           <button
             key={t.id}
             className={cn(
-              "group relative flex h-7 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-md px-2 text-neutral-600 transition-colors duration-200 ease-out outline-none dark:text-neutral-400",
-              isActive
-                ? "text-foreground"
-                : "hover:text-neutral-900 dark:hover:text-neutral-200",
+              "group relative flex h-8 flex-1 cursor-pointer items-center justify-center gap-1.5 px-2 text-neutral-600 transition-colors duration-200 ease-out outline-none dark:text-neutral-400",
+              isActive && "text-neutral-800 dark:text-neutral-200",
             )}
             onClick={() => updateTheme(t.id)}
           >
             {isActive && (
               <motion.div
                 layoutId="active-theme-pill"
-                className="absolute inset-0 rounded-md bg-white shadow-sm dark:bg-neutral-900"
+                className="absolute inset-0 rounded-md bg-white shadow-sm inset-shadow-sm inset-shadow-white dark:bg-neutral-900 dark:inset-shadow-white/15"
                 transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
               />
             )}

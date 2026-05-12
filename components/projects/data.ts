@@ -1,4 +1,14 @@
-export const PROJECTS = [
+type Project = {
+  id: string;
+  name: string;
+  tagline: string;
+  bannerUrl: string;
+  previewUrl: string;
+  liveUrl: string;
+  repositoryUrl: string;
+};
+
+export const PROJECTS: Project[] = [
   {
     id: "sparkflo",
     name: "Sparkflo",

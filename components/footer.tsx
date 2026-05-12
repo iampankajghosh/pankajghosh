@@ -2,10 +2,10 @@
 
 import { getCurrentYear } from "@/lib/date";
 import { Container } from "./container";
+import { MiniModeToggle } from "./mode-toggle";
 import { Row } from "./row";
 import { SocialLink } from "./social-link";
 import { Text } from "./text";
-import { MiniModeToggle } from "./mode-toggle";
 
 export function Footer() {
   return (
@@ -36,7 +36,7 @@ export function Footer() {
         <Container className="flex items-center justify-between px-6 py-4 max-sm:flex-col max-sm:items-start max-sm:px-4 max-sm:py-4">
           <MiniModeToggle />
 
-          <Text className="px-0">
+          <Text className="px-0 max-sm:px-0">
             Copyright © {getCurrentYear()} Pankaj Ghosh.
           </Text>
         </Container>

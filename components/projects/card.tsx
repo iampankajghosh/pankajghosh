@@ -11,7 +11,7 @@ export function Card({
   return (
     <div
       className={cn(
-        "group transition-colors duration-150 ease-out hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50",
+        "group touch-manipulation transition-colors duration-150 ease-out hover:bg-neutral-200/50 active:bg-neutral-200/50 dark:hover:bg-neutral-800/50 dark:active:bg-neutral-800/50",
         className,
       )}
     >
@@ -55,7 +55,7 @@ export function CardBanner({
 
 export function PreviewImage({ src }: { src: string }) {
   return (
-    <div className="absolute inset-0 origin-[center_center] translate-x-1/10 translate-y-1/8 scale-110 rotate-x-10 rotate-y-20 -rotate-z-8 overflow-hidden rounded-md bg-neutral-200 ring-5 ring-black/10 duration-350 ease-out will-change-transform group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 dark:bg-neutral-800">
+    <div className="absolute inset-0 origin-[center_center] translate-x-1/10 translate-y-1/8 scale-110 rotate-x-10 rotate-y-20 -rotate-z-8 overflow-hidden rounded-md bg-neutral-200 ring-5 ring-black/10 duration-350 ease-out will-change-transform group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 dark:bg-neutral-800">
       <Image
         src={src}
         alt=""

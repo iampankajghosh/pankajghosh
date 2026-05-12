@@ -25,7 +25,7 @@ export function useSettingsMenu() {
 }
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <SettingsContext.Provider value={{ open, setOpen }}>
@@ -46,27 +46,17 @@ export function SettingsTrigger({ children }: { children: React.ReactNode }) {
   const { open, setOpen } = useSettingsMenu();
 
   return (
-    <motion.div initial="rest" whileHover="hover">
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={() => {
-          setOpen(true);
-          posthog.capture("settings_opened", { trigger: "button" });
-        }}
-        disabled={open}
-      >
-        <motion.span
-          variants={{
-            rest: { rotate: 0 },
-            hover: { rotate: 145 },
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-          {children}
-        </motion.span>
-      </Button>
-    </motion.div>
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={() => {
+        setOpen(true);
+        posthog.capture("settings_opened", { trigger: "button" });
+      }}
+      disabled={open}
+    >
+      {children}
+    </Button>
   );
 }
 
@@ -150,7 +140,7 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
       transition={{ duration: 0.3, type: "spring", bounce: 0.2 }}
       style={{ originX: 1, originY: 0 }}
       className={cn(
-        "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-md dark:border-neutral-700 dark:bg-neutral-800",
+        "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-xl dark:border-neutral-700 dark:bg-neutral-800",
         open ? "pointer-events-auto" : "pointer-events-none",
       )}
     >
@@ -163,7 +153,7 @@ export function SettingsHeader({ children }: { children: React.ReactNode }) {
   const { setOpen } = useSettingsMenu();
 
   return (
-    <div className="flex h-11 items-center justify-between px-2">
+    <div className="border-border relative flex h-12 items-center justify-between border-b border-dashed px-2 before:absolute before:right-0 before:bottom-0 before:z-10 before:size-2 before:translate-x-1/2 before:translate-y-1/2 before:rounded-full before:bg-white before:ring-1 before:ring-neutral-200 before:content-[''] after:absolute after:bottom-0 after:left-0 after:z-10 after:size-2 after:-translate-x-1/2 after:translate-y-1/2 after:rounded-full after:bg-white after:ring-1 after:ring-neutral-200 after:content-[''] dark:before:bg-neutral-900 dark:before:ring-white/20 dark:after:bg-neutral-900 dark:after:ring-white/20">
       <div className="flex items-center gap-1.5">{children}</div>
 
       <Button variant="outline" size="icon" onClick={() => setOpen(false)}>
@@ -179,7 +169,7 @@ export function SettingsHeading({ children }: { children: React.ReactNode }) {
 
 export function SettingsMenu({ children }: { children: React.ReactNode }) {
   return (
-    <div className="border-border flex-1 rounded-lg border-t bg-white py-1 shadow-sm dark:bg-neutral-900">
+    <div className="border-border flex-1 bg-white py-1 shadow-sm dark:bg-neutral-900">
       {children}
     </div>
   );
