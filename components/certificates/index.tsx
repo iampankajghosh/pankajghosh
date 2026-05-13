@@ -1,109 +1,105 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import { ClassNameLabel } from "../class-name-label";
-import { Container, ContainerFluid } from "../container";
+import posthog from "posthog-js";
+import { AdaptiveValue, ClassLabel } from "../class-label";
+import { Container } from "../container";
 import { Heading } from "../heading";
 import { ArrowUpRightIcon } from "../icons";
-import { SectionLabel } from "../section-label";
+import { Row } from "../row";
+import { SectionTitle } from "../section-title";
 import {
   Card,
   CardBanner,
   CardContent,
   CardDescription,
   CardHeader,
+  CardMetadata,
   CardSkeleton,
   CardTitle,
+  OrganizationBadge,
+  PreviewImage,
+  VerticalSeparator,
 } from "./card";
-import { certificates } from "./data";
+import { CERTIFICATES } from "./data";
 
 export function Certificates() {
   return (
-    <section className="relative">
-      <ContainerFluid className="h-15 md:hidden" />
+    <section id="certificates">
+      <Row size="lg" className="lg:hidden" />
 
-      <ContainerFluid className="md:pointer-events-none md:absolute md:-z-1 md:w-full md:border-none">
-        <Container className="md:relative">
-          <SectionLabel className="text-fuchsia-500 md:absolute md:top-29.25 md:-left-30.75 md:-rotate-90 dark:text-fuchsia-400">
+      <Row className="lg:border-none">
+        <Container className="lg:relative">
+          <SectionTitle className="text-pink-600 dark:text-pink-500">
             What I&apos;ve Earned
-          </SectionLabel>
+          </SectionTitle>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid className="md:hidden" />
+      <Row size="sm" className="lg:hidden" />
 
-      <ContainerFluid className="hidden h-15 md:block">
-        <Container className="flex items-end py-1">
-          <ClassNameLabel>text-3xl leading-6</ClassNameLabel>
+      <Row size="lg" className="max-lg:hidden">
+        <Container variant="label">
+          <ClassLabel>
+            font-3xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}
+            <AdaptiveValue light="text-neutral-800" dark="text-neutral-200" />
+          </ClassLabel>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid>
+      <Row>
         <Container>
           <Heading>Proof of the things I took time to learn.</Heading>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid className="h-10">
-        <Container className="flex items-end py-1">
-          <ClassNameLabel>grid grid-cols-1 md:grid-cols-2</ClassNameLabel>
+      <Row size="md">
+        <Container variant="label">
+          <ClassLabel>grid grid-cols-1</ClassLabel>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid>
+      <Row>
         <Container>
           <div className="grid grid-cols-1">
-            {certificates.map((c) => (
+            {CERTIFICATES.map((c) => (
               <Link
                 key={c.id}
                 href={c.link}
                 target="_blank"
                 className="border-border group block border-b last:border-b-0"
+                onClick={() =>
+                  posthog.capture("certificate_link_clicked", {
+                    certificate_name: c.name,
+                    organization: c.organization,
+                    url: c.link,
+                  })
+                }
               >
                 <Card className="group-hover:bg-neutral-400/10 dark:group-hover:bg-neutral-600/10">
                   <CardSkeleton>
-                    <CardBanner>
-                      <Image
-                        src={c.banner}
-                        alt=""
-                        className="rounded-xs object-cover object-top"
-                        draggable={false}
-                        fill
-                        sizes="179px"
-                      />
+                    <CardBanner src={c.bannerUrl}>
+                      <PreviewImage src={c.previewUrl} />
                     </CardBanner>
                   </CardSkeleton>
+
                   <CardContent>
                     <CardHeader>
-                      <div>
+                      <div className="mb-3">
                         <CardTitle>{c.name}</CardTitle>
 
-                        <div className="mb-4 flex items-center gap-3">
-                          <div className="flex items-center gap-1.5">
-                            <div className="relative size-3 overflow-hidden">
-                              <Image
-                                src={c.organization.logo}
-                                alt=""
-                                fill
-                                sizes="12px"
-                                draggable={false}
-                                className="pointer-events-none object-cover"
-                              />
-                            </div>
+                        <div className="flex items-center gap-3">
+                          <OrganizationBadge org={c.organization} />
 
-                            <CardDescription className="text-[13px]">
-                              {c.organization.title}
-                            </CardDescription>
-                          </div>
+                          <VerticalSeparator />
 
-                          <span className="h-4 w-px bg-black/10 dark:bg-white/10" />
-
-                          <CardDescription className="text-[13px]">
+                          <CardMetadata className="text-[13px]">
                             {c.date}
-                          </CardDescription>
+                          </CardMetadata>
                         </div>
                       </div>
 
-                      <ArrowUpRightIcon className="size-5 translate-x-2 text-neutral-600 transition-transform duration-300 ease-in-out group-hover:rotate-45" />
+                      <ArrowUpRightIcon className="size-5 translate-x-2 text-neutral-600 transition-[rotate,color] duration-300 ease-in-out group-hover:rotate-45 group-hover:text-neutral-800 dark:text-neutral-400 dark:group-hover:text-neutral-300" />
                     </CardHeader>
 
                     <CardDescription className="text-foreground/80">
@@ -115,7 +111,7 @@ export function Certificates() {
             ))}
           </div>
         </Container>
-      </ContainerFluid>
+      </Row>
     </section>
   );
 }

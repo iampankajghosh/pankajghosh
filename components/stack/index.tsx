@@ -1,84 +1,93 @@
 "use client";
 
-import { SourceCodeIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
-import { ClassNameLabel } from "../class-name-label";
-import { Container, ContainerFluid } from "../container";
+import { Badge } from "../badge";
+import { AdaptiveValue, ClassLabel } from "../class-label";
+import { Container } from "../container";
 import { Heading } from "../heading";
-import { SectionLabel } from "../section-label";
-import { tech } from "./data";
+import { Row } from "../row";
+import { SectionTitle } from "../section-title";
+import { TECH } from "./data";
 
-function Stack() {
+export function Stack() {
   return (
-    <section className="relative">
-      <ContainerFluid className="h-15 md:hidden" />
+    <section id="stack">
+      <Row size="lg" className="lg:hidden" />
 
-      <ContainerFluid className="md:pointer-events-none md:absolute md:-z-1 md:w-full md:border-none">
-        <Container className="relative">
-          <SectionLabel className="text-sky-500 md:absolute md:top-23 md:-left-24.5 md:-rotate-90 dark:text-sky-400">
+      <Row className="lg:border-none">
+        <Container className="lg:relative">
+          <SectionTitle className="text-fuchsia-500 dark:text-fuchsia-400">
             Tech Stack
-          </SectionLabel>
+          </SectionTitle>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid className="md:hidden" />
+      <Row size="sm" className="lg:hidden" />
 
-      <ContainerFluid className="hidden h-15 md:block">
-        <Container className="flex items-end py-1">
-          <ClassNameLabel>text-3xl leading-6</ClassNameLabel>
+      <Row size="lg" className="max-lg:hidden">
+        <Container variant="label">
+          <ClassLabel>
+            font-3xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}
+            <AdaptiveValue light="text-neutral-800" dark="text-neutral-200" />
+          </ClassLabel>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid>
+      <Row>
         <Container>
           <Heading>Tools I reach for without thinking twice.</Heading>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid className="h-10">
-        <Container className="flex items-end py-1">
-          <ClassNameLabel>flex items-center gap-2 flex-wrap</ClassNameLabel>
+      <Row size="md">
+        <Container variant="label">
+          <ClassLabel>flex flex-wrap items-center</ClassLabel>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid>
-        <Container>
-          <div className="flex flex-wrap items-center gap-2 px-4 py-2 md:px-2">
-            {tech.map((t) => (
-              <Link
-                href={t.link}
-                key={t.id}
-                target="_blank"
-                className="border-border bg-foreground/4 hover:bg-foreground/8 inline-flex cursor-pointer items-center gap-1.5 rounded-md border px-2 py-1 inset-shadow-sm inset-shadow-black/2 transition-colors duration-150 ease-out"
-                onClick={() =>
-                  posthog.capture("stack_tech_link_clicked", {
-                    tech_name: t.name,
-                    url: t.link,
-                  })
-                }
-              >
-                <div className="relative size-3">
+      <Row>
+        <Container className="flex flex-wrap items-center gap-2 px-2 py-2 max-sm:px-4">
+          {TECH.map((t) => (
+            <Link
+              href={t.link}
+              key={t.id}
+              target="_blank"
+              onClick={() =>
+                posthog.capture("stack_tech_link_clicked", {
+                  tech_name: t.name,
+                  url: t.link,
+                })
+              }
+            >
+              <Badge className="hover:bg-neutral-200/90 dark:hover:bg-neutral-800/90">
+                <div className="size-3">
                   <Image
-                    src={t.icon}
+                    src={t.icon.light}
+                    width={12}
+                    height={12}
                     alt=""
-                    fill
-                    sizes="12px"
                     draggable={false}
-                    className="pointer-events-none select-none"
+                    className="h-full w-full object-contain select-none dark:hidden"
+                  />
+
+                  <Image
+                    src={t.icon.default}
+                    width={12}
+                    height={12}
+                    alt=""
+                    draggable={false}
+                    className="hidden h-full w-full object-contain select-none dark:block"
                   />
                 </div>
-                <span className="font-ibm-plex-mono text-xs leading-none">
-                  {t.name}
-                </span>
-              </Link>
-            ))}
-          </div>
+
+                <span className="leading-none">{t.name}</span>
+              </Badge>
+            </Link>
+          ))}
         </Container>
-      </ContainerFluid>
+      </Row>
     </section>
   );
 }
-
-export default Stack;

@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 import Image from "next/image";
 
 export function Card({
@@ -12,16 +11,14 @@ export function Card({
   className?: string;
 }) {
   return (
-    <motion.div
-      initial="rest"
-      whileHover="hover"
+    <div
       className={cn(
-        "grid grid-cols-1 transition-colors duration-300 ease-in-out md:grid-cols-10",
+        "group grid touch-manipulation grid-cols-1 transition-colors duration-150 ease-out hover:bg-neutral-200/50 active:bg-neutral-200/50 sm:grid-cols-10 dark:hover:bg-neutral-800/50 dark:active:bg-neutral-800/50",
         className,
       )}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -33,53 +30,8 @@ export function CardSkeleton({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "border-border h-50 w-full px-4 py-2 md:col-span-3 md:h-auto md:border-r md:px-2",
-        className,
-      )}
-    >
+    <div className={cn("col-span-3 p-2 max-sm:px-4", className)}>
       {children}
-    </div>
-  );
-}
-
-export function CardBanner({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div
-      className={cn(
-        "border-border relative flex h-full w-full items-center justify-center overflow-hidden rounded-lg border",
-        className,
-      )}
-    >
-      <Image
-        src="https://res.cloudinary.com/ddws3mapm/image/upload/v1778067213/card-banner_p5hfsz.avif"
-        alt=""
-        fill
-        sizes="179px"
-        className="pointer-events-none object-cover select-none"
-        draggable={false}
-      />
-
-      <motion.div
-        variants={{
-          rest: {
-            y: 20,
-          },
-          hover: {
-            y: 0,
-          },
-        }}
-        className="absolute h-[calc(100%-16px)] w-[calc(100%-24px)] overflow-hidden rounded-md border-3 border-black/20 md:w-[calc(100%-16px)]"
-      >
-        {children}
-      </motion.div>
     </div>
   );
 }
@@ -117,7 +69,15 @@ export function CardContent({
   );
 }
 
-export function CardTitle({
+export function CardTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="text-sm/6 font-medium text-neutral-800 dark:text-neutral-200">
+      {children}
+    </h3>
+  );
+}
+
+export function CardMetadata({
   children,
   className,
 }: {
@@ -125,9 +85,20 @@ export function CardTitle({
   className?: string;
 }) {
   return (
-    <h3 className={cn("mb-1 font-medium tracking-tighter", className)}>
+    <p
+      className={cn(
+        "text-xs/6 text-neutral-600 dark:text-neutral-400",
+        className,
+      )}
+    >
       {children}
-    </h3>
+    </p>
+  );
+}
+
+export function VerticalSeparator({ className }: { className?: string }) {
+  return (
+    <div className={cn("h-4 w-px bg-black/10 dark:bg-white/10", className)} />
   );
 }
 
@@ -139,6 +110,82 @@ export function CardDescription({
   className?: string;
 }) {
   return (
-    <p className={cn("text-foreground/80 text-sm", className)}>{children}</p>
+    <p
+      className={cn(
+        "pr-2 text-[13px]/6 text-neutral-600 dark:text-neutral-400",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function CardBanner({
+  children,
+  src,
+}: {
+  children: React.ReactNode;
+  src: string;
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-lg border border-white bg-neutral-100 ring-1 ring-black/6 perspective-distant sm:h-30 dark:border-black dark:bg-neutral-900 dark:ring-white/10">
+      <Image
+        src={src}
+        alt=""
+        className="h-full object-cover select-none"
+        width={3072}
+        height={2048}
+        draggable={false}
+      />
+      <div>{children}</div>
+    </div>
+  );
+}
+
+export function PreviewImage({ src }: { src: string }) {
+  return (
+    <div className="absolute inset-0 origin-[center_center] scale-80 rotate-x-38 -rotate-y-6 rotate-z-25 touch-manipulation overflow-hidden rounded-md bg-neutral-200 ring-4 ring-black/20 duration-350 ease-out will-change-transform group-hover:scale-100 group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 dark:bg-neutral-800">
+      <Image
+        src={src}
+        alt=""
+        className="h-full rounded-md object-cover object-top-left select-none"
+        width={1840}
+        height={1120}
+        draggable={false}
+      />
+    </div>
+  );
+}
+
+export function OrganizationBadge({
+  org,
+}: {
+  org: { title: string; logo: { default: string; light: string } };
+}) {
+  return (
+    <div className="flex items-center gap-1.5">
+      <div className="size-3">
+        <Image
+          src={org.logo.light}
+          width={12}
+          height={12}
+          alt=""
+          draggable={false}
+          className="h-full w-full object-contain select-none dark:hidden"
+        />
+
+        <Image
+          src={org.logo.default}
+          width={12}
+          height={12}
+          alt=""
+          draggable={false}
+          className="hidden h-full w-full object-contain select-none dark:block"
+        />
+      </div>
+
+      <CardMetadata className="text-[13px]">{org.title}</CardMetadata>
+    </div>
   );
 }

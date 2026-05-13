@@ -1,38 +1,56 @@
-export const projects = [
+type Project = {
+  id: string;
+  name: string;
+  tagline: string;
+  bannerUrl: string;
+  previewUrl: string;
+  liveUrl: string;
+  repositoryUrl: string;
+};
+
+export const PROJECTS: Project[] = [
   {
-    id: "1",
-    title: "Sparkflo",
-    description: "Node based canvas for building AI workflows.",
-    banner:
-      "https://res.cloudinary.com/ddws3mapm/image/upload/v1777547551/sparkflo_hgq64m.png",
-    live: "https://sparkflo.pankajghosh.in",
-    source: "https://github.com/iampankajghosh/sparkflo",
+    id: "sparkflo",
+    name: "Sparkflo",
+    tagline: "Node-based canvas for building workflows.",
+    bannerUrl:
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/card-banner-2-vEONdwDTjhDfzhJncmffbwGBiqHZ6D.png",
+    previewUrl:
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/projects/sparkflo-UKdij4Ok76AhQ9YXJhhF9HpIufK1NY.png",
+    liveUrl: "https://sparkflo.pankajghosh.in",
+    repositoryUrl: "https://github.com/iampankajghosh/sparkflo",
   },
   {
-    id: "2",
-    title: "Nexus Dark",
-    description: "VS code theme focused on readability.",
-    banner:
-      "https://res.cloudinary.com/ddws3mapm/image/upload/v1777552464/nexus-dark_rcf2xf.png",
-    live: "https://open-vsx.org/extension/pankajghosh/nexus-dark",
-    source: "https://github.com/iampankajghosh/nexus-dark",
+    id: "nexus-dark",
+    name: "Nexus Dark",
+    tagline: "VS Code theme focused on readability.",
+    bannerUrl:
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/card-banner-1-tSpm54tXoSoWBoTEHb8Um569PVanTk.png",
+    previewUrl:
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/projects/nexus-dark-EVVgDOmeQH9GwtMql2gLudtrQP23fg.png",
+    liveUrl: "https://open-vsx.org/extension/pankajghosh/nexus-dark",
+    repositoryUrl: "https://github.com/iampankajghosh/nexus-dark",
   },
   {
-    id: "3",
-    title: "Sonner Patterns",
-    description: "A refined collection of sonner toast patterns.",
-    banner:
-      "https://res.cloudinary.com/ddws3mapm/image/upload/v1777552998/sonner-patterns_rzn5go.png",
-    live: "https://sonner-patterns.pankajghosh.in",
-    source: "https://github.com/iampankajghosh/sonner-patterns",
+    id: "sonner-patterns",
+    name: "Sonner Patterns",
+    tagline: "A refined collection of sonner toast patterns.",
+    bannerUrl:
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/card-banner-1-tSpm54tXoSoWBoTEHb8Um569PVanTk.png",
+    previewUrl:
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/projects/sonner-patterns-4XXpvHGR4Muh22Q6DbanUCGEBYG7tz.png",
+    liveUrl: "https://sonner-patterns.pankajghosh.in",
+    repositoryUrl: "https://github.com/iampankajghosh/sonner-patterns",
   },
   {
-    id: "4",
-    title: "Secure Speak",
-    description: "Sharing honest feedback securely.",
-    banner:
-      "https://res.cloudinary.com/ddws3mapm/image/upload/v1777552997/secure-speak_te2r28.png",
-    live: "https://secure-speak.vercel.app",
-    source: "https://github.com/iampankajghosh/secure-speak.vercel.app",
+    id: "secure-speak",
+    name: "Secure Speak",
+    tagline: "Sharing honest feedback securely.",
+    bannerUrl:
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/card-banner-2-vEONdwDTjhDfzhJncmffbwGBiqHZ6D.png",
+    previewUrl:
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/projects/secure-speak-FK6jZtRUw5RAQMd9ukBb8NKi4ZdZ4R.png",
+    liveUrl: "https://secure-speak.vercel.app",
+    repositoryUrl: "https://github.com/iampankajghosh/secure-speak.vercel.app",
   },
 ];

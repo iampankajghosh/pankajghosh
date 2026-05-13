@@ -5,35 +5,33 @@ import posthog from "posthog-js";
 import { Tick01Icon } from "../icons";
 
 export function FontButton({
-  font,
-  fontClass,
+  fontId,
+  label,
+  twClass,
   isSelected,
 }: {
-  font: string;
-  fontClass: string;
+  fontId: string;
+  label: string;
+  twClass: string;
   isSelected: boolean;
 }) {
   return (
     <button
       name="font"
-      value={font}
+      value={fontId}
       className={cn(
-        "text-foreground/60 hover:text-foreground flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-1 text-start capitalize transition-colors duration-150 ease-out hover:bg-neutral-100 dark:hover:bg-neutral-800",
-        fontClass,
-        isSelected && "text-foreground bg-neutral-100 dark:bg-neutral-800",
+        "flex w-full items-center justify-between rounded-md px-2 py-1 text-start",
+        twClass,
+        !isSelected && "hover:bg-neutral-100/40 dark:hover:bg-neutral-800/40",
+        isSelected && "bg-neutral-100 dark:bg-neutral-800",
       )}
       disabled={isSelected}
-      onClick={() =>
-        posthog.capture("font_changed", {
-          font,
-        })
-      }
+      onClick={() => posthog.capture("font_changed", { font: fontId })}
     >
-      <span>{font.split("-").join(" ")}</span>
-
+      <span>{label}</span>
       <Tick01Icon
         className={cn(
-          "size-5 translate-x-1 scale-0 opacity-0 transition-transform duration-300 ease-in-out",
+          "size-5 scale-0 opacity-0 transition-[scale,opacity] duration-300 ease-out",
           isSelected && "scale-100 opacity-100",
         )}
       />

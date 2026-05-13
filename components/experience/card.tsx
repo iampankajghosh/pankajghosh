@@ -2,7 +2,22 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { OfficeIcon } from "../icons";
 
-export function Card({
+export function ExperienceGroup({
+  children,
+  className,
+  ...props
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={cn("grid grid-cols-1", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
+export function ExperienceItem({
   children,
   className,
 }: {
@@ -18,91 +33,34 @@ export function Card({
   );
 }
 
-export function GroupCard({
-  children,
-  className,
-  ...props
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={cn("flex flex-col", className)} {...props}>
-      {children}
-    </div>
-  );
+export function ExperienceHeader({ children }: { children: React.ReactNode }) {
+  return <div className="flex items-center gap-4 px-5 py-1">{children}</div>;
 }
 
-export function CompanyLogo({
-  className,
-  src,
-}: {
-  className?: string;
-  src: string;
-}) {
+export function ExperienceLogo({ src }: { className?: string; src: string }) {
   return (
-    <div className="relative flex size-8 items-center justify-center bg-black/4 dark:bg-white/10">
-      {src && (
-        <div
-          className={cn(
-            "border-border pointer-events-none relative size-full overflow-hidden rounded-md border shadow-sm select-none",
-            className,
-          )}
-        >
+    <div className="relative bg-neutral-400/15 p-px before:absolute before:-bottom-px before:left-1/2 before:h-px before:w-16 before:-translate-x-1/2 before:bg-[repeating-linear-gradient(to_right,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] before:mask-x-from-60% before:content-[''] after:absolute after:-top-px after:left-1/2 after:h-px after:w-16 after:-translate-x-1/2 after:bg-[repeating-linear-gradient(to_right,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] after:mask-x-from-60% after:content-[''] dark:before:bg-[repeating-linear-gradient(to_left,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)] dark:after:bg-[repeating-linear-gradient(to_left,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)]">
+      <div className="flex size-8 items-center justify-center overflow-hidden rounded-md bg-neutral-100 shadow-sm ring-1 inset-shadow-sm ring-black/10 inset-shadow-white before:absolute before:-left-px before:h-16 before:w-px before:bg-[repeating-linear-gradient(to_top,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] before:mask-y-from-60% before:content-[''] after:absolute after:-right-px after:h-16 after:w-px after:bg-[repeating-linear-gradient(to_top,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] after:mask-y-from-60% after:content-[''] dark:bg-neutral-800 dark:ring-white/20 dark:inset-shadow-white/5 dark:before:bg-[repeating-linear-gradient(to_top,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)] dark:after:bg-[repeating-linear-gradient(to_top,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)]">
+        {src ? (
           <Image
             src={src}
-            alt=""
-            fill
-            sizes="32px"
+            alt="Company Logo"
+            className="object-cover select-none"
+            height={200}
+            width={200}
             draggable={false}
-            className="pointer-events-none object-cover"
           />
-        </div>
-      )}
-
-      {!src && (
-        <div className="border-border pointer-events-none flex size-full items-center justify-center overflow-hidden rounded-md border bg-white shadow-sm select-none">
-          <OfficeIcon className="size-5 text-neutral-800" />
-        </div>
-      )}
-
-      <DashedLine dir="vertical" className="absolute -left-px h-20" />
-      <DashedLine dir="vertical" className="absolute -right-px h-20" />
-      <DashedLine className="absolute -top-px w-20" />
-      <DashedLine className="absolute -bottom-px w-20" />
+        ) : (
+          <div className="select-none">
+            <OfficeIcon className="size-5" />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
-export function DashedLine({
-  className,
-  dir = "horizontal",
-}: {
-  className?: string;
-  dir?: "horizontal" | "vertical";
-}) {
-  const gradient =
-    dir === "horizontal"
-      ? "dark:bg-[repeating-linear-gradient(to_right,rgba(255,255,255,0.3)_0_3px,transparent_3px_6px)] bg-[repeating-linear-gradient(to_right,rgba(0,0,0,0.2)_0_3px,transparent_3px_6px)] mask-x-from-70% mask-x-to-90%"
-      : "dark:bg-[repeating-linear-gradient(to_bottom,rgba(255,255,255,0.3)_0_3px,transparent_3px_6px)] bg-[repeating-linear-gradient(to_bottom,rgba(0,0,0,0.2)_0_3px,transparent_3px_6px)] mask-y-from-70% mask-y-to-90%";
-
-  return (
-    <span
-      className={cn(
-        "block",
-        gradient,
-        dir === "horizontal" ? "h-px w-10" : "h-10 w-px",
-        className,
-      )}
-    />
-  );
-}
-
-export function CardHeader({ children }: { children: React.ReactNode }) {
-  return <div className="flex items-center gap-4 px-5 py-2">{children}</div>;
-}
-
-export function CardTitle({
+export function ExperienceTitle({
   children,
   className,
 }: {
@@ -112,7 +70,7 @@ export function CardTitle({
   return (
     <h3
       className={cn(
-        "text-base leading-6 font-medium tracking-tighter",
+        "text-base/5 font-medium text-neutral-800 dark:text-neutral-200",
         className,
       )}
     >
@@ -121,7 +79,26 @@ export function CardTitle({
   );
 }
 
-export function StatusDot({
+export function ExperienceLocation({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <p
+      className={cn(
+        "text-xs/5 text-neutral-600 dark:text-neutral-400",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function ActiveStatusPulse({
   className,
   date,
 }: {
@@ -145,6 +122,77 @@ export function StatusDot({
   );
 }
 
-export function CardBody({ children }: { children: React.ReactNode }) {
+export function ExperienceBody({ children }: { children: React.ReactNode }) {
   return <div className="px-2 py-2">{children}</div>;
+}
+
+export function ExperienceDesignation({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <p
+      className={cn(
+        "text-sm/6 font-[450] text-neutral-800 dark:text-neutral-200",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function ExperienceMetadata({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <p
+      className={cn(
+        "text-xs/6 text-neutral-600 dark:text-neutral-400",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function ExperienceBulletList({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <div className="grid grid-cols-1 gap-3">{children}</div>;
+}
+
+export function ExperienceBullet({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <p
+      className={cn(
+        "relative ml-4 pr-2 pl-4 text-[13px]/6 text-neutral-600 before:absolute before:-left-1 before:size-1.5 before:translate-y-3 before:bg-neutral-400/60 before:content-[''] sm:before:translate-y-2.5 dark:text-neutral-400",
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
+}
+
+export function VerticalSeparator({ className }: { className?: string }) {
+  return (
+    <div className={cn("h-4 w-px bg-black/10 dark:bg-white/10", className)} />
+  );
 }

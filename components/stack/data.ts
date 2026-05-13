@@ -1,133 +1,233 @@
-export const tech = [
-  // Row 1 (balanced)
+export const TECH = [
   {
-    id: "1",
+    id: "javascript",
     name: "JavaScript",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/javascript-32px-Nl3wOgbgEnrJNzvK0mBl9Mc5Dg4ZKz.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/javascript-32px-Nl3wOgbgEnrJNzvK0mBl9Mc5Dg4ZKz.png",
+    },
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
   {
-    id: "2",
+    id: "typescript",
     name: "TypeScript",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/typescript-32px-Zf42QgI7raXN6nuGn7BH9Wocx22Wu4.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/typescript-32px-Zf42QgI7raXN6nuGn7BH9Wocx22Wu4.png",
+    },
     link: "https://www.typescriptlang.org/",
   },
   {
-    id: "3",
+    id: "react",
     name: "React",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/react-32px-HcwOONEzyu3y6fzntg8us5Nd1WGfR6.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/react-light-32px-NsmGW5BwqXnjjpbfmZ8AObeHicrIaU.png",
+    },
     link: "https://react.dev/",
   },
   {
-    id: "4",
+    id: "nextjs",
     name: "Next.js",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/nextdotjs-32px-gisJZQjFkZMQodYccrrSxXMH2PQtQr.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/nextdotjs-32px-gisJZQjFkZMQodYccrrSxXMH2PQtQr.png",
+    },
     link: "https://nextjs.org/",
   },
   {
-    id: "5",
+    id: "nodejs",
     name: "Node",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/nodedotjs-32px-qeKPnqYW3I5JwGLO7Z8imqDxmpc5Zn.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/nodedotjs-32px-qeKPnqYW3I5JwGLO7Z8imqDxmpc5Zn.png",
+    },
     link: "https://nodejs.org/",
   },
   {
-    id: "6",
+    id: "express",
     name: "Express",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/expressdotjs-32px-tshXmjAqkp7jl5z3mbisa3kmrN55r3.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/expressdotjs-light-32px-j949yJovvFq72IsqufpOz7ZOthtbV7.png",
+    },
     link: "https://expressjs.com/",
   },
   {
-    id: "7",
+    id: "html5",
     name: "HTML",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/html5-32px-x0D1I3i8Lw8FQTY31XS5GbYokJGagT.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/html5-32px-x0D1I3i8Lw8FQTY31XS5GbYokJGagT.png",
+    },
     link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
-
-  // Row 2
   {
-    id: "8",
+    id: "mongodb",
     name: "MongoDB",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/mongodb-32px-xQlxzDsEyHWl93KLT3EiUcO8JfyXNa.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/mongodb-light-32px-IlqbCRhODcnm0lUX2etJIyff9WhniX.png",
+    },
     link: "https://www.mongodb.com/",
   },
   {
-    id: "9",
+    id: "tailwindcss",
     name: "Tailwind CSS",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/tailwind-css-32px-QMb3nuayQC5arulyvfypNWQHVDim6k.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/tailwind-css-32px-QMb3nuayQC5arulyvfypNWQHVDim6k.png",
+    },
     link: "https://tailwindcss.com/",
   },
   {
-    id: "10",
+    id: "css3",
     name: "CSS",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/css3-32px-z6VvbRALkjAFwwPAxpCpZhSaHBcKYr.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/css3-32px-z6VvbRALkjAFwwPAxpCpZhSaHBcKYr.png",
+    },
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   {
-    id: "11",
+    id: "motion",
     name: "Motion",
-    icon: "https://framerusercontent.com/images/3aQX5dnH5Yqgsn98QXKF2ZXxIE.png",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/motion-32px-SEDdM4wOUfv6tCvL2FzKdUDjP0nvEa.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/motion-light-32px-mdKXwYXYoKLqF9uACMlnba9er647Zm.png",
+    },
     link: "https://www.motion.dev/",
   },
   {
-    id: "12",
+    id: "redux",
     name: "Redux Toolkit",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/redux-32px-2z2Ywd98dqndXlLo9P1fopJSMfWSRf.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/redux-32px-2z2Ywd98dqndXlLo9P1fopJSMfWSRf.png",
+    },
     link: "https://redux.js.org/",
   },
   {
-    id: "13",
+    id: "react-router",
     name: "React Router",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/reactrouter/reactrouter-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/react-router-32px-JymoGTNRActZW6oZzNwjdMpv5NJxlO.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/react-router-32px-JymoGTNRActZW6oZzNwjdMpv5NJxlO.png",
+    },
     link: "https://reactrouter.com/",
   },
   {
-    id: "14",
+    id: "zod",
     name: "Zod",
-    icon: "https://raw.githubusercontent.com/colinhacks/zod/main/logo.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/zod-32px-2UniQRcKh8xaKt8M8MFYKe427rRCZM.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/zod-32px-2UniQRcKh8xaKt8M8MFYKe427rRCZM.png",
+    },
     link: "https://zod.dev/",
   },
-
-  // Row 3
   {
-    id: "15",
+    id: "vite",
     name: "Vite",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/vite-32px-wZ1y12gHJVll7yUujEGZw8gJK0NCvp.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/vite-32px-wZ1y12gHJVll7yUujEGZw8gJK0NCvp.png",
+    },
     link: "https://vitejs.dev/",
   },
   {
-    id: "16",
+    id: "markdown",
     name: "Markdown",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/markdown/markdown-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/markdown-32px-pEb6SrHJMpygKQRLGKiM4ONZ0CQ7sL.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/markdown-light-32px-iowlwpT86ZzerUHGj6AdoXqlS4azzq.png",
+    },
     link: "https://www.markdownguide.org/",
   },
   {
-    id: "17",
+    id: "git",
     name: "Git",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/git-32px-KBlVsnkpTUklmLYyIysOEuCjrOTPqj.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/git-32px-KBlVsnkpTUklmLYyIysOEuCjrOTPqj.png",
+    },
     link: "https://git-scm.com/",
   },
   {
-    id: "18",
+    id: "github",
     name: "GitHub",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/github-32px-jsXw7Q0QY6hh4vI5HtuX4LEgrawqYC.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/github-light-32px-7Akeqv7iffds77L0nSAa22HFPSbXxe.png",
+    },
     link: "https://github.com/",
   },
   {
-    id: "19",
+    id: "vercel",
     name: "Vercel",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/vercel-32px-iK9WzWJprIClmSU8Bvv35XMLY5zaKE.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/vercel-light-32px-hI7nczT6X5jIvwplEJP38Vbr5YSna1.png",
+    },
     link: "https://vercel.com/",
   },
   {
-    id: "20",
+    id: "sentry",
     name: "Sentry",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sentry/sentry-original.svg",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/sentry-32px-C2iy18rBGTBkp0cT3uOixV6MfgkI37.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/sentry-32px-C2iy18rBGTBkp0cT3uOixV6MfgkI37.png",
+    },
     link: "https://sentry.io/",
   },
   {
-    id: "21",
+    id: "posthog",
     name: "PostHog",
-    icon: "https://dl.svgcdn.com/png/logos/posthog-icon-800.png",
+    icon: {
+      default:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/posthog-32px-r0JibNOd3kxC5nbVSsZceYdjkjK01q.png",
+      light:
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/posthog-32px-r0JibNOd3kxC5nbVSsZceYdjkjK01q.png",
+    },
     link: "https://posthog.com/",
   },
 ];

@@ -1,21 +1,32 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-export function Avatar() {
+export function Avatar({ className }: { className?: string }) {
   return (
     <div
-      className="size-28 md:size-35 rounded-full 
-    overflow-hidden mx-4 md:mx-2 select-none border 
-    border-border relative"
+      className={cn(
+        "relative mx-2 size-28 overflow-hidden rounded-full border border-white ring-1 ring-black/10 transition-[height,width] duration-300 ease-out max-sm:mx-4 sm:size-35 dark:border-black dark:ring-white/10",
+        className,
+      )}
     >
       <Image
-        src="https://res.cloudinary.com/ddws3mapm/image/upload/f_auto,q_auto/pfp_oxmv2j.png"
-        alt="Picture of the author"
-        className="object-cover"
+        src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/profile/pfp-WjmPdfSLS47tbM10AJqaMH58wM3q1q.png"
+        alt="Pankaj Ghosh"
+        height={140}
+        width={140}
         draggable={false}
-        fill
-        sizes="(max-width: 768px) 112px, 140px"
-        loading="eager"
-        fetchPriority="high"
+        priority
+        className="absolute inset-0 object-cover select-none"
+      />
+
+      <Image
+        src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/profile/pfp-light-gBu0Bw3pZmMNBDlLCVRwsmQYVSBY4b.png"
+        alt="Pankaj Ghosh"
+        height={140}
+        width={140}
+        draggable={false}
+        priority
+        className="absolute inset-0 object-cover transition-opacity duration-500 ease-out select-none dark:opacity-0"
       />
     </div>
   );

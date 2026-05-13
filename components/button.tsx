@@ -6,12 +6,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 const buttonVariants = cva(
-  "group cursor-pointer inline-flex items-center justify-center text-sm transition-all duration-150 ease-out select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-px active:translate-y-0.5 rounded-md",
+  "cursor-pointer inline-flex items-center justify-center text-sm transition-[transform] duration-150 ease-out select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 rounded-md",
   {
     variants: {
       variant: {
         default: "bg-neutral-100 text-neutral-600 hover:text-foreground",
-        ghost: "bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800",
+        ghost:
+          "bg-transparent hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-300",
         outline:
           "border border-neutral-200 bg-white hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-900 dark:border-neutral-700",
       },
@@ -45,7 +46,7 @@ export function Button({
 
   React.useEffect(() => {
     clickSoundRef.current = new Audio(
-      "https://res.cloudinary.com/ddws3mapm/video/upload/v1778092568/click_znkmxk.mp3",
+      "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/sounds/click-TmKA0dWx6pzrULf44iAEBXU8FaPJBk.mp3",
     );
   }, []);
 
@@ -59,10 +60,12 @@ export function Button({
   };
 
   return (
-    <Comp
-      className={cn(buttonVariants({ variant, size }), className)}
-      onClick={handleClick}
-      {...props}
-    />
+    <div className="group">
+      <Comp
+        className={cn(buttonVariants({ variant, size }), className)}
+        onClick={handleClick}
+        {...props}
+      />
+    </div>
   );
 }

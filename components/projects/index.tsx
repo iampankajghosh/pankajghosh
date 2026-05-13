@@ -1,73 +1,91 @@
-import { ClassNameLabel } from "../class-name-label";
-import { Container, ContainerFluid } from "../container";
+"use client";
+
+import Link from "next/link";
+import posthog from "posthog-js";
+import { AdaptiveValue, ClassLabel } from "../class-label";
+import { Container } from "../container";
 import { Heading } from "../heading";
-import { SectionLabel } from "../section-label";
+import { Row } from "../row";
+import { SectionTitle } from "../section-title";
 import {
   Card,
   CardBanner,
-  CardContent,
   CardDescription,
-  CardSkeleton,
+  CardHeader,
   CardTitle,
+  PreviewImage,
 } from "./card";
-import { projects } from "./data";
-import { Grid, GridContainer } from "./grid";
+import { PROJECTS } from "./data";
 
-function Projects() {
+export function Projects() {
   return (
-    <section className="relative">
-      <ContainerFluid className="h-15 md:hidden" />
+    <section id="projects">
+      <Row size="lg" className="lg:hidden" />
 
-      <ContainerFluid className="md:pointer-events-none md:absolute md:-z-1 md:w-full md:border-none">
-        <Container className="md:relative">
-          <SectionLabel className="text-sky-500 md:absolute md:top-28.25 md:-left-29.75 md:-rotate-90 dark:text-sky-400">
+      <Row className="lg:border-none">
+        <Container className="lg:relative">
+          <SectionTitle className="text-pink-500 dark:text-pink-400">
             What I&apos;ve Built
-          </SectionLabel>
+          </SectionTitle>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid className="md:hidden" />
+      <Row size="sm" className="lg:hidden" />
 
-      <ContainerFluid className="hidden h-15 md:block">
-        <Container className="flex items-end py-1">
-          <ClassNameLabel>text-3xl leading-6</ClassNameLabel>
+      <Row size="lg" className="max-lg:hidden">
+        <Container variant="label">
+          <ClassLabel>
+            font-3xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}
+            <AdaptiveValue light="text-neutral-800" dark="text-neutral-200" />
+          </ClassLabel>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid>
+      <Row>
         <Container>
           <Heading>Things I actually built and shipped.</Heading>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid className="h-10">
-        <Container className="flex items-end py-1">
-          <ClassNameLabel>
-            grid grid-cols-1 md:grid-cols-2 gap-10
-          </ClassNameLabel>
+      <Row size="md">
+        <Container variant="label">
+          <ClassLabel>
+            grid <AdaptiveValue sm="grid-cols-1" lg="grid-cols-2" /> gap-10
+          </ClassLabel>
         </Container>
-      </ContainerFluid>
+      </Row>
 
-      <ContainerFluid>
-        <GridContainer>
-          <Grid>
-            {projects.map((project) => (
-              <Card key={project.id} href={project.live} title={project.title}>
-                <CardSkeleton>
-                  <CardBanner src={project.banner} />
-                </CardSkeleton>
+      <Row className="after:bg-border before:bg-border relative overflow-x-hidden before:absolute before:inset-0 before:top-1/2 before:h-px before:-translate-y-5 before:content-[''] after:absolute after:inset-0 after:top-1/2 after:h-px after:translate-y-5 after:content-[''] max-sm:before:hidden max-sm:after:hidden">
+        <Container className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+          {PROJECTS.map((p) => (
+            <Link
+              key={p.id}
+              href={p.liveUrl}
+              target="_blank"
+              className="odd:border-border odd:after:bg-border even:after:bg-border even:border-border relative border-y first:border-t-0 last:border-b-0 odd:border-r odd:after:absolute odd:after:top-60 odd:after:right-0 odd:after:h-px odd:after:w-[200vw] odd:after:translate-x-1/2 odd:after:content-[''] even:border-l even:after:absolute even:after:top-62 even:after:left-0 even:after:h-px even:after:w-[200vw] even:after:-translate-x-1/2 even:after:content-[''] max-sm:before:hidden max-sm:after:hidden sm:border-0"
+              onClick={() =>
+                posthog.capture("project_link_clicked", {
+                  project_name: p.name,
+                  url: p.liveUrl,
+                })
+              }
+            >
+              <Card>
+                <CardHeader className="border-border mb-2 border-b sm:border-0">
+                  <CardBanner src={p.bannerUrl}>
+                    <PreviewImage src={p.previewUrl} />
+                  </CardBanner>
+                </CardHeader>
 
-                <CardContent>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardContent>
+                <div className="border-border relative border-t py-2 sm:border-0">
+                  <CardTitle>{p.name}</CardTitle>
+                  <CardDescription>{p.tagline}</CardDescription>
+                </div>
               </Card>
-            ))}
-          </Grid>
-        </GridContainer>
-      </ContainerFluid>
+            </Link>
+          ))}
+        </Container>
+      </Row>
     </section>
   );
 }
-
-export default Projects;

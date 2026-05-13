@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-export function SectionLabel({
+export function Text({
   children,
   className,
 }: {
@@ -10,7 +10,7 @@ export function SectionLabel({
   return (
     <p
       className={cn(
-        "font-ibm-plex-mono px-4 text-sm leading-5 font-semibold tracking-widest uppercase md:px-2 md:text-xs",
+        "px-2 text-base/6 text-neutral-600 max-sm:px-4 dark:text-neutral-400",
         className,
       )}
     >

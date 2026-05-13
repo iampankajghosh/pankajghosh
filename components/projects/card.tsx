@@ -1,162 +1,85 @@
-"use client";
-
 import { cn } from "@/lib/utils";
-import { motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
-import posthog from "posthog-js";
 
 export function Card({
   children,
   className,
-  href,
-  title,
 }: {
   children: React.ReactNode;
-  className?: string;
-  href?: string;
-  title?: string;
-}) {
-  return (
-    <motion.div
-      initial="rest"
-      whileHover="hover"
-      className={cn(
-        "bg-background border-border hover:bg-neutral-400/10 sm:border-x md:odd:border-r md:odd:border-l-0 md:even:border-r-0 md:even:border-l",
-        className,
-      )}
-    >
-      <Link
-        href={href || "#"}
-        target="_blank"
-        onClick={() =>
-          posthog.capture("project_link_clicked", {
-            project_title: title,
-            url: href,
-          })
-        }
-      >
-        {children}
-      </Link>
-    </motion.div>
-  );
-}
-
-export function CardSkeleton({
-  children,
-  className,
-}: {
-  children?: React.ReactNode;
-  className?: string;
-}) {
-  return <div className={cn("mb-2 p-2", className)}>{children}</div>;
-}
-
-export function CardBanner({
-  src,
-  className,
-}: {
-  src: string;
   className?: string;
 }) {
   return (
     <div
       className={cn(
-        "border-border bg-background pointer-events-none relative h-50 overflow-hidden rounded-xl border select-none",
+        "group touch-manipulation transition-colors duration-150 ease-out hover:bg-neutral-200/50 active:bg-neutral-200/50 dark:hover:bg-neutral-800/50 dark:active:bg-neutral-800/50",
         className,
       )}
     >
-      <Image
-        src="https://res.cloudinary.com/ddws3mapm/image/upload/v1777546726/site-hero-bg_ca43fy.avif"
-        alt=""
-        fill
-        sizes="297px"
-        className="pointer-events-none object-cover select-none"
-        draggable={false}
-        fetchPriority="high"
-      />
-
-      <motion.div
-        variants={{
-          rest: {
-            rotateX: 20,
-            rotateY: 20,
-            rotateZ: -8,
-            x: 40,
-            y: 30,
-          },
-          hover: {
-            rotateX: 0,
-            rotateZ: 0,
-            rotateY: 0,
-            x: 40,
-            y: 30,
-          },
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-        }}
-        className="pointer-events-none relative hidden h-full w-full scale-125 overflow-hidden rounded-md border-4 border-black/20 shadow-2xl select-none md:block"
-      >
-        <Image
-          src={src}
-          alt=""
-          fill
-          sizes="297px"
-          className="rounded object-cover object-top-left select-none"
-          draggable={false}
-          loading="eager"
-        />
-      </motion.div>
-
-      <div className="pointer-events-none relative h-full w-full translate-x-15 translate-y-10 scale-125 overflow-hidden rounded-md border-4 border-black/20 shadow-2xl select-none">
-        <Image
-          src={src}
-          alt=""
-          fill
-          sizes="297px"
-          className="rounded object-cover object-top-left select-none"
-          draggable={false}
-        />
-      </div>
+      {children}
     </div>
   );
 }
 
-export function CardContent({
+export function CardHeader({
   children,
   className,
 }: {
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={cn("p-2", className)}>{children}</div>;
+  return <div className={cn("p-2 max-sm:px-4", className)}>{children}</div>;
 }
 
-export function CardTitle({
+export function CardBanner({
   children,
-  className,
+  src,
 }: {
   children: React.ReactNode;
-  className?: string;
+  src: string;
 }) {
   return (
-    <h3 className={cn("mb-1 font-medium tracking-tighter", className)}>
+    <div className="relative h-56 overflow-hidden rounded-lg border border-white bg-neutral-100 ring-1 ring-black/6 perspective-distant dark:border-black dark:bg-neutral-900 dark:ring-white/10">
+      <Image
+        src={src}
+        alt=""
+        className="object-cover select-none"
+        width={928}
+        height={1129}
+        draggable={false}
+        priority
+      />
+      <div>{children}</div>
+    </div>
+  );
+}
+
+export function PreviewImage({ src }: { src: string }) {
+  return (
+    <div className="absolute inset-0 origin-[center_center] translate-x-1/10 translate-y-1/8 scale-110 rotate-x-10 rotate-y-20 -rotate-z-8 overflow-hidden rounded-md bg-neutral-200 ring-5 ring-black/10 duration-350 ease-out will-change-transform group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 dark:bg-neutral-800">
+      <Image
+        src={src}
+        alt=""
+        className="rounded-md object-cover object-top-left select-none"
+        width={672}
+        height={504}
+        draggable={false}
+        priority
+      />
+    </div>
+  );
+}
+
+export function CardTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h3 className="px-2 text-sm/6 font-medium text-neutral-800 max-sm:px-4 dark:text-neutral-200">
       {children}
     </h3>
   );
 }
 
-export function CardDescription({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+export function CardDescription({ children }: { children: React.ReactNode }) {
   return (
-    <p className={cn("text-foreground/80 text-[13px]", className)}>
+    <p className="px-2 text-[13px]/6 text-neutral-600 max-sm:px-4 dark:text-neutral-400">
       {children}
     </p>
   );

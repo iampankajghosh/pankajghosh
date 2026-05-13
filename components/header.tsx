@@ -11,19 +11,21 @@ import {
 import { Container } from "./container";
 import { SettingsIcon } from "./icons";
 import { Logo } from "./logo";
+import { ModeToggle } from "./mode-toggle";
+import { Pattern } from "./pattern";
+import { Row } from "./row";
 import { FontToggle } from "./settings/font-toggle";
-import { ModeToggle } from "./settings/mode-toggle";
 
 export function Header() {
   return (
-    <header className="border-border bg-background fixed inset-0 z-30 h-14 border-b dark:border-neutral-800">
-      <Container>
-        <div className="flex h-full items-center justify-between px-4 md:px-2">
+    <header className="bg-background fixed top-0 z-50 h-14 w-full">
+      <Row>
+        <Container className="relative flex items-center justify-between px-2 max-sm:px-4">
           <Logo />
 
           <Settings>
             <SettingsTrigger>
-              <SettingsIcon className="size-5" />
+              <SettingsIcon className="size-5 transition-[rotate] duration-350 ease-out group-hover:rotate-120" />
             </SettingsTrigger>
 
             <SettingsContent>
@@ -44,8 +46,11 @@ export function Header() {
               </SettingsMenu>
             </SettingsContent>
           </Settings>
-        </div>
-      </Container>
+
+          <Pattern className="left-0 -translate-x-10" />
+          <Pattern className="right-0 translate-x-10" />
+        </Container>
+      </Row>
     </header>
   );
 }
