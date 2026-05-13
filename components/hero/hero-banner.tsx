@@ -15,7 +15,8 @@ export function HeroBanner({ className }: { className?: string }) {
         src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/hero-banner-6w5OIk8MjKMmwahjdHoWBu3CTg2315.png"
         alt=""
         fill
-        priority
+        preload
+        fetchPriority="high"
         draggable={false}
         sizes="(max-width: 768px) 409px, 672px"
         className="-scale-x-100 object-cover select-none"
@@ -25,7 +26,8 @@ export function HeroBanner({ className }: { className?: string }) {
         src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/hero-banner-light-DlYdaWEBOw1mmtw6q1S0Y4MmSWcKEM.png"
         alt=""
         fill
-        priority
+        preload
+        fetchPriority="high"
         draggable={false}
         sizes="(max-width: 768px) 409px, 672px"
         className="-scale-x-100 object-cover transition-opacity duration-500 ease-out select-none dark:opacity-0"

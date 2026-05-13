@@ -38,15 +38,14 @@ export function CardBanner({
   src: string;
 }) {
   return (
-    <div className="relative h-56 overflow-hidden rounded-lg border border-white bg-neutral-100 ring-1 ring-black/6 perspective-distant dark:border-black dark:bg-neutral-900 dark:ring-white/10">
+    <div className="relative h-56 w-full overflow-hidden rounded-lg border border-white bg-neutral-100 ring-1 ring-black/6 perspective-distant dark:border-black dark:bg-neutral-900 dark:ring-white/10">
       <Image
         src={src}
         alt=""
         className="object-cover select-none"
-        width={928}
-        height={1129}
+        fill
+        sizes="300px"
         draggable={false}
-        priority
       />
       <div>{children}</div>
     </div>
@@ -63,7 +62,6 @@ export function PreviewImage({ src }: { src: string }) {
         width={672}
         height={504}
         draggable={false}
-        priority
       />
     </div>
   );
