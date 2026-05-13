@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { AdaptiveValue, ClassLabel } from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
@@ -66,6 +69,13 @@ export function Certificates() {
                 href={c.link}
                 target="_blank"
                 className="border-border group block border-b last:border-b-0"
+                onClick={() =>
+                  posthog.capture("certificate_link_clicked", {
+                    certificate_name: c.name,
+                    organization: c.organization,
+                    url: c.link,
+                  })
+                }
               >
                 <Card className="group-hover:bg-neutral-400/10 dark:group-hover:bg-neutral-600/10">
                   <CardSkeleton>
