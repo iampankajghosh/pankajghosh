@@ -14,8 +14,13 @@ export function SocialLink({
     <Link
       href={href}
       target="_blank"
-      className="font-ibm-plex-mono text-[15px] font-medium text-sky-500 dark:text-sky-400"
-      onClick={() => posthog.capture("social_link_clicked", { href })}
+      rel="noopener noreferrer"
+      className="font-ibm-plex-mono text-[15px] font-medium text-sky-500 transition-colors duration-200 hover:text-sky-600 focus:outline-none focus-visible:underline dark:text-sky-400 dark:hover:text-sky-300"
+      onClick={() =>
+        posthog.capture("social_link_clicked", {
+          href,
+        })
+      }
     >
       {children}
     </Link>

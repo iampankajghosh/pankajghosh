@@ -1,9 +1,14 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-export function HeroBanner({ className }: { className?: string }) {
+export function HeroBanner({
+  className,
+}: {
+  className?: string;
+}) {
   return (
     <div
+      aria-hidden="true"
       className={cn(
         "relative h-full min-h-28 overflow-hidden rounded-md border border-white transition-[height] duration-300 ease-out max-sm:mx-2 dark:border-black",
         "mask-[linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.04)_10%,rgba(0,0,0,0.18)_22%,rgba(0,0,0,0.45)_38%,black_58%,black_100%)]",
@@ -14,22 +19,24 @@ export function HeroBanner({ className }: { className?: string }) {
       <Image
         src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/hero-banner-6w5OIk8MjKMmwahjdHoWBu3CTg2315.png"
         alt=""
+        aria-hidden="true"
         fill
-        preload
+        priority
         fetchPriority="high"
         draggable={false}
-        sizes="(max-width: 768px) 409px, 672px"
+        sizes="(max-width: 640px) calc(100vw - 16px), (max-width: 768px) 409px, 672px"
         className="-scale-x-100 object-cover select-none"
       />
 
       <Image
         src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/banners/hero-banner-light-DlYdaWEBOw1mmtw6q1S0Y4MmSWcKEM.png"
         alt=""
+        aria-hidden="true"
         fill
-        preload
+        priority
         fetchPriority="high"
         draggable={false}
-        sizes="(max-width: 768px) 409px, 672px"
+        sizes="(max-width: 640px) calc(100vw - 16px), (max-width: 768px) 409px, 672px"
         className="-scale-x-100 object-cover transition-opacity duration-500 ease-out select-none dark:opacity-0"
       />
     </div>
