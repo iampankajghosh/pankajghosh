@@ -11,7 +11,6 @@ import {
   useRef,
   useState,
 } from "react";
-
 import { Button } from "../button";
 import { ArrowTurnBackwardIcon } from "../icons";
 
@@ -22,26 +21,19 @@ type SettingsProps = {
   headingId: string;
 };
 
-const SettingsContext =
-  createContext<SettingsProps | null>(null);
+const SettingsContext = createContext<SettingsProps | null>(null);
 
 export function useSettingsMenu() {
   const context = useContext(SettingsContext);
 
   if (!context) {
-    throw new Error(
-      "useSettingsMenu must be used within SettingsProvider",
-    );
+    throw new Error("useSettingsMenu must be used within SettingsProvider");
   }
 
   return context;
 }
 
-export function SettingsProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
 
   const dialogId = useId();
@@ -61,11 +53,7 @@ export function SettingsProvider({
   );
 }
 
-export function Settings({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function Settings({ children }: { children: React.ReactNode }) {
   return (
     <SettingsProvider>
       <div className="relative">{children}</div>
@@ -73,13 +61,8 @@ export function Settings({
   );
 }
 
-export function SettingsTrigger({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const { open, setOpen, dialogId } =
-    useSettingsMenu();
+export function SettingsTrigger({ children }: { children: React.ReactNode }) {
+  const { open, setOpen, dialogId } = useSettingsMenu();
 
   return (
     <Button
@@ -105,17 +88,8 @@ export function SettingsTrigger({
   );
 }
 
-export function SettingsContent({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const {
-    open,
-    setOpen,
-    dialogId,
-    headingId,
-  } = useSettingsMenu();
+export function SettingsContent({ children }: { children: React.ReactNode }) {
+  const { open, setOpen, dialogId, headingId } = useSettingsMenu();
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -125,24 +99,15 @@ export function SettingsContent({
     function handleClickOutside(e: PointerEvent) {
       if (!open) return;
 
-      if (
-        ref.current &&
-        !ref.current.contains(e.target as Node)
-      ) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
         setOpen(false);
       }
     }
 
-    document.addEventListener(
-      "pointerdown",
-      handleClickOutside,
-    );
+    document.addEventListener("pointerdown", handleClickOutside);
 
     return () => {
-      document.removeEventListener(
-        "pointerdown",
-        handleClickOutside,
-      );
+      document.removeEventListener("pointerdown", handleClickOutside);
     };
   }, [open, setOpen]);
 
@@ -153,16 +118,10 @@ export function SettingsContent({
       }
     }
 
-    document.addEventListener(
-      "keydown",
-      handleEscape,
-    );
+    document.addEventListener("keydown", handleEscape);
 
     return () => {
-      document.removeEventListener(
-        "keydown",
-        handleEscape,
-      );
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [setOpen]);
 
@@ -195,16 +154,10 @@ export function SettingsContent({
       }
     }
 
-    document.addEventListener(
-      "keydown",
-      handleShortcut,
-    );
+    document.addEventListener("keydown", handleShortcut);
 
     return () => {
-      document.removeEventListener(
-        "keydown",
-        handleShortcut,
-      );
+      document.removeEventListener("keydown", handleShortcut);
     };
   }, [setOpen]);
 
@@ -220,16 +173,8 @@ export function SettingsContent({
       initial={false}
       animate={{
         opacity: open ? 1 : 0,
-        scale: shouldReduceMotion
-          ? 1
-          : open
-            ? 1
-            : 0.3,
-        filter: shouldReduceMotion
-          ? "none"
-          : open
-            ? "none"
-            : "blur(10px)",
+        scale: shouldReduceMotion ? 1 : open ? 1 : 0.3,
+        filter: shouldReduceMotion ? "none" : open ? "none" : "blur(10px)",
       }}
       transition={
         shouldReduceMotion
@@ -246,9 +191,7 @@ export function SettingsContent({
       }}
       className={cn(
         "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-xl will-change-transform dark:border-neutral-700 dark:bg-neutral-800",
-        open
-          ? "pointer-events-auto"
-          : "pointer-events-none",
+        open ? "pointer-events-auto" : "pointer-events-none",
       )}
     >
       {children}
@@ -256,15 +199,11 @@ export function SettingsContent({
   );
 }
 
-export function SettingsHeader({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function SettingsHeader({ children }: { children: React.ReactNode }) {
   const { setOpen } = useSettingsMenu();
 
   return (
-    <div className="border-border relative flex h-12 items-center justify-between border-b border-dashed px-2 before:absolute before:right-0 before:bottom-0 before:z-10 before:size-2 before:translate-x-1/2 before:translate-y-1/2 before:rounded-full before:bg-white before:ring-1 before:ring-neutral-200 before:content-[''] after:absolute after:bottom-0 after:left-0 after:z-10 after:size-2 after:-translate-x-1/2 after:translate-y-1/2 after:rounded-full after:bg-white after:ring-1 after:ring-neutral-200 after:content-[''] dark:before:bg-neutral-900 dark:before:ring-white/20 dark:after:bg-neutral-900 dark:after:ring-white/20">
+    <div className="border-border relative flex h-12 items-center justify-between px-2 before:absolute before:right-0 before:bottom-0 before:z-10 before:size-2 before:translate-x-1/2 before:translate-y-1/2 before:rounded-full before:bg-white before:ring-1 before:ring-neutral-200 before:content-[''] after:absolute after:bottom-0 after:left-0 after:z-10 after:size-2 after:-translate-x-1/2 after:translate-y-1/2 after:rounded-full after:bg-white after:ring-1 after:ring-neutral-200 after:content-[''] dark:before:bg-neutral-900 dark:before:ring-white/20 dark:after:bg-neutral-900 dark:after:ring-white/20">
       {children}
 
       <Button
@@ -275,57 +214,35 @@ export function SettingsHeader({
         aria-label="Close settings"
         onClick={() => setOpen(false)}
       >
-        <ArrowTurnBackwardIcon
-          aria-hidden="true"
-          className="size-5"
-        />
+        <ArrowTurnBackwardIcon aria-hidden="true" className="size-5" />
       </Button>
     </div>
   );
 }
 
-export function SettingsHeading({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function SettingsHeading({ children }: { children: React.ReactNode }) {
   const { headingId } = useSettingsMenu();
 
   return (
-    <h3
-      id={headingId}
-      className="font-medium tracking-tight"
-    >
+    <h3 id={headingId} className="font-medium tracking-tight">
       {children}
     </h3>
   );
 }
 
-export function SettingsMenu({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function SettingsMenu({ children }: { children: React.ReactNode }) {
   return (
-    <div className="border-border flex-1 bg-white py-1 shadow-sm dark:bg-neutral-900">
+    <div className="relative flex-1 bg-white py-1 shadow-sm after:absolute after:-top-px after:h-px after:w-full after:bg-[repeating-linear-gradient(to_left,rgba(0,0,0,0.1)_0_4px,transparent_4px_8px)] after:content-[''] dark:bg-neutral-900 dark:after:bg-[repeating-linear-gradient(to_left,rgba(255,255,255,0.1)_0_4px,transparent_4px_8px)]">
       {children}
     </div>
   );
 }
 
-export function SettingsSubMenu({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function SettingsSubMenu({ children }: { children: React.ReactNode }) {
   return <div className="p-2">{children}</div>;
 }
 
-export function SettingSubHeading({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function SettingSubHeading({ children }: { children: React.ReactNode }) {
   return (
     <h4 className="text-foreground/60 font-ibm-plex-mono mb-2 text-[10px] tracking-widest uppercase">
       {children}

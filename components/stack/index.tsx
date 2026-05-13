@@ -3,31 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
-
 import { Badge } from "../badge";
-
-import {
-  AdaptiveValue,
-  ClassLabel,
-} from "../class-label";
-
+import { AdaptiveValue, ClassLabel } from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
 import { Row } from "../row";
 import { SectionTitle } from "../section-title";
-
 import { TECH } from "./data";
 
 export function Stack() {
   return (
-    <section
-      id="stack"
-      aria-labelledby="stack-heading"
-    >
-      <Row
-        size="lg"
-        className="lg:hidden"
-      />
+    <section id="stack" aria-labelledby="stack-heading">
+      <Row size="lg" className="lg:hidden" />
 
       <Row className="lg:border-none">
         <Container className="lg:relative">
@@ -37,26 +24,13 @@ export function Stack() {
         </Container>
       </Row>
 
-      <Row
-        size="sm"
-        className="lg:hidden"
-      />
+      <Row size="sm" className="lg:hidden" />
 
-      <Row
-        size="lg"
-        className="max-lg:hidden"
-      >
+      <Row size="lg" className="max-lg:hidden">
         <Container variant="label">
           <ClassLabel>
-            font-3xl{" "}
-            <AdaptiveValue
-              sm="font-medium"
-              lg="tracking-tighter"
-            />{" "}
-            <AdaptiveValue
-              light="text-neutral-800"
-              dark="text-neutral-200"
-            />
+            font-3xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}
+            <AdaptiveValue light="text-neutral-800" dark="text-neutral-200" />
           </ClassLabel>
         </Container>
       </Row>
@@ -64,17 +38,14 @@ export function Stack() {
       <Row>
         <Container>
           <Heading id="stack-heading">
-            Tools I reach for without
-            thinking twice.
+            Tools I reach for without thinking twice.
           </Heading>
         </Container>
       </Row>
 
       <Row size="md">
         <Container variant="label">
-          <ClassLabel>
-            flex flex-wrap items-center
-          </ClassLabel>
+          <ClassLabel>flex flex-wrap items-center</ClassLabel>
         </Container>
       </Row>
 
@@ -88,20 +59,14 @@ export function Stack() {
               rel="noopener noreferrer"
               aria-label={`Open ${t.name} website in a new tab`}
               onClick={() =>
-                posthog.capture(
-                  "stack_tech_link_clicked",
-                  {
-                    tech_name: t.name,
-                    url: t.link,
-                  },
-                )
+                posthog.capture("stack_tech_link_clicked", {
+                  tech_name: t.name,
+                  url: t.link,
+                })
               }
             >
               <Badge className="hover:bg-neutral-200/90 dark:hover:bg-neutral-800/90">
-                <div
-                  className="size-3"
-                  aria-hidden="true"
-                >
+                <div className="size-3" aria-hidden="true">
                   <Image
                     src={t.icon.light}
                     width={12}
@@ -123,9 +88,7 @@ export function Stack() {
                   />
                 </div>
 
-                <span className="leading-none">
-                  {t.name}
-                </span>
+                <span className="leading-none">{t.name}</span>
               </Badge>
             </Link>
           ))}
