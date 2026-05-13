@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
 import { AdaptiveValue, ClassLabel } from "../class-label";
