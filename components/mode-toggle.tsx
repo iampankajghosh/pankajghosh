@@ -54,8 +54,6 @@ function useThemeSync() {
   );
 
   useEffect(() => {
-    setMounted(true);
-
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     mediaQuery.addEventListener("change", handleChange);
@@ -66,6 +64,11 @@ function useThemeSync() {
       window.removeEventListener("keydown", handleShortcut);
     };
   }, [handleChange, handleShortcut]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
 
   return { theme, updateTheme, mounted };
 }

@@ -4,7 +4,17 @@ import { cn } from "@/lib/utils";
 import posthog from "posthog-js";
 import { Tick01Icon } from "../icons";
 
-export function FontButton({ fontId, label, twClass, isSelected }: any) {
+export function FontButton({
+  fontId,
+  label,
+  twClass,
+  isSelected,
+}: {
+  fontId: string;
+  label: string;
+  twClass: string;
+  isSelected: boolean;
+}) {
   return (
     <button
       name="font"
