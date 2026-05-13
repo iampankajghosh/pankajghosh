@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import posthog from "posthog-js";
-
 import { Tick01Icon } from "../icons";
 
 export function FontButton({
@@ -19,12 +18,10 @@ export function FontButton({
   return (
     <label
       className={cn(
-        "flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-1 text-start focus-within:ring-2 focus-within:ring-neutral-600/40 focus-within:ring-offset-2 motion-reduce:transition-none",
+        "flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-1 text-start motion-reduce:transition-none",
         twClass,
-        !isSelected &&
-          "hover:bg-neutral-100/40 dark:hover:bg-neutral-800/40",
-        isSelected &&
-          "bg-neutral-100 dark:bg-neutral-800",
+        !isSelected && "hover:bg-neutral-100/40 dark:hover:bg-neutral-800/40",
+        isSelected && "bg-neutral-100 dark:bg-neutral-800",
       )}
     >
       <input
