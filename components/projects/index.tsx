@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import posthog from "posthog-js";
 import { AdaptiveValue, ClassLabel } from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
@@ -60,6 +63,12 @@ export function Projects() {
               href={p.liveUrl}
               target="_blank"
               className="odd:border-border odd:after:bg-border even:after:bg-border even:border-border relative border-y first:border-t-0 last:border-b-0 odd:border-r odd:after:absolute odd:after:top-60 odd:after:right-0 odd:after:h-px odd:after:w-[200vw] odd:after:translate-x-1/2 odd:after:content-[''] even:border-l even:after:absolute even:after:top-62 even:after:left-0 even:after:h-px even:after:w-[200vw] even:after:-translate-x-1/2 even:after:content-[''] max-sm:before:hidden max-sm:after:hidden sm:border-0"
+              onClick={() =>
+                posthog.capture("project_link_clicked", {
+                  project_name: p.name,
+                  url: p.liveUrl,
+                })
+              }
             >
               <Card>
                 <CardHeader className="border-border mb-2 border-b sm:border-0">
