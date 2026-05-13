@@ -9,6 +9,7 @@ export function ClassLabel({
 }) {
   return (
     <span
+      aria-hidden="true"
       className={cn(
         "font-ibm-plex-mono px-2 text-xs/6 whitespace-pre text-black/20 select-none max-sm:px-4 dark:text-white/25",
         className,
@@ -32,10 +33,41 @@ export function AdaptiveValue({
 }) {
   return (
     <>
-      {light && <span className="dark:hidden">{light}</span>}
-      {dark && <span className="hidden dark:inline">{dark}</span>}
-      {sm && <span className="md:hidden">{sm}</span>}
-      {lg && <span className="hidden md:inline">{lg}</span>}
+      {light && (
+        <span
+          aria-hidden="true"
+          className="dark:hidden"
+        >
+          {light}
+        </span>
+      )}
+
+      {dark && (
+        <span
+          aria-hidden="true"
+          className="hidden dark:inline"
+        >
+          {dark}
+        </span>
+      )}
+
+      {sm && (
+        <span
+          aria-hidden="true"
+          className="md:hidden"
+        >
+          {sm}
+        </span>
+      )}
+
+      {lg && (
+        <span
+          aria-hidden="true"
+          className="hidden md:inline"
+        >
+          {lg}
+        </span>
+      )}
     </>
   );
 }

@@ -8,6 +8,7 @@ import {
   SettingsTrigger,
   SettingSubHeading,
 } from "@/components/settings";
+
 import { Container } from "./container";
 import { SettingsIcon } from "./icons";
 import { Logo } from "./logo";
@@ -18,37 +19,58 @@ import { FontToggle } from "./settings/font-toggle";
 
 export function Header() {
   return (
-    <header className="bg-background fixed top-0 z-50 h-14 w-full">
-      <Row>
+    <header
+      className="bg-background fixed top-0 z-50 h-14 w-full"
+      role="banner"
+    >
+      <Row className="h-full">
         <Container className="relative flex items-center justify-between px-2 max-sm:px-4">
           <Logo />
 
           <Settings>
             <SettingsTrigger>
-              <SettingsIcon className="size-5 transition-[rotate] duration-350 ease-out group-hover:rotate-120" />
+              <SettingsIcon
+                aria-hidden="true"
+                className="size-5 transition-[rotate] duration-350 ease-out group-hover:rotate-120"
+              />
             </SettingsTrigger>
 
             <SettingsContent>
               <SettingsHeader>
-                <SettingsHeading>Settings</SettingsHeading>
+                <SettingsHeading>
+                  Settings
+                </SettingsHeading>
               </SettingsHeader>
 
               <SettingsMenu>
                 <SettingsSubMenu>
-                  <SettingSubHeading>Font Style</SettingSubHeading>
+                  <SettingSubHeading>
+                    Font Style
+                  </SettingSubHeading>
+
                   <FontToggle />
                 </SettingsSubMenu>
 
                 <SettingsSubMenu>
-                  <SettingSubHeading>Choose theme</SettingSubHeading>
+                  <SettingSubHeading>
+                    Choose theme
+                  </SettingSubHeading>
+
                   <ModeToggle />
                 </SettingsSubMenu>
               </SettingsMenu>
             </SettingsContent>
           </Settings>
 
-          <Pattern className="left-0 -translate-x-10" />
-          <Pattern className="right-0 translate-x-10" />
+          <Pattern
+            aria-hidden="true"
+            className="left-0 -translate-x-8 lg:-translate-x-10"
+          />
+
+          <Pattern
+            aria-hidden="true"
+            className="right-0 translate-x-8 lg:translate-x-10"
+          />
         </Container>
       </Row>
     </header>

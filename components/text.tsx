@@ -10,7 +10,7 @@ export function Text({
   return (
     <p
       className={cn(
-        "px-2 text-base/6 text-neutral-600 max-sm:px-4 dark:text-neutral-400",
+        "px-2 text-base/6 text-neutral-600 text-pretty max-sm:px-4 dark:text-neutral-400",
         className,
       )}
     >
