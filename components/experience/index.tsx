@@ -1,15 +1,21 @@
 import { getShortDuration } from "@/lib/date";
+
 import {
   AccordionContent,
   AccordionProvider,
   AccordionTrigger,
 } from "../accordion";
+
 import { Badge } from "../badge";
-import { AdaptiveValue, ClassLabel } from "../class-label";
+import {
+  AdaptiveValue,
+  ClassLabel,
+} from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
 import { Row } from "../row";
 import { SectionTitle } from "../section-title";
+
 import {
   ActiveStatusPulse,
   ExperienceBody,
@@ -25,12 +31,16 @@ import {
   ExperienceTitle,
   VerticalSeparator,
 } from "./card";
+
 import { EXPERIENCE } from "./data";
 import { StackIllustration } from "./stack-illustration";
 
 export function Experience() {
   return (
-    <section id="experience">
+    <section
+      id="experience"
+      aria-labelledby="experience-heading"
+    >
       <Row size="lg" className="lg:hidden" />
 
       <Row className="lg:border-none">
@@ -43,25 +53,41 @@ export function Experience() {
 
       <Row size="sm" className="lg:hidden" />
 
-      <Row size="lg" className="max-lg:hidden">
+      <Row
+        size="lg"
+        className="max-lg:hidden"
+      >
         <Container variant="label">
           <ClassLabel>
-            font-3xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}
-            <AdaptiveValue light="text-neutral-800" dark="text-neutral-200" />
+            font-3xl{" "}
+            <AdaptiveValue
+              sm="font-medium"
+              lg="tracking-tighter"
+            />{" "}
+            <AdaptiveValue
+              light="text-neutral-800"
+              dark="text-neutral-200"
+            />
           </ClassLabel>
         </Container>
       </Row>
 
       <Row>
         <Container>
-          <Heading>I showed up, I learned, I delivered.</Heading>
+          <Heading id="experience-heading">
+            I showed up, I learned, I delivered.
+          </Heading>
         </Container>
       </Row>
 
       <Row size="md">
         <Container variant="label">
           <ClassLabel>
-            grid <AdaptiveValue sm="grid-cols-1" lg="grid-cols-13" />
+            grid{" "}
+            <AdaptiveValue
+              sm="grid-cols-1"
+              lg="grid-cols-13"
+            />
           </ClassLabel>
         </Container>
       </Row>
@@ -69,7 +95,10 @@ export function Experience() {
       <Row>
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-14">
-            <StackIllustration className="max-sm:hidden md:col-span-3" />
+            <StackIllustration
+              aria-hidden="true"
+              className="max-sm:hidden md:col-span-3"
+            />
 
             <ExperienceGroup className="border-border border-l md:col-span-11">
               {EXPERIENCE.map((exp) => (
@@ -78,12 +107,20 @@ export function Experience() {
                     <ExperienceHeader>
                       <ExperienceLogo src={exp.logo} />
 
-                      <div className="flex-1">
+                      <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3">
-                          <ExperienceTitle>{exp.company}</ExperienceTitle>
-                          <ActiveStatusPulse date={exp.duration} />
+                          <ExperienceTitle>
+                            {exp.company}
+                          </ExperienceTitle>
+
+                          <ActiveStatusPulse
+                            date={exp.duration}
+                          />
                         </div>
-                        <ExperienceLocation>{exp.location}</ExperienceLocation>
+
+                        <ExperienceLocation>
+                          {exp.location}
+                        </ExperienceLocation>
                       </div>
 
                       <AccordionTrigger
@@ -93,35 +130,53 @@ export function Experience() {
                     </ExperienceHeader>
 
                     <ExperienceBody>
-                      <div className="mb-2 flex justify-between px-3 max-sm:flex-col">
+                      <div className="mb-2 flex justify-between gap-3 px-3 max-sm:flex-col">
                         <ExperienceDesignation>
                           {exp.designation}
                         </ExperienceDesignation>
 
-                        <div className="flex items-center gap-3">
-                          <ExperienceMetadata>{exp.type}</ExperienceMetadata>
-                          <VerticalSeparator />
+                        <div className="flex flex-wrap items-center gap-3">
                           <ExperienceMetadata>
-                            {exp.duration}
+                            {exp.type}
                           </ExperienceMetadata>
+
                           <VerticalSeparator />
+
                           <ExperienceMetadata>
-                            {getShortDuration(exp.duration)}
+                            <time>
+                              {exp.duration}
+                            </time>
+                          </ExperienceMetadata>
+
+                          <VerticalSeparator />
+
+                          <ExperienceMetadata>
+                            {getShortDuration(
+                              exp.duration,
+                            )}
                           </ExperienceMetadata>
                         </div>
                       </div>
 
                       <AccordionContent className="mb-5">
                         <ExperienceBulletList>
-                          {exp.description.map((d, idx) => (
-                            <ExperienceBullet key={idx}>{d}</ExperienceBullet>
-                          ))}
+                          {exp.description.map(
+                            (d, idx) => (
+                              <ExperienceBullet
+                                key={idx}
+                              >
+                                {d}
+                              </ExperienceBullet>
+                            ),
+                          )}
                         </ExperienceBulletList>
                       </AccordionContent>
 
                       <div className="mb-2 flex flex-wrap items-center gap-2 px-3">
                         {exp.tech.map((t) => (
-                          <Badge key={t}>{t}</Badge>
+                          <Badge key={t}>
+                            {t}
+                          </Badge>
                         ))}
                       </div>
                     </ExperienceBody>

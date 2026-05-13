@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const rowVariants = cva("border-border h-full border-b", {
+const rowVariants = cva("border-border border-b", {
   variants: {
     size: {
       xs: "h-2.5",
@@ -10,7 +10,7 @@ const rowVariants = cva("border-border h-full border-b", {
       lg: "h-15",
       xl: "h-20",
       "2xl": "h-25",
-      default: "h-full",
+      default: "h-auto",
     },
   },
   defaultVariants: {
@@ -24,5 +24,9 @@ type Props = VariantProps<typeof rowVariants> & {
 };
 
 export function Row({ children, className, size }: Props) {
-  return <div className={cn(rowVariants({ size }), className)}>{children}</div>;
+  return (
+    <div className={cn(rowVariants({ size }), className)}>
+      {children}
+    </div>
+  );
 }
