@@ -15,7 +15,8 @@ export function Avatar({ className }: { className?: string }) {
         height={140}
         width={140}
         draggable={false}
-        priority
+        preload
+        fetchPriority="high"
         className="absolute inset-0 object-cover select-none"
       />
 
@@ -25,7 +26,8 @@ export function Avatar({ className }: { className?: string }) {
         height={140}
         width={140}
         draggable={false}
-        priority
+        preload
+        fetchPriority="high"
         className="absolute inset-0 object-cover transition-opacity duration-500 ease-out select-none dark:opacity-0"
       />
     </div>

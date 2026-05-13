@@ -173,6 +173,7 @@ export function OrganizationBadge({
           alt=""
           draggable={false}
           className="h-full w-full object-contain select-none dark:hidden"
+
         />
 
         <Image
@@ -182,6 +183,7 @@ export function OrganizationBadge({
           alt=""
           draggable={false}
           className="hidden h-full w-full object-contain select-none dark:block"
+
         />
       </div>
 
