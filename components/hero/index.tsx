@@ -1,31 +1,19 @@
-import {
-  AdaptiveValue,
-  ClassLabel,
-} from "../class-label";
-
+import { AdaptiveValue, ClassLabel } from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
 import { Row } from "../row";
 import { SocialLink } from "../social-link";
 import { Text } from "../text";
-
 import { Avatar } from "./avatar";
 import { HeroBanner } from "./hero-banner";
 
 export function Hero() {
   return (
-    <section
-      id="hero"
-      aria-labelledby="hero-heading"
-    >
+    <section id="hero" aria-labelledby="hero-heading">
       <Row size="lg">
         <Container variant="label">
           <ClassLabel>
-            <AdaptiveValue
-              sm="size-28"
-              lg="size-35"
-            />{" "}
-            rounded-full
+            <AdaptiveValue sm="size-28" lg="size-35" /> rounded-full
           </ClassLabel>
         </Container>
       </Row>
@@ -41,29 +29,18 @@ export function Hero() {
       <Row size="md">
         <Container variant="label">
           <ClassLabel>
-            font-4xl{" "}
-            <AdaptiveValue
-              sm="font-medium"
-              lg="tracking-tighter"
-            />{" "}
-            <AdaptiveValue
-              light="text-neutral-800"
-              dark="text-neutral-200"
-            />
+            font-4xl <AdaptiveValue sm="font-medium" lg="tracking-tighter" />{" "}
+            <AdaptiveValue light="text-neutral-800" dark="text-neutral-200" />
           </ClassLabel>
         </Container>
       </Row>
 
       <Row>
         <Container>
-          <Heading
-            as="h1"
-            id="hero-heading"
-          >
+          <Heading as="h1" id="hero-heading">
             Frontend Engineer.
             <br />
-            Builds things people actually enjoy
-            using.
+            Builds things people actually enjoy using.
           </Heading>
         </Container>
       </Row>
@@ -72,10 +49,7 @@ export function Hero() {
         <Container variant="label">
           <ClassLabel>
             text-base{" "}
-            <AdaptiveValue
-              light="text-neutral-600"
-              dark="text-neutral-400"
-            />
+            <AdaptiveValue light="text-neutral-600" dark="text-neutral-400" />
           </ClassLabel>
         </Container>
       </Row>
@@ -83,25 +57,19 @@ export function Hero() {
       <Row>
         <Container className="grid grid-cols-1 gap-3">
           <Text>
-            Frontend has always felt less like a
-            job and more like a craft to me. The
-            kind where you are never really done
-            learning and somehow that never gets
-            old.
+            Frontend has always felt less like a job and more like a craft to
+            me. The kind where you are never really done learning and somehow
+            that never gets old.
           </Text>
 
           <Text>
-            I obsess over the details that most
-            people never notice but always feel.
-            The 2px misalignment bothers me.
-            That is just how I work.
+            I obsess over the details that most people never notice but always
+            feel. The 2px misalignment bothers me. That is just how I work.
           </Text>
 
           <Text>
-            If something you are building
-            deserves that kind of attention, it
-            would be great to connect. You can
-            find me on{" "}
+            If something you are building deserves that kind of attention, it
+            would be great to connect. You can find me on{" "}
             <SocialLink
               href="https://x.com/im_pankajghosh"
               aria-label="Visit Pankaj Ghosh profile on X formerly Twitter"

@@ -30,10 +30,7 @@ export function StackIcon({
 }: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className={cn(
-        "mx-auto w-10 shrink-0 sm:w-20",
-        className,
-      )}
+      className={cn("mx-auto w-10 shrink-0 sm:w-20", className)}
       aria-hidden="true"
       focusable="false"
       fill="none"
@@ -51,30 +48,21 @@ export function StackIcon({
           d="M60.425 52.5c-.478-.276-.478-.724 0-1L87.272 36c.478-.276 1.254-.276 1.732 0l1.732 1c.478.276.478.724 0 1L63.89 53.5c-.478.276-1.253.276-1.732 0zM54.363 49c-.956-.552-.956-1.448 0-2l3.464-2c.957-.552 2.508-.552 3.464 0 .957.552.957 1.448 0 2l-3.464 2c-.956.552-2.507.552-3.464 0Z"
         />
 
-        <path
-          strokeLinecap="round"
-          d="m63.89 43.5 12.124-7"
-        />
+        <path strokeLinecap="round" d="m63.89 43.5 12.124-7" />
 
         <path
           fill="currentColor"
           d="M46.57 44.5c-.48-.276-.48-.724 0-1L73.415 28c.478-.276 1.254-.276 1.732 0l1.732 1c.478.276.478.724 0 1L50.033 45.5c-.478.276-1.254.276-1.732 0z"
         />
 
-        <path
-          strokeLinecap="round"
-          d="m43.105 42.5 10.392-6"
-        />
+        <path strokeLinecap="round" d="m43.105 42.5 10.392-6" />
 
         <path
           fill="currentColor"
           d="M37.043 39c-.478-.276-.478-.724 0-1L63.89 22.5c.478-.276 1.253-.276 1.732 0l1.732 1c.478.276.478.724 0 1L40.507 40c-.478.276-1.254.276-1.732 0z"
         />
 
-        <path
-          strokeLinecap="round"
-          d="m33.579 37 10.392-6"
-        />
+        <path strokeLinecap="round" d="m33.579 37 10.392-6" />
       </g>
 
       <path
@@ -160,10 +148,7 @@ export function ConnectorLines({
   return (
     <div
       aria-hidden="true"
-      className={cn(
-        "flex flex-1 justify-center gap-8.5",
-        className,
-      )}
+      className={cn("flex flex-1 justify-center gap-8.5", className)}
       {...props}
     >
       <MixedVerticalLine
@@ -181,10 +166,9 @@ export function ConnectorLines({
   );
 }
 
-type MixedLineProps =
-  React.HTMLAttributes<HTMLDivElement> & {
-    solidRatio?: number;
-  };
+type MixedLineProps = React.HTMLAttributes<HTMLDivElement> & {
+  solidRatio?: number;
+};
 
 export function MixedVerticalLine({
   className,
@@ -194,10 +178,7 @@ export function MixedVerticalLine({
   return (
     <div
       aria-hidden="true"
-      className={cn(
-        "flex h-full flex-col",
-        className,
-      )}
+      className={cn("flex h-full flex-col", className)}
       {...props}
     >
       <span
