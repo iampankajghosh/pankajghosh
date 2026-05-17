@@ -1,4 +1,5 @@
 import { Certificates } from "@/components/certificates";
+import { Crafts } from "@/components/crafts";
 import { Experience } from "@/components/experience";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Header />
       <main className="mt-14">
         <Hero />
+        <Crafts />
         <Projects />
         <Experience />
         <Stack />
