@@ -1,33 +1,28 @@
 "use client";
 
-import * as React from "react";
+import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-
-import { cn } from "@/lib/utils";
+import * as React from "react";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center select-none rounded-md text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer active:scale-[0.98] motion-reduce:transition-none motion-reduce:active:scale-100",
+  "group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-2xl border border-transparent bg-clip-padding font-geist text-sm font-medium outline-none select-none [corner-shape:squircle] will-change-transform transition-[transform,opacity,background-color,color,border-color,box-shadow] duration-200 ease-out motion-reduce:transition-none motion-reduce:transform-none focus-visible:ring-2 focus-visible:ring-neutral-600/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97] active:duration-75 active:ease-out [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer",
   {
     variants: {
       variant: {
         default:
           "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700",
-
         ghost:
           "bg-transparent text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100",
-
         outline:
           "border border-neutral-200 bg-white hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-800",
       },
-
       size: {
         default: "h-9 px-3",
-        sm: "h-7 rounded px-2 text-xs",
+        sm: "h-7 rounded-md px-2 text-xs",
         icon: "size-8",
       },
     },
-
     defaultVariants: {
       variant: "default",
       size: "default",
@@ -41,10 +36,10 @@ type ButtonProps = React.ComponentProps<"button"> &
     sound?: boolean;
   };
 
-export function Button({
+function Button({
   className,
-  variant,
-  size,
+  variant = "default",
+  size = "default",
   asChild = false,
   sound = false,
   onClick,
@@ -83,8 +78,11 @@ export function Button({
 
   return (
     <Comp
-      type={!asChild ? type ?? "button" : undefined}
-      className={cn(buttonVariants({ variant, size }), className)}
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      type={!asChild ? (type ?? "button") : undefined}
+      className={cn(buttonVariants({ variant, size, className }))}
       onClick={handleClick}
       {...props}
     >
@@ -92,3 +90,5 @@ export function Button({
     </Comp>
   );
 }
+
+export { Button, buttonVariants };

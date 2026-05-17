@@ -8,7 +8,6 @@ import {
   SettingsTrigger,
   SettingSubHeading,
 } from "@/components/settings";
-
 import { Container } from "./container";
 import { SettingsIcon } from "./icons";
 import { Logo } from "./logo";
@@ -37,24 +36,18 @@ export function Header() {
 
             <SettingsContent>
               <SettingsHeader>
-                <SettingsHeading>
-                  Settings
-                </SettingsHeading>
+                <SettingsHeading>Settings</SettingsHeading>
               </SettingsHeader>
 
               <SettingsMenu>
                 <SettingsSubMenu>
-                  <SettingSubHeading>
-                    Font Style
-                  </SettingSubHeading>
+                  <SettingSubHeading>Font Style</SettingSubHeading>
 
                   <FontToggle />
                 </SettingsSubMenu>
 
                 <SettingsSubMenu>
-                  <SettingSubHeading>
-                    Choose theme
-                  </SettingSubHeading>
+                  <SettingSubHeading>Choose theme</SettingSubHeading>
 
                   <ModeToggle />
                 </SettingsSubMenu>
@@ -64,12 +57,12 @@ export function Header() {
 
           <Pattern
             aria-hidden="true"
-            className="left-0 -translate-x-8 lg:-translate-x-10"
+            className="left-0 w-10 -translate-x-8 lg:-translate-x-10"
           />
 
           <Pattern
             aria-hidden="true"
-            className="right-0 translate-x-8 lg:translate-x-10"
+            className="right-0 w-10 translate-x-8 lg:translate-x-10"
           />
         </Container>
       </Row>

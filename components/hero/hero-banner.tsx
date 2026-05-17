@@ -1,16 +1,12 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-export function HeroBanner({
-  className,
-}: {
-  className?: string;
-}) {
+export function HeroBanner({ className }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
       className={cn(
-        "relative h-full min-h-28 overflow-hidden rounded-md border border-white transition-[height] duration-300 ease-out max-sm:mx-2 dark:border-black",
+        "relative h-full min-h-28 overflow-hidden rounded-lg border border-white transition-[height] duration-300 ease-out [corner-shape:squircle] max-sm:mx-2 dark:border-black",
         "mask-[linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.04)_10%,rgba(0,0,0,0.18)_22%,rgba(0,0,0,0.45)_38%,black_58%,black_100%)]",
         "[-webkit-mask-image:linear-gradient(to_right,transparent_0%,rgba(0,0,0,0.04)_10%,rgba(0,0,0,0.18)_22%,rgba(0,0,0,0.45)_38%,black_58%,black_100%)]",
         className,

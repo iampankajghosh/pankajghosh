@@ -13,7 +13,7 @@ export function Card({
   return (
     <article
       className={cn(
-        "group grid touch-manipulation grid-cols-1 transition-colors duration-150 ease-out motion-reduce:transition-none hover:bg-neutral-200/50 active:bg-neutral-200/50 sm:grid-cols-10 dark:hover:bg-neutral-800/50 dark:active:bg-neutral-800/50",
+        "group grid touch-manipulation grid-cols-1 transition-colors duration-150 ease-out hover:bg-neutral-200/40 active:bg-neutral-200/50 motion-reduce:transition-none sm:grid-cols-10 dark:hover:bg-neutral-800/50 dark:active:bg-neutral-800/50",
         className,
       )}
     >
@@ -44,12 +44,7 @@ export function CardHeader({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "flex items-start justify-between gap-2",
-        className,
-      )}
-    >
+    <div className={cn("flex items-start justify-between gap-2", className)}>
       {children}
     </div>
   );
@@ -74,11 +69,7 @@ export function CardContent({
   );
 }
 
-export function CardTitle({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function CardTitle({ children }: { children: React.ReactNode }) {
   return (
     <h3 className="text-sm/6 font-medium text-neutral-800 dark:text-neutral-200">
       {children}
@@ -105,18 +96,11 @@ export function CardMetadata({
   );
 }
 
-export function VerticalSeparator({
-  className,
-}: {
-  className?: string;
-}) {
+export function VerticalSeparator({ className }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={cn(
-        "h-4 w-px bg-black/10 dark:bg-white/10",
-        className,
-      )}
+      className={cn("h-4 w-px bg-black/10 dark:bg-white/10", className)}
     />
   );
 }
@@ -148,7 +132,7 @@ export function CardBanner({
   src: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-lg border border-white bg-neutral-100 ring-1 ring-black/6 perspective-distant dark:border-black dark:bg-neutral-900 dark:ring-white/10 sm:h-30">
+    <div className="relative overflow-hidden rounded-xl border border-white bg-neutral-100 ring-1 ring-black/6 [corner-shape:squircle] perspective-distant sm:h-30 dark:border-black dark:bg-neutral-900 dark:ring-white/10">
       <Image
         src={src}
         alt=""
@@ -165,19 +149,15 @@ export function CardBanner({
   );
 }
 
-export function PreviewImage({
-  src,
-}: {
-  src: string;
-}) {
+export function PreviewImage({ src }: { src: string }) {
   return (
-    <div className="absolute inset-0 origin-[center_center] scale-80 rotate-x-38 -rotate-y-6 rotate-z-25 touch-manipulation overflow-hidden rounded-md bg-neutral-200 ring-4 ring-black/20 duration-350 ease-out will-change-transform motion-reduce:transform-none motion-reduce:transition-none group-hover:scale-100 group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 dark:bg-neutral-800">
+    <div className="absolute inset-0 origin-[center_center] scale-80 rotate-x-38 -rotate-y-6 rotate-z-25 touch-manipulation overflow-hidden rounded-md bg-neutral-200 ring-4 ring-black/20 duration-350 ease-out will-change-transform [corner-shape:squircle] group-hover:scale-90 group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 motion-reduce:transform-none motion-reduce:transition-none dark:bg-neutral-800">
       <Image
         src={src}
         alt=""
         aria-hidden="true"
         sizes="297px"
-        className="h-full w-full rounded-md object-cover object-top-left select-none"
+        className="h-full w-full rounded-md object-cover object-top-left select-none [corner-shape:squircle]"
         width={1840}
         height={1120}
         draggable={false}
@@ -223,9 +203,7 @@ export function OrganizationBadge({
         />
       </div>
 
-      <CardMetadata className="text-[13px]">
-        {org.title}
-      </CardMetadata>
+      <CardMetadata className="text-[13px]">{org.title}</CardMetadata>
     </div>
   );
 }

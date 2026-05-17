@@ -1,9 +1,7 @@
 "use client";
 
 import { CopyrightIcon } from "@/components/icons";
-
 import { motion } from "motion/react";
-
 import Link from "next/link";
 
 const LOGO_WIDTH = 140;
@@ -13,20 +11,12 @@ const LINK = `/`;
 
 export function Logo() {
   return (
-    <BrandLink
-      href={LINK}
-      ariaLabel="Go to homepage"
-    >
+    <BrandLink href={LINK} ariaLabel="Go to homepage">
       <LogoIcon>
-        <CopyrightIcon
-          aria-hidden="true"
-          className="size-5"
-        />
+        <CopyrightIcon aria-hidden="true" className="size-5" />
       </LogoIcon>
 
-      <BrandText>
-        code by pankaj ghosh
-      </BrandText>
+      <BrandText>code by pankaj ghosh</BrandText>
     </BrandLink>
   );
 }
@@ -41,11 +31,7 @@ function BrandLink({
   ariaLabel: string;
 }) {
   return (
-    <motion.div
-      initial="rest"
-      animate="rest"
-      whileHover="hover"
-    >
+    <motion.div initial="rest" animate="rest" whileHover="hover">
       <Link
         href={href}
         aria-label={ariaLabel}
@@ -58,11 +44,7 @@ function BrandLink({
   );
 }
 
-function LogoIcon({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+function LogoIcon({ children }: { children?: React.ReactNode }) {
   return (
     <motion.span
       aria-hidden="true"
@@ -86,11 +68,7 @@ function LogoIcon({
   );
 }
 
-function BrandText({
-  children,
-}: {
-  children?: React.ReactNode;
-}) {
+function BrandText({ children }: { children?: React.ReactNode }) {
   return (
     <div className="relative flex -translate-y-px items-center overflow-hidden">
       <motion.span
