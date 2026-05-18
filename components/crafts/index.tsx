@@ -110,7 +110,7 @@ export function Crafts() {
                     <Link
                       href={c.code}
                       target="_blank"
-                      className="group/icon absolute top-0 right-0 p-2"
+                      className="group/icon absolute top-0 right-0 -translate-y-1 p-2 max-sm:mr-2"
                       onClick={() =>
                         posthog.capture("craft_code_viewed", {
                           craft_name: c.name,

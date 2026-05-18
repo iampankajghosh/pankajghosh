@@ -101,7 +101,7 @@ export function ModeToggle() {
     <div
       role="radiogroup"
       aria-label="Theme selection"
-      className="flex items-center gap-1 rounded-md bg-neutral-100 p-px dark:bg-neutral-800"
+      className="flex items-center gap-1 rounded-xl bg-neutral-100 p-px [corner-shape:squircle] dark:bg-neutral-800"
     >
       {THEME_OPTIONS.map((t) => {
         const isActive = mounted && theme === t.id;
@@ -114,7 +114,7 @@ export function ModeToggle() {
             aria-checked={isActive}
             aria-label={`Switch to ${t.label} theme`}
             className={cn(
-              "group relative flex h-8 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-md px-2 text-neutral-600 transition-colors duration-200 ease-out outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 dark:text-neutral-400",
+              "group relative flex h-8 flex-1 cursor-pointer items-center justify-center gap-1.5 rounded-lg px-2 text-neutral-600 transition-colors duration-200 ease-out outline-none focus-visible:ring-2 focus-visible:ring-neutral-600/20 dark:text-neutral-400",
               isActive && "text-neutral-800 dark:text-neutral-200",
             )}
             onClick={() => updateTheme(t.id)}
@@ -123,7 +123,7 @@ export function ModeToggle() {
               <motion.div
                 layoutId="active-theme-pill"
                 aria-hidden="true"
-                className="absolute inset-0 rounded-md bg-white shadow-sm inset-shadow-sm inset-shadow-white dark:bg-neutral-900 dark:inset-shadow-white/15"
+                className="absolute inset-0 rounded-xl bg-white shadow-sm inset-shadow-sm inset-shadow-white [corner-shape:squircle] dark:bg-neutral-900 dark:inset-shadow-white/5"
                 transition={{
                   type: "spring",
                   bounce: 0.15,
