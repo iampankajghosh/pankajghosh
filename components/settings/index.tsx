@@ -34,7 +34,7 @@ export function useSettingsMenu() {
 }
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const dialogId = useId();
   const headingId = useId();
@@ -190,7 +190,7 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
         originY: 0,
       }}
       className={cn(
-        "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-lg border border-neutral-200 bg-neutral-100 shadow-xl will-change-transform dark:border-neutral-700 dark:bg-neutral-800",
+        "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 shadow-xl will-change-transform [corner-shape:squircle] dark:border-neutral-700 dark:bg-neutral-800",
         open ? "pointer-events-auto" : "pointer-events-none",
       )}
     >
