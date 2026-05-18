@@ -34,7 +34,7 @@ export function useSettingsMenu() {
 }
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const dialogId = useId();
   const headingId = useId();
