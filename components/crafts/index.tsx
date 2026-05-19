@@ -9,7 +9,7 @@ import { Button as PulseButton } from "../buttons/pulse-button";
 import { AdaptiveValue, ClassLabel } from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
-import { GithubIcon } from "../icons";
+import { ArrowUpRightIcon, GithubIcon } from "../icons";
 import { Row } from "../row";
 import { SectionTitle } from "../section-title";
 import {
@@ -25,28 +25,56 @@ const COMPONENTS = [
     id: "gilded-button",
     name: "Gilded Button",
     tagline: "Golden depth with tactile precision.",
-    craft: <GildedButton>Unlock Access</GildedButton>,
+    craft: (
+      <>
+        <GildedButton>Button</GildedButton>
+        <GildedButton size="icon">
+          <ArrowUpRightIcon className="size-5" />
+        </GildedButton>
+      </>
+    ),
     code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/buttons/gilded-button.tsx",
   },
   {
     id: "forge-button",
     name: "Forge Button",
     tagline: "Machined layers built for confident clicks.",
-    craft: <ForgeButton>Deploy Now</ForgeButton>,
+    craft: (
+      <>
+        <ForgeButton>Button</ForgeButton>
+        <ForgeButton size="icon">
+          <ArrowUpRightIcon className="size-5" />
+        </ForgeButton>
+      </>
+    ),
     code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/buttons/forge-button.tsx",
   },
   {
     id: "petal-button",
     name: "Petal Button",
     tagline: "Soft highlights with energetic contrast.",
-    craft: <PetalButton>Start Creating</PetalButton>,
+    craft: (
+      <>
+        <PetalButton>Button</PetalButton>
+        <PetalButton size="icon">
+          <ArrowUpRightIcon className="size-5" />
+        </PetalButton>
+      </>
+    ),
     code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/buttons/petal-button.tsx",
   },
   {
     id: "pulse-button",
     name: "Pulse Button",
     tagline: "Electric glow with fluid motion.",
-    craft: <PulseButton>Launch Flow</PulseButton>,
+    craft: (
+      <>
+        <PulseButton>Button</PulseButton>
+        <PulseButton size="icon">
+          <ArrowUpRightIcon className="size-5" />
+        </PulseButton>
+      </>
+    ),
     code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/buttons/pulse-button.tsx",
   },
 ];
