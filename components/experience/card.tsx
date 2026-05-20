@@ -11,9 +11,9 @@ export function ExperienceGroup({
   className?: string;
 }) {
   return (
-    <div role="list" className={cn("grid grid-cols-1", className)} {...props}>
+    <ul role="list" className={cn("grid grid-cols-1", className)} {...props}>
       {children}
-    </div>
+    </ul>
   );
 }
 
@@ -25,12 +25,12 @@ export function ExperienceItem({
   className?: string;
 }) {
   return (
-    <article
+    <li
       role="listitem"
       className={cn("border-border border-b py-2 last:border-b-0", className)}
     >
       {children}
-    </article>
+    </li>
   );
 }
 

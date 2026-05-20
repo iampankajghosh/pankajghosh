@@ -27,9 +27,15 @@ const COMPONENTS = [
     tagline: "Golden depth with tactile precision.",
     craft: (
       <>
-        <GildedButton size="sm">Button</GildedButton>
-        <GildedButton size="icon-sm">
-          <ArrowUpRightIcon className="size-5 -rotate-45" />
+        <GildedButton size="sm" aria-label="Preview Gilded Button component">
+          Button
+        </GildedButton>
+
+        <GildedButton
+          size="icon-sm"
+          aria-label="Preview Gilded Button icon variant"
+        >
+          <ArrowUpRightIcon className="size-5 -rotate-45" aria-hidden="true" />
         </GildedButton>
       </>
     ),
@@ -41,9 +47,15 @@ const COMPONENTS = [
     tagline: "Machined layers built for confident clicks.",
     craft: (
       <>
-        <ForgeButton size="sm">Button</ForgeButton>
-        <ForgeButton size="icon-sm">
-          <ArrowUpRightIcon className="size-5 -rotate-45" />
+        <ForgeButton size="sm" aria-label="Preview Forge Button component">
+          Button
+        </ForgeButton>
+
+        <ForgeButton
+          size="icon-sm"
+          aria-label="Preview Forge Button icon variant"
+        >
+          <ArrowUpRightIcon className="size-5 -rotate-45" aria-hidden="true" />
         </ForgeButton>
       </>
     ),
@@ -55,9 +67,15 @@ const COMPONENTS = [
     tagline: "Soft highlights with energetic contrast.",
     craft: (
       <>
-        <PetalButton size="sm">Button</PetalButton>
-        <PetalButton size="icon-sm">
-          <ArrowUpRightIcon className="size-5 -rotate-45" />
+        <PetalButton size="sm" aria-label="Preview Petal Button component">
+          Button
+        </PetalButton>
+
+        <PetalButton
+          size="icon-sm"
+          aria-label="Preview Petal Button icon variant"
+        >
+          <ArrowUpRightIcon className="size-5 -rotate-45" aria-hidden="true" />
         </PetalButton>
       </>
     ),
@@ -69,9 +87,15 @@ const COMPONENTS = [
     tagline: "Electric glow with fluid motion.",
     craft: (
       <>
-        <PulseButton size="sm">Button</PulseButton>
-        <PulseButton size="icon-sm">
-          <ArrowUpRightIcon className="size-5 -rotate-45" />
+        <PulseButton size="sm" aria-label="Preview Pulse Button component">
+          Button
+        </PulseButton>
+
+        <PulseButton
+          size="icon-sm"
+          aria-label="Preview Pulse Button icon variant"
+        >
+          <ArrowUpRightIcon className="size-5 -rotate-45" aria-hidden="true" />
         </PulseButton>
       </>
     ),
@@ -146,6 +170,7 @@ export function Crafts() {
                           url: c.code,
                         })
                       }
+                      aria-label={`View ${c.name} source code on GitHub`}
                     >
                       <GithubIcon className="text-neutral-500 duration-300 group-hover/icon:text-neutral-800 dark:text-neutral-400 dark:group-hover/icon:text-neutral-200" />
                     </Link>
