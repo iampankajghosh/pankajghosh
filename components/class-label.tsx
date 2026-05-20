@@ -34,37 +34,25 @@ export function AdaptiveValue({
   return (
     <>
       {light && (
-        <span
-          aria-hidden="true"
-          className="dark:hidden"
-        >
+        <span aria-hidden="true" className="dark:hidden">
           {light}
         </span>
       )}
 
       {dark && (
-        <span
-          aria-hidden="true"
-          className="hidden dark:inline"
-        >
+        <span aria-hidden="true" className="hidden dark:inline">
           {dark}
         </span>
       )}
 
       {sm && (
-        <span
-          aria-hidden="true"
-          className="md:hidden"
-        >
+        <span aria-hidden="true" className="md:hidden">
           {sm}
         </span>
       )}
 
       {lg && (
-        <span
-          aria-hidden="true"
-          className="hidden md:inline"
-        >
+        <span aria-hidden="true" className="hidden md:inline">
           {lg}
         </span>
       )}
