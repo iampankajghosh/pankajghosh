@@ -136,9 +136,9 @@ export const TECH = [
     name: "React Router",
     icon: {
       default:
-        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/react-router-32px-JymoGTNRActZW6oZzNwjdMpv5NJxlO.png",
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/react-router-CzLJSleaHT1H6V2EfWbLNQVQs0dKiI.png",
       light:
-        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/react-router-32px-JymoGTNRActZW6oZzNwjdMpv5NJxlO.png",
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/react-router-light-5oimk7ZNHzOdPwgakbG0mwt4c5Xenk.png",
     },
     link: "https://reactrouter.com/",
   },
@@ -147,9 +147,9 @@ export const TECH = [
     name: "Zod",
     icon: {
       default:
-        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/zod-32px-2UniQRcKh8xaKt8M8MFYKe427rRCZM.png",
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/zod-6ykPgWn51uFoplqXjhuEsCo7O1kJRz.webp",
       light:
-        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/zod-32px-2UniQRcKh8xaKt8M8MFYKe427rRCZM.png",
+        "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/tech/zod-6ykPgWn51uFoplqXjhuEsCo7O1kJRz.webp",
     },
     link: "https://zod.dev/",
   },

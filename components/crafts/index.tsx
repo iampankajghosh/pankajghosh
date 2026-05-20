@@ -27,9 +27,9 @@ const COMPONENTS = [
     tagline: "Golden depth with tactile precision.",
     craft: (
       <>
-        <GildedButton>Button</GildedButton>
-        <GildedButton size="icon">
-          <ArrowUpRightIcon className="size-5" />
+        <GildedButton size="sm">Button</GildedButton>
+        <GildedButton size="icon-sm">
+          <ArrowUpRightIcon className="size-5 -rotate-45" />
         </GildedButton>
       </>
     ),
@@ -41,9 +41,9 @@ const COMPONENTS = [
     tagline: "Machined layers built for confident clicks.",
     craft: (
       <>
-        <ForgeButton>Button</ForgeButton>
-        <ForgeButton size="icon">
-          <ArrowUpRightIcon className="size-5" />
+        <ForgeButton size="sm">Button</ForgeButton>
+        <ForgeButton size="icon-sm">
+          <ArrowUpRightIcon className="size-5 -rotate-45" />
         </ForgeButton>
       </>
     ),
@@ -55,9 +55,9 @@ const COMPONENTS = [
     tagline: "Soft highlights with energetic contrast.",
     craft: (
       <>
-        <PetalButton>Button</PetalButton>
-        <PetalButton size="icon">
-          <ArrowUpRightIcon className="size-5" />
+        <PetalButton size="sm">Button</PetalButton>
+        <PetalButton size="icon-sm">
+          <ArrowUpRightIcon className="size-5 -rotate-45" />
         </PetalButton>
       </>
     ),
@@ -69,9 +69,9 @@ const COMPONENTS = [
     tagline: "Electric glow with fluid motion.",
     craft: (
       <>
-        <PulseButton>Button</PulseButton>
-        <PulseButton size="icon">
-          <ArrowUpRightIcon className="size-5" />
+        <PulseButton size="sm">Button</PulseButton>
+        <PulseButton size="icon-sm">
+          <ArrowUpRightIcon className="size-5 -rotate-45" />
         </PulseButton>
       </>
     ),
