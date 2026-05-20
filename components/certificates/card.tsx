@@ -151,7 +151,7 @@ export function CardBanner({
 
 export function PreviewImage({ src }: { src: string }) {
   return (
-    <div className="absolute inset-0 origin-[center_center] scale-80 rotate-x-38 -rotate-y-6 rotate-z-25 touch-manipulation overflow-hidden rounded-md bg-neutral-200 ring-4 ring-black/20 duration-350 ease-out will-change-transform [corner-shape:squircle] group-hover:scale-90 group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 motion-reduce:transform-none motion-reduce:transition-none dark:bg-neutral-800">
+    <div className="absolute inset-0 origin-[center_center] scale-70 rotate-x-38 -rotate-y-6 rotate-z-25 touch-manipulation overflow-hidden rounded-md bg-neutral-200 ring-4 ring-black/20 duration-350 ease-out will-change-transform [corner-shape:squircle] group-hover:scale-90 group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 motion-reduce:transform-none motion-reduce:transition-none dark:bg-neutral-800">
       <Image
         src={src}
         alt=""

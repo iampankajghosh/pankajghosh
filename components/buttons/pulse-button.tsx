@@ -4,22 +4,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 const buttonVariants = cva(
-  "group/button relative inline-flex shrink-0 items-center justify-center overflow-hidden whitespace-nowrap rounded-2xl border border-transparent bg-clip-padding font-geist text-sm font-medium outline-none select-none [corner-shape:squircle] will-change-transform transition-[transform,opacity,filter,background-color,color,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none motion-reduce:transform-none focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.97] active:duration-75 active:ease-out disabled:pointer-events-none disabled:opacity-50 aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:content-[''] before:[corner-shape:squircle] after:absolute after:inset-px after:-z-20 after:rounded-2xl after:content-[''] after:[corner-shape:squircle] cursor-pointer",
+  "group/button relative inline-flex shrink-0 items-center justify-center overflow-hidden whitespace-nowrap rounded-2xl border border-transparent bg-sky-600 bg-clip-padding font-geist text-sm font-medium text-white outline-none select-none [corner-shape:squircle] will-change-transform transition-[transform,opacity,filter,background-color,color,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none motion-reduce:transform-none focus-visible:ring-3 focus-visible:ring-ring/50 active:scale-[0.97] active:duration-75 active:ease-out disabled:pointer-events-none disabled:opacity-50 cursor-pointer text-shadow-2xs text-shadow-sky-600 before:absolute before:inset-0 before:-z-10 before:rounded-2xl before:-translate-y-0.5 before:bg-sky-500 before:opacity-80 before:content-[''] before:[corner-shape:squircle] before:inset-shadow-sm before:inset-shadow-white/50 before:filter-[blur(0.4px)] after:absolute after:inset-px after:-z-20 after:rounded-2xl after:bg-linear-to-r after:from-sky-600 after:to-sky-200 after:content-[''] after:[corner-shape:squircle] after:inset-shadow-sm after:inset-shadow-white/50 after:filter-[blur(0.4px)] hover:brightness-[1.03] [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
-      variant: {
-        default:
-          "bg-sky-600 text-white text-shadow-2xs text-shadow-sky-600 before:-translate-y-0.5 before:bg-sky-500 before:opacity-80 before:inset-shadow-sm before:inset-shadow-white/50 before:filter-[blur(0.4px)] after:bg-linear-to-r after:from-sky-600 after:to-sky-200 after:inset-shadow-sm after:inset-shadow-white/50 after:filter-[blur(0.4px)] hover:brightness-[1.03]",
-        outline:
-          "border-border bg-background text-foreground hover:bg-muted hover:text-foreground before:hidden after:hidden",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/90 before:hidden after:hidden",
-        ghost:
-          "text-foreground hover:bg-muted hover:text-foreground before:hidden after:hidden",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 focus-visible:ring-destructive/20 before:hidden after:hidden",
-        link: "bg-transparent text-primary shadow-none ring-0 transition-colors hover:underline before:hidden after:hidden",
-      },
       size: {
         default:
           "h-10 gap-2 px-4 py-2 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
@@ -33,7 +20,6 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
       size: "default",
     },
   },
@@ -41,7 +27,6 @@ const buttonVariants = cva(
 
 function Button({
   className,
-  variant = "default",
   size = "default",
   asChild = false,
   ...props
@@ -54,9 +39,8 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      data-variant={variant}
       data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ size, className }))}
       {...props}
     />
   );
