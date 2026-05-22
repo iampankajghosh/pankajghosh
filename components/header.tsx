@@ -8,6 +8,7 @@ import {
   SettingsTrigger,
   SettingSubHeading,
 } from "@/components/settings";
+import { AnimatedCharacter } from "./animated-character";
 import { Container } from "./container";
 import { SettingsIcon } from "./icons";
 import { Logo } from "./logo";
@@ -22,6 +23,7 @@ export function Header() {
       className="bg-background fixed top-0 z-50 h-14 w-full"
       role="banner"
     >
+      <AnimatedCharacter />
       <Row className="h-full">
         <Container className="relative flex items-center justify-between px-2 max-sm:px-4">
           <Logo />
