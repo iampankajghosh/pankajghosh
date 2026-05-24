@@ -32,7 +32,7 @@ const IDLE_FRAMES: SpriteFrame[] = [
   { x: "-160px", y: "-64px", duration: 400 },
 ];
 
-export function AnimatedCharacter() {
+export function CursorCompanion() {
   const characterRef = useRef<HTMLDivElement>(null);
 
   const positionRef = useRef({ x: 0, y: 0 });
@@ -198,7 +198,7 @@ export function AnimatedCharacter() {
       id="character"
       className="pointer-events-none absolute top-0 left-0 size-8 bg-no-repeat will-change-[transform,background-position] [image-rendering:pixelated]"
       style={{
-        backgroundImage: `url('https://52zfksbd04lay7w1.public.blob.vercel-storage.com/animated-character/doraemon-UmwgkvO7NJjdOEX4c9HLPeERoG1N2U.png')`,
+        backgroundImage: `url('https://52zfksbd04lay7w1.public.blob.vercel-storage.com/animated-character/origami-crane-yyFOawV173Q4aDSBU56Kdpsmeo9tCx.png')`,
         backgroundSize: "192px 96px",
         backgroundPosition: "0px -32px",
         transform: "translate3d(0px, 0px, 0) scaleX(1)",
