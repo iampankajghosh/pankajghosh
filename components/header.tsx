@@ -23,7 +23,8 @@ export function Header() {
       className="bg-background fixed top-0 z-50 h-14 w-full"
       role="banner"
     >
-      <CursorCompanion />
+      <CursorCompanion spriteImage="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/animated-character/origami-crane-yyFOawV173Q4aDSBU56Kdpsmeo9tCx.png" />
+
       <Row className="h-full">
         <Container className="relative flex items-center justify-between px-2 max-sm:px-4">
           <Logo />

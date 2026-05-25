@@ -3,205 +3,288 @@
 import { useEffect, useRef } from "react";
 
 interface SpriteFrame {
-  x: string;
-  y: string;
+  x: number;
+  y: number;
   duration: number;
 }
 
-const WALK_FRAMES: SpriteFrame[] = [
-  { x: "0px", y: "0px", duration: 110 },
-  { x: "-32px", y: "0px", duration: 110 },
-  { x: "-64px", y: "0px", duration: 110 },
-  { x: "-96px", y: "0px", duration: 110 },
-  { x: "-128px", y: "0px", duration: 110 },
-  { x: "-160px", y: "0px", duration: 110 },
-];
+type AnimationState = "moving" | "idle";
 
-const IDLE_FRAMES: SpriteFrame[] = [
-  { x: "0px", y: "-32px", duration: 100 },
-  { x: "-32px", y: "-32px", duration: 100 },
-  { x: "-64px", y: "-32px", duration: 120 },
-  { x: "-96px", y: "-32px", duration: 120 },
-  { x: "-128px", y: "-32px", duration: 400 },
-  { x: "-160px", y: "-32px", duration: 500 },
-  { x: "0px", y: "-64px", duration: 120 },
-  { x: "-32px", y: "-64px", duration: 120 },
-  { x: "-64px", y: "-64px", duration: 80 },
-  { x: "-96px", y: "-64px", duration: 80 },
-  { x: "-128px", y: "-64px", duration: 150 },
-  { x: "-160px", y: "-64px", duration: 400 },
-];
+interface CursorCompanionProps {
+  spriteImage: string;
+  spriteSize?: number;
+  moveFrames?: readonly SpriteFrame[];
+  idleFrames?: readonly SpriteFrame[];
+  speed?: number;
+  reactionDelay?: number;
+  stopDistance?: number;
+  homeStopDistance?: number;
+  className?: string;
+}
 
-export function CursorCompanion() {
-  const characterRef = useRef<HTMLDivElement>(null);
+const DEFAULT_SPRITE_SIZE = 32;
+
+const DEFAULT_MOVE_FRAMES = [
+  { x: 0, y: 0, duration: 110 },
+  { x: -32, y: 0, duration: 110 },
+  { x: -64, y: 0, duration: 110 },
+  { x: -96, y: 0, duration: 110 },
+  { x: -128, y: 0, duration: 110 },
+  { x: -160, y: 0, duration: 110 },
+] as const satisfies readonly SpriteFrame[];
+
+const DEFAULT_IDLE_FRAMES = [
+  { x: 0, y: -32, duration: 100 },
+  { x: -32, y: -32, duration: 100 },
+  { x: -64, y: -32, duration: 120 },
+  { x: -96, y: -32, duration: 120 },
+  { x: -128, y: -32, duration: 400 },
+  { x: -160, y: -32, duration: 500 },
+  { x: 0, y: -64, duration: 120 },
+  { x: -32, y: -64, duration: 120 },
+  { x: -64, y: -64, duration: 80 },
+  { x: -96, y: -64, duration: 80 },
+  { x: -128, y: -64, duration: 150 },
+  { x: -160, y: -64, duration: 400 },
+] as const satisfies readonly SpriteFrame[];
+
+export function CursorCompanion({
+  spriteImage,
+  spriteSize = DEFAULT_SPRITE_SIZE,
+  moveFrames = DEFAULT_MOVE_FRAMES,
+  idleFrames = DEFAULT_IDLE_FRAMES,
+  speed = 1.6,
+  reactionDelay = 250,
+  stopDistance = 24,
+  homeStopDistance = 4,
+  className = "",
+}: CursorCompanionProps) {
+  const characterRef = useRef<HTMLSpanElement | null>(null);
 
   const positionRef = useRef({ x: 0, y: 0 });
   const targetRef = useRef({ x: 0, y: 0 });
-  const lastMousePosRef = useRef({ x: 0, y: 0 });
+  const lastMouseRef = useRef({ x: 0, y: 0 });
+
   const scaleXRef = useRef(1);
 
   const isMovingRef = useRef(false);
-  const startMovementTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const frameIndexRef = useRef<number>(0);
-  const currentStateRef = useRef<"walking" | "idle">("idle");
-
   const isActiveRef = useRef(true);
 
+  const animationStateRef = useRef<AnimationState>("idle");
+
+  const frameIndexRef = useRef(0);
+
+  const rafRef = useRef<number | null>(null);
+
+  const spriteTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const movementDelayTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
+
+  const renderTransform = () => {
+    const el = characterRef.current;
+
+    if (!el) return;
+
+    el.style.transform = `translate3d(${positionRef.current.x}px, ${positionRef.current.y}px, 0) scaleX(${scaleXRef.current})`;
+  };
+
+  const renderFrame = (frame: SpriteFrame) => {
+    const el = characterRef.current;
+
+    if (!el) return;
+
+    el.style.backgroundPosition = `${frame.x}px ${frame.y}px`;
+  };
+
   useEffect(() => {
-    const runSpriteAnimation = () => {
-      if (!characterRef.current) return;
+    let mounted = true;
 
-      const isMoving = isMovingRef.current;
-      const activeSequence = isMoving ? WALK_FRAMES : IDLE_FRAMES;
-      const activeState = isMoving ? "walking" : "idle";
+    const animateSprite = () => {
+      if (!mounted) return;
 
-      if (currentStateRef.current !== activeState) {
-        currentStateRef.current = activeState;
+      const nextState: AnimationState = isMovingRef.current ? "moving" : "idle";
+
+      const frames = nextState === "moving" ? moveFrames : idleFrames;
+
+      if (animationStateRef.current !== nextState) {
+        animationStateRef.current = nextState;
         frameIndexRef.current = 0;
       }
 
-      const currentFrame = activeSequence[frameIndexRef.current];
+      const frame = frames[frameIndexRef.current];
 
-      characterRef.current.style.backgroundPosition = `${currentFrame.x} ${currentFrame.y}`;
-      frameIndexRef.current =
-        (frameIndexRef.current + 1) % activeSequence.length;
+      renderFrame(frame);
 
-      animationTimeoutRef.current = setTimeout(
-        runSpriteAnimation,
-        currentFrame.duration,
-      );
+      frameIndexRef.current = (frameIndexRef.current + 1) % frames.length;
+
+      spriteTimeoutRef.current = setTimeout(animateSprite, frame.duration);
     };
 
-    runSpriteAnimation();
+    animateSprite();
 
     return () => {
-      if (animationTimeoutRef.current)
-        clearTimeout(animationTimeoutRef.current);
+      mounted = false;
+
+      if (spriteTimeoutRef.current) {
+        clearTimeout(spriteTimeoutRef.current);
+      }
     };
-  }, []);
+  }, [moveFrames, idleFrames]);
 
   useEffect(() => {
-    let rafId: number;
-    const SPEED = 1.2;
-    const STOP_DISTANCE = 24;
-    const HOME_STOP_DISTANCE = 4;
-    const REACTION_DELAY = 300;
+    let mounted = true;
 
-    const updateMovement = () => {
-      if (!characterRef.current) {
-        rafId = requestAnimationFrame(updateMovement);
-        return;
-      }
+    const tick = () => {
+      if (!mounted) return;
 
-      if (!isActiveRef.current) {
-        targetRef.current = { x: 0, y: 0 };
-      }
+      const current = positionRef.current;
+      const target = targetRef.current;
 
-      const dx = targetRef.current.x - positionRef.current.x;
-      const dy = targetRef.current.y - positionRef.current.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      const threshold = isActiveRef.current
-        ? STOP_DISTANCE
-        : HOME_STOP_DISTANCE;
+      const dx = target.x - current.x;
+      const dy = target.y - current.y;
+
+      const distance = Math.hypot(dx, dy);
+
+      const threshold = isActiveRef.current ? stopDistance : homeStopDistance;
 
       if (isMovingRef.current) {
         if (distance > threshold) {
           const angle = Math.atan2(dy, dx);
-          positionRef.current.x += Math.cos(angle) * SPEED;
-          positionRef.current.y += Math.sin(angle) * SPEED;
 
-          if (dx < -1) {
-            scaleXRef.current = -1;
-          } else if (dx > 1) {
+          current.x += Math.cos(angle) * speed;
+          current.y += Math.sin(angle) * speed;
+
+          if (dx > 1) {
             scaleXRef.current = 1;
+          } else if (dx < -1) {
+            scaleXRef.current = -1;
           }
         } else {
           isMovingRef.current = false;
+
           if (!isActiveRef.current) {
             scaleXRef.current = 1;
           }
         }
+
+        renderTransform();
       }
 
-      characterRef.current.style.transform = `translate3d(${positionRef.current.x}px, ${positionRef.current.y}px, 0) scaleX(${scaleXRef.current})`;
-
-      rafId = requestAnimationFrame(updateMovement);
+      rafRef.current = requestAnimationFrame(tick);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      lastMousePosRef.current = {
-        x: e.clientX - 16,
-        y: e.clientY - 16,
+    rafRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      mounted = false;
+
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, [speed, stopDistance, homeStopDistance]);
+
+  useEffect(() => {
+    const startMovement = () => {
+      const dx = targetRef.current.x - positionRef.current.x;
+
+      const dy = targetRef.current.y - positionRef.current.y;
+
+      const distance = Math.hypot(dx, dy);
+
+      if (distance > stopDistance && isActiveRef.current) {
+        isMovingRef.current = true;
+      }
+
+      movementDelayTimeoutRef.current = null;
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      const nextPosition = {
+        x: event.clientX - spriteSize / 2,
+        y: event.clientY - spriteSize / 2,
       };
+
+      lastMouseRef.current = nextPosition;
 
       if (!isActiveRef.current) return;
 
-      targetRef.current = { ...lastMousePosRef.current };
+      targetRef.current = nextPosition;
 
       if (isMovingRef.current) return;
 
-      if (!startMovementTimeoutRef.current) {
-        startMovementTimeoutRef.current = setTimeout(() => {
-          const currentDx = targetRef.current.x - positionRef.current.x;
-          const currentDy = targetRef.current.y - positionRef.current.y;
-          const currentDistance = Math.sqrt(
-            currentDx * currentDx + currentDy * currentDy,
-          );
-
-          if (currentDistance > STOP_DISTANCE && isActiveRef.current) {
-            isMovingRef.current = true;
-          }
-
-          startMovementTimeoutRef.current = null;
-        }, REACTION_DELAY);
+      if (!movementDelayTimeoutRef.current) {
+        movementDelayTimeoutRef.current = setTimeout(
+          startMovement,
+          reactionDelay,
+        );
       }
     };
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.altKey && e.key.toLowerCase() === "c") {
-        e.preventDefault();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.altKey && event.key.toLowerCase() === "c") {
+        event.preventDefault();
 
-        const nextState = !isActiveRef.current;
-        isActiveRef.current = nextState;
+        isActiveRef.current = !isActiveRef.current;
 
-        if (!nextState) {
-          if (startMovementTimeoutRef.current) {
-            clearTimeout(startMovementTimeoutRef.current);
-            startMovementTimeoutRef.current = null;
+        if (!isActiveRef.current) {
+          targetRef.current = { x: 0, y: 0 };
+
+          if (movementDelayTimeoutRef.current) {
+            clearTimeout(movementDelayTimeoutRef.current);
+
+            movementDelayTimeoutRef.current = null;
           }
-          isMovingRef.current = true;
         } else {
-          targetRef.current = { ...lastMousePosRef.current };
-          isMovingRef.current = true;
+          targetRef.current = {
+            ...lastMouseRef.current,
+          };
         }
+
+        isMovingRef.current = true;
       }
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        isMovingRef.current = false;
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, {
+      passive: true,
+    });
+
     window.addEventListener("keydown", handleKeyDown);
-    rafId = requestAnimationFrame(updateMovement);
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+
       window.removeEventListener("keydown", handleKeyDown);
-      cancelAnimationFrame(rafId);
-      if (startMovementTimeoutRef.current)
-        clearTimeout(startMovementTimeoutRef.current);
+
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+
+      if (movementDelayTimeoutRef.current) {
+        clearTimeout(movementDelayTimeoutRef.current);
+      }
     };
-  }, []);
+  }, [reactionDelay, spriteSize, stopDistance]);
 
   return (
     <span
       ref={characterRef}
-      id="character"
-      className="pointer-events-none absolute top-0 left-0 size-8 bg-no-repeat will-change-[transform,background-position] [image-rendering:pixelated]"
+      aria-hidden="true"
+      className={`pointer-events-none fixed top-0 left-0 z-100 bg-no-repeat will-change-[transform,background-position] contain-[layout_style_paint] select-none [image-rendering:pixelated] backface-hidden ${className}`}
       style={{
-        backgroundImage: `url('https://52zfksbd04lay7w1.public.blob.vercel-storage.com/animated-character/origami-crane-yyFOawV173Q4aDSBU56Kdpsmeo9tCx.png')`,
-        backgroundSize: "192px 96px",
-        backgroundPosition: "0px -32px",
-        transform: "translate3d(0px, 0px, 0) scaleX(1)",
+        width: spriteSize,
+        height: spriteSize,
+        backgroundImage: `url(${spriteImage})`,
+        backgroundSize: `${spriteSize * 6}px ${spriteSize * 3}px`,
+        backgroundPosition: `0px -${spriteSize}px`,
       }}
     />
   );
