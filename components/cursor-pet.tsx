@@ -10,7 +10,7 @@ interface SpriteFrame {
 
 type AnimationState = "moving" | "idle";
 
-interface CursorCompanionProps {
+interface CursorPetProps {
   spriteImage: string;
   spriteSize?: number;
   moveFrames?: readonly SpriteFrame[];
@@ -48,7 +48,7 @@ const DEFAULT_IDLE_FRAMES = [
   { x: -160, y: -64, duration: 400 },
 ] as const satisfies readonly SpriteFrame[];
 
-export function CursorCompanion({
+export default function CursorPet({
   spriteImage,
   spriteSize = DEFAULT_SPRITE_SIZE,
   moveFrames = DEFAULT_MOVE_FRAMES,
@@ -58,7 +58,7 @@ export function CursorCompanion({
   stopDistance = 24,
   homeStopDistance = 4,
   className = "",
-}: CursorCompanionProps) {
+}: CursorPetProps) {
   const characterRef = useRef<HTMLSpanElement | null>(null);
 
   const positionRef = useRef({ x: 0, y: 0 });
