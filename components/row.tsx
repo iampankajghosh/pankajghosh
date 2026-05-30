@@ -24,9 +24,5 @@ type Props = VariantProps<typeof rowVariants> & {
 };
 
 export function Row({ children, className, size }: Props) {
-  return (
-    <div className={cn(rowVariants({ size }), className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn(rowVariants({ size }), className)}>{children}</div>;
 }
