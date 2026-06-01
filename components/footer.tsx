@@ -1,7 +1,6 @@
 "use client";
 
 import { getCurrentYear } from "@/lib/date";
-
 import { Container } from "./container";
 import { MiniModeToggle } from "./mode-toggle";
 import { Row } from "./row";
@@ -10,17 +9,13 @@ import { Text } from "./text";
 
 export function Footer() {
   return (
-    <footer
-      role="contentinfo"
-      aria-label="Footer"
-    >
+    <footer role="contentinfo" aria-label="Footer">
       <Row size="lg" />
 
       <Row>
         <Container>
           <Text className="text-center text-balance">
-            This portfolio is highly inspired
-            by the{" "}
+            This portfolio is highly inspired by the{" "}
             <SocialLink
               href="https://tailwindcss.com"
               aria-label="Visit Tailwind CSS website"
@@ -49,14 +44,11 @@ export function Footer() {
       <Row size="lg" />
 
       <Row size="2xl">
-        <Container className="flex items-center justify-between px-6 py-4 max-sm:flex-col max-sm:items-start max-sm:px-4 max-sm:py-4">
+        <Container className="flex items-center justify-between px-6 py-4 max-sm:px-4 max-sm:py-4">
           <MiniModeToggle />
 
           <Text className="px-0 max-sm:px-0">
-            <span aria-label="Copyright">
-              ©
-            </span>{" "}
-            {getCurrentYear()} Pankaj
+            <span aria-label="Copyright">©</span> {getCurrentYear()} Pankaj
             Ghosh.
           </Text>
         </Container>
