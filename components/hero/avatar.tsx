@@ -1,11 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-export function Avatar({
-  className,
-}: {
-  className?: string;
-}) {
+export function Avatar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
@@ -14,7 +10,7 @@ export function Avatar({
       )}
     >
       <Image
-        src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/profile/pfp-WjmPdfSLS47tbM10AJqaMH58wM3q1q.png"
+        src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/profile/1000072658-JDvobYJkP55vappthuIdXnHFQrWTUS.png"
         alt="Portrait of Pankaj Ghosh"
         width={140}
         height={140}
@@ -26,7 +22,7 @@ export function Avatar({
       />
 
       <Image
-        src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/profile/pfp-light-gBu0Bw3pZmMNBDlLCVRwsmQYVSBY4b.png"
+        src="https://52zfksbd04lay7w1.public.blob.vercel-storage.com/profile/1000072174-VkCdbiQEHr9hoIL64kwPse7wIfAhpu.png"
         alt=""
         aria-hidden="true"
         width={140}
@@ -35,7 +31,7 @@ export function Avatar({
         fetchPriority="high"
         draggable={false}
         sizes="(max-width: 640px) 112px, 140px"
-        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ease-out select-none dark:opacity-0"
+        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-out select-none dark:opacity-0"
       />
     </div>
   );

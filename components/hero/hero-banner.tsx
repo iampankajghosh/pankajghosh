@@ -33,7 +33,7 @@ export function HeroBanner({ className }: { className?: string }) {
         fetchPriority="high"
         draggable={false}
         sizes="(max-width: 640px) calc(100vw - 16px), (max-width: 768px) 409px, 672px"
-        className="object-cover transition-opacity duration-500 ease-out select-none dark:opacity-0"
+        className="object-cover transition-opacity duration-1000 ease-out select-none dark:opacity-0"
       />
     </div>
   );
