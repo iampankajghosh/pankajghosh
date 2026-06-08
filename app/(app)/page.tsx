@@ -4,6 +4,7 @@ import { Experience } from "@/components/experience";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
+import { Illustrations } from "@/components/illustrations";
 import { Projects } from "@/components/projects";
 import { Stack } from "@/components/stack";
 
@@ -13,6 +14,7 @@ export default function HomePage() {
       <Header />
       <main className="mt-14">
         <Hero />
+        <Illustrations />
         <Crafts />
         <Projects />
         <Experience />
