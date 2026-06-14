@@ -5,9 +5,10 @@ import posthog from "posthog-js";
 import { AdaptiveValue, ClassLabel } from "../class-label";
 import { Container } from "../container";
 import { Heading } from "../heading";
-import { ArrowUpRightIcon, GithubIcon } from "../icons";
+import { GithubIcon } from "../icons";
 import { Row } from "../row";
 import { SectionTitle } from "../section-title";
+import { ArchiveStack } from "./archive-stack";
 import {
   Card,
   CardDescription,
@@ -15,103 +16,50 @@ import {
   CardSkeleton,
   CardTitle,
 } from "./card";
-import { Button as ForgeButton } from "./forge-button";
-import { Button as GildedButton } from "./gilded-button";
-import { Button as PetalButton } from "./petal-button";
-import { Button as PulseButton } from "./pulse-button";
+import { DocumentFolder } from "./document-folder";
+import { DocumentTray } from "./document-tray";
+import { ProjectFolder } from "./project-folder";
 
 const COMPONENTS = [
   {
-    id: "gilded-button",
-    name: "Gilded Button",
-    tagline: "Golden depth with tactile precision.",
-    craft: (
-      <>
-        <GildedButton size="sm" aria-label="Preview Gilded Button component">
-          Button
-        </GildedButton>
-
-        <GildedButton
-          size="icon-sm"
-          aria-label="Preview Gilded Button icon variant"
-        >
-          <ArrowUpRightIcon className="size-5 -rotate-45" aria-hidden="true" />
-        </GildedButton>
-      </>
-    ),
-    code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/crafts/gilded-button.tsx",
+    id: "document-folder",
+    name: "Document Folder",
+    tagline: "Documents with a smooth 3D reveal.",
+    illustration: <DocumentFolder />,
+    code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/illustrations/document-folder.tsx",
   },
   {
-    id: "forge-button",
-    name: "Forge Button",
-    tagline: "Machined layers built for confident clicks.",
-    craft: (
-      <>
-        <ForgeButton size="sm" aria-label="Preview Forge Button component">
-          Button
-        </ForgeButton>
-
-        <ForgeButton
-          size="icon-sm"
-          aria-label="Preview Forge Button icon variant"
-        >
-          <ArrowUpRightIcon className="size-5 -rotate-45" aria-hidden="true" />
-        </ForgeButton>
-      </>
-    ),
-    code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/crafts/forge-button.tsx",
+    id: "document-tray",
+    name: "Document Tray",
+    tagline: "Layered documents with playful motion.",
+    illustration: <DocumentTray />,
+    code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/illustrations/document-tray.tsx",
   },
   {
-    id: "petal-button",
-    name: "Petal Button",
-    tagline: "Soft highlights with energetic contrast.",
-    craft: (
-      <>
-        <PetalButton size="sm" aria-label="Preview Petal Button component">
-          Button
-        </PetalButton>
-
-        <PetalButton
-          size="icon-sm"
-          aria-label="Preview Petal Button icon variant"
-        >
-          <ArrowUpRightIcon className="size-5 -rotate-45" aria-hidden="true" />
-        </PetalButton>
-      </>
-    ),
-    code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/crafts/petal-button.tsx",
+    id: "project-folder",
+    name: "Project Folder",
+    tagline: "Project files with subtle depth.",
+    illustration: <ProjectFolder />,
+    code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/illustrations/project-folder.tsx",
   },
   {
-    id: "pulse-button",
-    name: "Pulse Button",
-    tagline: "Electric glow with fluid motion.",
-    craft: (
-      <>
-        <PulseButton size="sm" aria-label="Preview Pulse Button component">
-          Button
-        </PulseButton>
-
-        <PulseButton
-          size="icon-sm"
-          aria-label="Preview Pulse Button icon variant"
-        >
-          <ArrowUpRightIcon className="size-5 -rotate-45" aria-hidden="true" />
-        </PulseButton>
-      </>
-    ),
-    code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/crafts/pulse-button.tsx",
+    id: "archive-stack",
+    name: "Archive Stack",
+    tagline: "Stacked records with gentle motion.",
+    illustration: <ArchiveStack />,
+    code: "https://github.com/iampankajghosh/pankajghosh.in/tree/main/components/illustrations/archive-stack.tsx",
   },
 ];
 
-export function Crafts() {
+export function Illustrations() {
   return (
     <section id="crafts" aria-labelledby="crafts-heading">
       <Row size="lg" className="lg:hidden" />
 
       <Row className="lg:border-none">
         <Container className="lg:relative">
-          <SectionTitle className="text-sky-500 dark:text-sky-400">
-            What I&apos;ve Crafted
+          <SectionTitle className="text-pink-600 dark:text-pink-500">
+            What I&apos;ve Drawn
           </SectionTitle>
         </Container>
       </Row>
@@ -130,7 +78,7 @@ export function Crafts() {
       <Row>
         <Container>
           <Heading id="crafts-heading">
-            Reusable pieces, built once, used everywhere.
+            UI sketches, drawn entirely in code.
           </Heading>
         </Container>
       </Row>
@@ -152,7 +100,7 @@ export function Crafts() {
             >
               <Card>
                 <CardHeader className="border-border mb-2 border-b sm:border-0">
-                  <CardSkeleton>{c.craft}</CardSkeleton>
+                  <CardSkeleton>{c.illustration}</CardSkeleton>
                 </CardHeader>
 
                 <div className="border-border relative border-t py-2 sm:border-0">
