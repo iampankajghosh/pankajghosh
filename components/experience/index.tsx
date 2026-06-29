@@ -77,68 +77,78 @@ export function Experience() {
             />
 
             <ExperienceGroup className="border-border border-l md:col-span-11">
-              {EXPERIENCE.map((exp) => (
-                <AccordionProvider key={exp.id}>
-                  <ExperienceItem>
-                    <ExperienceHeader>
-                      <ExperienceLogo src={exp.logo} />
+              {EXPERIENCE.map((exp) => {
+                const sortDuration = getShortDuration(exp.duration);
 
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-3">
-                          <ExperienceTitle>{exp.company}</ExperienceTitle>
+                return (
+                  <AccordionProvider key={exp.id}>
+                    <ExperienceItem>
+                      <ExperienceHeader>
+                        <ExperienceLogo src={exp.logo} />
 
-                          <ActiveStatusPulse date={exp.duration} />
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-3">
+                            <ExperienceTitle>{exp.company}</ExperienceTitle>
+
+                            <ActiveStatusPulse date={exp.duration} />
+                          </div>
+
+                          <ExperienceLocation>
+                            {exp.location}
+                          </ExperienceLocation>
                         </div>
 
-                        <ExperienceLocation>{exp.location}</ExperienceLocation>
-                      </div>
+                        <AccordionTrigger
+                          label={exp.company}
+                          className="translate-x-2 max-sm:translate-x-0"
+                        />
+                      </ExperienceHeader>
 
-                      <AccordionTrigger
-                        label={exp.company}
-                        className="translate-x-2 max-sm:translate-x-0"
-                      />
-                    </ExperienceHeader>
+                      <ExperienceBody>
+                        <div className="mb-2 flex justify-between gap-3 px-3 max-sm:flex-col">
+                          <ExperienceDesignation>
+                            {exp.designation}
+                          </ExperienceDesignation>
 
-                    <ExperienceBody>
-                      <div className="mb-2 flex justify-between gap-3 px-3 max-sm:flex-col">
-                        <ExperienceDesignation>
-                          {exp.designation}
-                        </ExperienceDesignation>
+                          <div className="flex flex-wrap items-center gap-3">
+                            <ExperienceMetadata>{exp.type}</ExperienceMetadata>
 
-                        <div className="flex flex-wrap items-center gap-3">
-                          <ExperienceMetadata>{exp.type}</ExperienceMetadata>
+                            <VerticalSeparator />
 
-                          <VerticalSeparator />
+                            <ExperienceMetadata>
+                              <time>{exp.duration}</time>
+                            </ExperienceMetadata>
 
-                          <ExperienceMetadata>
-                            <time>{exp.duration}</time>
-                          </ExperienceMetadata>
+                            {sortDuration && (
+                              <>
+                                <VerticalSeparator />
 
-                          <VerticalSeparator />
-
-                          <ExperienceMetadata>
-                            {getShortDuration(exp.duration)}
-                          </ExperienceMetadata>
+                                <ExperienceMetadata>
+                                  {sortDuration}
+                                </ExperienceMetadata>
+                              </>
+                            )}
+                          </div>
                         </div>
-                      </div>
 
-                      <AccordionContent className="mb-5">
-                        <ExperienceBulletList>
-                          {exp.description.map((d, idx) => (
-                            <ExperienceBullet key={idx}>{d}</ExperienceBullet>
+                        <AccordionContent className="mb-5">
+                          <ExperienceBulletList>
+                            {exp.description.map((d, idx) => (
+                              <ExperienceBullet key={idx}>{d}</ExperienceBullet>
+                            ))}
+                          </ExperienceBulletList>
+                        </AccordionContent>
+
+                        <div className="mb-2 flex flex-wrap items-center gap-2 px-3">
+                          {exp.tech.map((t) => (
+                            <Badge key={t}>{t}</Badge>
                           ))}
-                        </ExperienceBulletList>
-                      </AccordionContent>
-
-                      <div className="mb-2 flex flex-wrap items-center gap-2 px-3">
-                        {exp.tech.map((t) => (
-                          <Badge key={t}>{t}</Badge>
-                        ))}
-                      </div>
-                    </ExperienceBody>
-                  </ExperienceItem>
-                </AccordionProvider>
-              ))}
+                        </div>
+                      </ExperienceBody>
+                    </ExperienceItem>
+                  </AccordionProvider>
+                );
+              })}
             </ExperienceGroup>
           </div>
         </Container>

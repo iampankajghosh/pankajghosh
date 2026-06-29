@@ -20,6 +20,10 @@ export function StackIllustration({
       <ConnectorLines />
 
       <StackIcon />
+
+      <ConnectorLines />
+
+      <StackIcon />
     </div>
   );
 }

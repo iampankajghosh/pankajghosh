@@ -12,20 +12,50 @@ type Experience = {
 
 export const EXPERIENCE: Experience[] = [
   {
+    id: "frontend-design-engineer",
+    logo: "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/InfinityBit_Logo-slBBB6XDMsNH2pPszBIIeyypVWNJAT.png",
+    company: "InfinityBit Pvt. Ltd.",
+    designation: "Frontend Design Engineer",
+    duration: "06.2026 - Present",
+    location: "Kolkata, India",
+    type: "Full-Time",
+    description: [
+      "Stepped into InfinityBit to bridge the gap between design and engineering, turning complex product wireframes into fluid, interactive user experiences.",
+      "Currently focusing on building out core user interfaces from the ground up, ensuring pixel-perfect layouts and smooth, accessible user flows.",
+    ],
+    tech: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Motion",
+      "Tanstack",
+      "Zustand",
+    ],
+  },
+
+  {
     id: "freelance-frontend-developer",
     logo: "",
     company: "Freelance",
     designation: "Frontend Developer",
-    duration: "02.2026 - Present",
+    duration: "02.2026 - 05.2026",
     location: "Kolkata, India",
     type: "Full-Time",
     description: [
-      "Between gigs, I kept building. Nexus Dark started as a VS Code theme I made for myself and it now has 1.6k+ downloads on Open VSX, which still feels surreal.",
+      "Between gigs, I kept building. Nexus Dark started as a VS Code theme I made for myself and it now has 2.4k+ downloads on Open VSX, which still feels surreal.",
       "Sonner Patterns came out of frustration with copy-pasting toast logic across projects, so I turned it into an open source collection of production-ready patterns built on Sonner.",
+      "I also built and published cursor-pet, an npm package that brings interactive virtual companions straight to your screen.",
       "Right now I'm deep in Sparkflo, a node-based canvas for building AI workflows with a focus on developer experience and visual clarity.",
-      "I'm open to full-time roles and freelance work. Frontend is where I live, open source is where I think out loud.",
     ],
-    tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Motion", "Vercel"],
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Motion",
+      "Vercel",
+      "npm",
+    ],
   },
 
   {
