@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { useCallback, useEffect, useRef } from "react";
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-2xl border border-transparent bg-clip-padding font-geist text-sm font-medium outline-none select-none [corner-shape:squircle] will-change-transform transition-[transform,opacity,background-color,color,border-color,box-shadow] duration-200 ease-out motion-reduce:transition-none motion-reduce:transform-none focus-visible:ring-2 focus-visible:ring-neutral-600/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97] active:duration-75 active:ease-out [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer",
+  "group/button inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-lg border border-transparent bg-clip-padding font-geist text-sm font-medium outline-none select-none will-change-transform transition-[transform,opacity,background-color,color,border-color,box-shadow] duration-200 ease-out motion-reduce:transition-none motion-reduce:transform-none focus-visible:ring-2 focus-visible:ring-neutral-600/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.97] active:duration-75 active:ease-out [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 cursor-pointer",
   {
     variants: {
       variant: {

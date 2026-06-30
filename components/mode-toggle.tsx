@@ -101,7 +101,7 @@ export function ModeToggle() {
     <div
       role="radiogroup"
       aria-label="Theme selection"
-      className="flex items-center gap-1 rounded-xl bg-neutral-100 p-px [corner-shape:squircle] dark:bg-neutral-800"
+      className="flex items-center gap-1 rounded-lg bg-neutral-100 p-px dark:bg-neutral-800"
     >
       {THEME_OPTIONS.map((t) => {
         const isActive = mounted && theme === t.id;
@@ -123,7 +123,7 @@ export function ModeToggle() {
               <motion.div
                 layoutId="active-theme-pill"
                 aria-hidden="true"
-                className="absolute inset-0 rounded-xl bg-white shadow-sm inset-shadow-sm inset-shadow-white [corner-shape:squircle] dark:bg-neutral-900 dark:inset-shadow-white/5"
+                className="absolute inset-0 rounded-lg bg-white shadow-sm inset-shadow-sm inset-shadow-white dark:bg-neutral-900 dark:inset-shadow-white/5"
                 transition={{
                   type: "spring",
                   bounce: 0.15,
