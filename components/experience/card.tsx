@@ -48,7 +48,7 @@ export function ExperienceLogo({ src }: { className?: string; src: string }) {
             alt=""
             aria-hidden="true"
             sizes="32px"
-            className="h-full w-full object-cover select-none"
+            className="h-full w-full bg-white object-cover p-0.75 select-none"
             height={200}
             width={200}
             draggable={false}

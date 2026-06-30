@@ -47,15 +47,7 @@ export const EXPERIENCE: Experience[] = [
       "I also built and published cursor-pet, an npm package that brings interactive virtual companions straight to your screen.",
       "Right now I'm deep in Sparkflo, a node-based canvas for building AI workflows with a focus on developer experience and visual clarity.",
     ],
-    tech: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "Motion",
-      "Vercel",
-      "npm",
-    ],
+    tech: ["Next.js", "React", "TypeScript", "TailwindCSS", "Motion", "Vercel"],
   },
 
   {
