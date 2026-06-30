@@ -41,14 +41,14 @@ export function ExperienceHeader({ children }: { children: React.ReactNode }) {
 export function ExperienceLogo({ src }: { className?: string; src: string }) {
   return (
     <div className="relative bg-neutral-400/15 p-px before:absolute before:-bottom-px before:left-1/2 before:h-px before:w-16 before:-translate-x-1/2 before:bg-[repeating-linear-gradient(to_right,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] before:mask-x-from-60% before:content-[''] after:absolute after:-top-px after:left-1/2 after:h-px after:w-16 after:-translate-x-1/2 after:bg-[repeating-linear-gradient(to_right,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] after:mask-x-from-60% after:content-[''] dark:before:bg-[repeating-linear-gradient(to_left,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)] dark:after:bg-[repeating-linear-gradient(to_left,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)]">
-      <div className="flex size-8 items-center justify-center overflow-hidden rounded-lg bg-neutral-100 shadow-sm ring-1 inset-shadow-sm ring-black/10 inset-shadow-white [corner-shape:squircle] before:absolute before:-left-px before:h-16 before:w-px before:bg-[repeating-linear-gradient(to_top,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] before:mask-y-from-60% before:content-[''] after:absolute after:-right-px after:h-16 after:w-px after:bg-[repeating-linear-gradient(to_top,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] after:mask-y-from-60% after:content-[''] dark:bg-neutral-800 dark:ring-white/20 dark:inset-shadow-white/5 dark:before:bg-[repeating-linear-gradient(to_top,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)] dark:after:bg-[repeating-linear-gradient(to_top,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)]">
+      <div className="flex size-8 items-center justify-center overflow-hidden rounded-md bg-neutral-100 shadow-sm ring-1 inset-shadow-sm ring-black/10 inset-shadow-white before:absolute before:-left-px before:h-16 before:w-px before:bg-[repeating-linear-gradient(to_top,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] before:mask-y-from-60% before:content-[''] after:absolute after:-right-px after:h-16 after:w-px after:bg-[repeating-linear-gradient(to_top,rgba(0,0,0,0.2)_0_2px,transparent_2px_4px)] after:mask-y-from-60% after:content-[''] dark:bg-neutral-800 dark:ring-white/20 dark:inset-shadow-white/5 dark:before:bg-[repeating-linear-gradient(to_top,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)] dark:after:bg-[repeating-linear-gradient(to_top,rgba(255,255,255,0.3)_0_2px,transparent_2px_4px)]">
         {src ? (
           <Image
             src={src}
             alt=""
             aria-hidden="true"
             sizes="32px"
-            className="h-full w-full object-cover select-none"
+            className="h-full w-full bg-white object-cover select-none"
             height={200}
             width={200}
             draggable={false}

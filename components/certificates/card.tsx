@@ -132,13 +132,13 @@ export function CardBanner({
   src: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-white bg-neutral-100 ring-1 ring-black/6 [corner-shape:squircle] perspective-distant sm:h-30 dark:border-black dark:bg-neutral-900 dark:ring-white/10">
+    <div className="relative overflow-hidden rounded-xl border border-white bg-neutral-100 ring-1 ring-black/6 perspective-distant sm:h-32 dark:border-black dark:bg-neutral-900 dark:ring-white/10">
       <Image
         src={src}
         alt=""
         aria-hidden="true"
         sizes="297px"
-        className="h-full w-full object-cover select-none"
+        className="h-full w-full select-none"
         width={3072}
         height={2048}
         draggable={false}
@@ -151,13 +151,13 @@ export function CardBanner({
 
 export function PreviewImage({ src }: { src: string }) {
   return (
-    <div className="absolute inset-0 origin-[center_center] scale-70 rotate-x-38 -rotate-y-6 rotate-z-25 touch-manipulation overflow-hidden rounded-md bg-neutral-200 ring-4 ring-black/20 duration-350 ease-out will-change-transform [corner-shape:squircle] group-hover:scale-90 group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 motion-reduce:transform-none motion-reduce:transition-none dark:bg-neutral-800">
+    <div className="absolute inset-0 origin-[center_center] scale-70 rotate-x-38 -rotate-y-6 rotate-z-25 touch-manipulation overflow-hidden rounded-md bg-neutral-200 ring-4 ring-black/20 duration-350 ease-out will-change-transform group-hover:scale-90 group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-80 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 motion-reduce:transform-none motion-reduce:transition-none dark:bg-neutral-800">
       <Image
         src={src}
         alt=""
         aria-hidden="true"
         sizes="297px"
-        className="h-full w-full rounded-md object-cover object-top-left select-none [corner-shape:squircle]"
+        className="h-full w-full rounded-md select-none"
         width={1840}
         height={1120}
         draggable={false}

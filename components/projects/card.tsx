@@ -38,7 +38,7 @@ export function CardBanner({
   src: string;
 }) {
   return (
-    <div className="relative h-56 w-full overflow-hidden rounded-xl border border-white bg-neutral-100 ring-1 ring-black/6 [corner-shape:squircle] perspective-distant dark:border-black dark:bg-neutral-900 dark:ring-white/10">
+    <div className="relative h-56 w-full overflow-hidden rounded-xl border border-white bg-neutral-100 ring-1 ring-black/6 perspective-distant dark:border-black dark:bg-neutral-900 dark:ring-white/10">
       <Image
         src={src}
         alt=""
@@ -56,7 +56,7 @@ export function CardBanner({
 
 export function PreviewImage({ src }: { src: string }) {
   return (
-    <div className="absolute inset-0 origin-[center_center] translate-x-1/10 translate-y-1/8 scale-110 rotate-x-10 rotate-y-20 -rotate-z-8 overflow-hidden rounded-xl bg-neutral-200 ring-5 ring-black/10 duration-350 ease-out will-change-transform [corner-shape:squircle] group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 dark:bg-neutral-800">
+    <div className="absolute inset-0 origin-[center_center] translate-x-1/10 translate-y-1/8 scale-110 rotate-x-10 rotate-y-20 -rotate-z-8 overflow-hidden rounded-lg bg-neutral-200 ring-5 ring-black/10 duration-350 ease-out will-change-transform group-hover:rotate-0 group-hover:rotate-y-0 group-hover:rotate-z-0 group-active:scale-100 group-active:rotate-0 group-active:rotate-y-0 group-active:rotate-z-0 dark:bg-neutral-800">
       <Image
         src={src}
         alt=""
@@ -64,7 +64,7 @@ export function PreviewImage({ src }: { src: string }) {
         fill
         draggable={false}
         sizes="(max-width: 640px) calc(100vw - 48px), 297px"
-        className="rounded-xl object-cover object-top-left select-none [corner-shape:squircle]"
+        className="rounded-lg object-cover object-top-left select-none"
       />
     </div>
   );

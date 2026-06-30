@@ -18,7 +18,7 @@ export function FontButton({
   return (
     <label
       className={cn(
-        "flex w-full cursor-pointer items-center justify-between rounded-lg px-2 py-1 text-start [corner-shape:squircle] motion-reduce:transition-none",
+        "flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-1 text-start motion-reduce:transition-none",
         twClass,
         !isSelected && "hover:bg-neutral-100/40 dark:hover:bg-neutral-800/40",
         isSelected && "bg-neutral-100 dark:bg-neutral-800",
