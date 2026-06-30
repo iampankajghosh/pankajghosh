@@ -190,7 +190,7 @@ export function SettingsContent({ children }: { children: React.ReactNode }) {
         originY: 0,
       }}
       className={cn(
-        "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 shadow-xl will-change-transform [corner-shape:squircle] dark:border-neutral-700 dark:bg-neutral-800",
+        "absolute -top-1.25 right-0 flex h-86.75 w-70 flex-col overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 shadow-xl will-change-transform dark:border-neutral-700 dark:bg-neutral-800",
         open ? "pointer-events-auto" : "pointer-events-none",
       )}
     >

@@ -32,7 +32,7 @@ export function CardHeader({
 
 export function CardSkeleton({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex h-56 w-full items-center justify-center overflow-hidden rounded-xl border border-white ring-1 ring-black/6 [corner-shape:squircle] dark:border-black dark:ring-white/10">
+    <div className="relative flex h-56 w-full items-center justify-center overflow-hidden rounded-xl border border-white ring-1 ring-black/6 dark:border-black dark:ring-white/10">
       <Pattern className="-z-10 opacity-40" />
 
       <div className="relative flex w-full items-center justify-center before:absolute before:top-0 before:left-0 before:-z-10 before:h-px before:w-full before:-translate-y-0.5 before:bg-[repeating-linear-gradient(to_left,rgba(0,0,0,0.1)_0_4px,transparent_4px_8px)] before:content-[''] after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-px after:w-full after:translate-y-0.5 after:bg-[repeating-linear-gradient(to_left,rgba(0,0,0,0.1)_0_4px,transparent_4px_8px)] after:content-[''] dark:before:bg-[repeating-linear-gradient(to_left,rgba(255,255,255,0.1)_0_4px,transparent_4px_8px)] dark:after:bg-[repeating-linear-gradient(to_left,rgba(255,255,255,0.1)_0_4px,transparent_4px_8px)]">
