@@ -12,8 +12,8 @@ type Experience = {
 
 export const EXPERIENCE: Experience[] = [
   {
-    id: "frontend-design-engineer",
-    logo: "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/InfinityBit_Logo-slBBB6XDMsNH2pPszBIIeyypVWNJAT.png",
+    id: "infinitybit-frontend-design-engineer",
+    logo: "https://52zfksbd04lay7w1.public.blob.vercel-storage.com/logos/infinitybit-aQP2Ydqjf2Sc6pxYlh8L6r8dgcdBgU.png",
     company: "InfinityBit Pvt. Ltd.",
     designation: "Frontend Design Engineer",
     duration: "06.2026 - Present",
